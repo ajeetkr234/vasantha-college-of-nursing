@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="100%" height="100%">
-  <g transform="translate(10, 8)">
-    <path d="M 10 38 C 15 28 18 18 28 8 C 22 18 28 28 24 38 Z" fill="#dc2626"/>
-    <circle cx="28" cy="8" r="4" fill="#dc2626"/>
-  </g>
-  <text x="50" y="31" font-family="'Inter', sans-serif" font-size="22" font-weight="900" fill="#dc2626">KIMS</text>
-  <text x="51" y="47" font-family="'Inter', sans-serif" font-size="10.5" font-weight="700" fill="#475569" letter-spacing="2">HOSPITALS®</text>
-</svg>

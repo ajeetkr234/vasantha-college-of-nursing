@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="100%" height="100%">
-  <g transform="translate(8, 10)">
-    <path d="M 18 4 L 26 12 L 20 20 L 28 28 L 20 36 L 12 28 L 20 20 L 12 12 Z" fill="#dc2626"/>
-    <circle cx="28" cy="12" r="4.5" fill="#16a34a"/>
-    <circle cx="28" cy="28" r="4.5" fill="#0284c7"/>
-  </g>
-  <text x="52" y="27" font-family="'Inter', sans-serif" font-size="18" font-weight="800" fill="#1e3a8a">Narayana</text>
-  <text x="53" y="45" font-family="'Inter', sans-serif" font-size="16" font-weight="700" fill="#16a34a">Health</text>
-</svg>
