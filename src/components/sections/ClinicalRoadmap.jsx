@@ -11,6 +11,7 @@ export default function ClinicalRoadmap() {
     {
       year: 1,
       tabTitle: 'Year 1: Foundations & Labs',
+      shortFocus: 'Foundations & Labs',
       badge: 'Year 1 • Academic & Clinical Foundation',
       title: 'Fundamental Nursing Skills & Biological Sciences',
       desc: 'Students establish rigorous foundational nursing skills in dedicated simulation laboratories before entering active hospital patient wards.',
@@ -38,6 +39,7 @@ export default function ClinicalRoadmap() {
     {
       year: 2,
       tabTitle: 'Year 2: Med-Surg & Hospital Wards',
+      shortFocus: 'Med-Surg Wards',
       badge: 'Year 2 • Clinical Rotations Milestone',
       title: 'Medical-Surgical Nursing & Bedside Hospital Training',
       desc: 'Students transition into regular bedside rotations at our 750+ bed affiliated BRIMS District Government Teaching Hospital in Bidar.',
@@ -65,6 +67,7 @@ export default function ClinicalRoadmap() {
     {
       year: 3,
       tabTitle: 'Year 3: Maternity & Pediatrics',
+      shortFocus: 'Maternity & Peds',
       badge: 'Year 3 • Specialized Care Milestone',
       title: 'Maternal, Neonatal & Community Health Postings',
       desc: 'Focused rotations in Obstetrics & Gynecology, Neonatal Intensive Care, and field outreach at Urban & Rural Health Training Centres.',
@@ -92,6 +95,7 @@ export default function ClinicalRoadmap() {
     {
       year: 4,
       tabTitle: 'Year 4: ICU & Career Placements',
+      shortFocus: 'ICU & Placements',
       badge: 'Year 4 • Internship & Licensure Launch',
       title: 'Critical Care, 6-Month Internship & Career Placements',
       desc: 'The culminating year with intensive ICU rotations, a mandatory 6-month clinical internship, and campus placement drives.',
@@ -178,7 +182,11 @@ export default function ClinicalRoadmap() {
                 onKeyDown={(e) => handleKeyDown(e, idx)}
               >
                 <span className="roadmap-tab-num" aria-hidden="true">{item.year}</span>
-                <span className="roadmap-tab-label">{item.tabTitle}</span>
+                <span className="roadmap-tab-text-group">
+                  <span className="roadmap-tab-year">Year {item.year}</span>
+                  <span className="roadmap-tab-focus">{item.shortFocus}</span>
+                </span>
+                <span className="roadmap-tab-label-desktop">{item.tabTitle}</span>
               </button>
             );
           })}

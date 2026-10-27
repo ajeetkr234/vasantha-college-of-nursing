@@ -81,8 +81,8 @@ export function ModalProvider({ children }) {
     document.body.style.overflow = '';
   };
 
-  const downloadBrochure = (filename = 'Smt_MC_Vasantha_College_of_Nursing_Brochure_2026-27.pdf', title = 'College Information Brochure (2026-27)') => {
-    const textContent = `SMT. M. C. VASANTHA COLLEGE OF NURSING\nShri Shivaling Vidhya Vardhak Education Society (R) • ESTD. 1991\nRecognised by Govt. of Karnataka, KSNC & RGUHS Bangalore\n\nOfficial Document: ${title}\nAcademic Year: 2026-27\n\nCampus: Shahpur Gate Gunnalli Road, Bidar - 585 403, Karnataka, India\nHelpline: 9512592211 / 9913377195\n\nThank you for downloading this document.`;
+  const downloadBrochure = (filename = 'Vasantha_Group_of_Education_Brochure_2026-27.pdf', title = 'Vasantha Group of Education Information Brochure (2026-27)') => {
+    const textContent = `VASANTHA GROUP OF EDUCATION\nFaculty of Nursing & Health Sciences • ESTD. 1984\nRecognised by Govt. of Karnataka, KSNC & RGUHS Bangalore\n\nOfficial Document: ${title}\nAcademic Year: 2026-27\n\nCampus: Naubad-bhalki Road, Naubad Karnataka 585402\nHelpline: 9512592211 / 8154968596\n\nThank you for downloading this document.`;
     const blob = new Blob([textContent], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');

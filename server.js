@@ -1,4 +1,4 @@
-﻿import http from 'http';
+import http from 'http';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -80,7 +80,7 @@ function listenOnAvailablePort(startPort) {
   server.listen(startPort, () => {
     const url = `http://localhost:${startPort}/`;
     console.log(`\n=============================================================`);
-    console.log(`  Smt. M. C. Vasantha College of Nursing Website is live!`);
+    console.log(`  VASANTHA GROUP OF EDUCATION Website is live!`);
     console.log(`  URL: ${url}`);
     console.log(`=============================================================\n`);
 

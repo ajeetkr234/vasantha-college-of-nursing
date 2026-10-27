@@ -1,6 +1,7 @@
 import React from 'react';
 import HeroSection from '../components/sections/HeroSection';
 import ValueBar from '../components/sections/ValueBar';
+import QuickJumpNav from '../components/sections/QuickJumpNav';
 import ProgramsSection from '../components/sections/ProgramsSection';
 import LeadershipSection from '../components/sections/LeadershipSection';
 import CollegeProfile from '../components/sections/CollegeProfile';
@@ -20,6 +21,9 @@ export default function Home() {
 
       {/* 4. Quick Statistics: Key Institutional Value Pillars */}
       <ValueBar />
+
+      {/* 4b. In-Page Section Quick Jump: Fast 1-Tap Navigation */}
+      <QuickJumpNav />
 
       {/* 5. Academic Nursing Programs: B.Sc. Nursing & GNM Diploma */}
       <ProgramsSection />

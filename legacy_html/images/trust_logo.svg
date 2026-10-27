@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="trustGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="trustGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#16a34a"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </linearGradient>
+    <linearGradient id="trustRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#b91c1c"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Laurel Wreath -->
+  <g fill="url(#trustGreen)">
+    <path d="M 28 80 C 22 68 25 52 35 40 C 34 48 37 58 43 66 C 36 71 31 75 28 80 Z"/>
+    <path d="M 23 95 C 19 82 22 70 30 60 C 30 68 33 77 39 84 C 33 88 27 91 23 95 Z"/>
+    <path d="M 25 110 C 22 98 27 88 36 80 C 35 88 39 96 46 102 C 38 105 31 107 25 110 Z"/>
+    <path d="M 33 125 C 29 115 35 104 46 98 C 44 105 49 113 57 117 C 48 120 40 122 33 125 Z"/>
+    <path d="M 132 80 C 138 68 135 52 125 40 C 126 48 123 58 117 66 C 124 71 129 75 132 80 Z"/>
+    <path d="M 137 95 C 141 82 138 70 130 60 C 130 68 127 77 121 84 C 127 88 133 91 137 95 Z"/>
+    <path d="M 135 110 C 138 98 133 88 124 80 C 125 88 121 96 114 102 C 122 105 129 107 135 110 Z"/>
+    <path d="M 127 125 C 131 115 125 104 114 98 C 116 105 111 113 103 117 C 112 120 120 122 127 125 Z"/>
+  </g>
+
+  <!-- Outer Ring -->
+  <circle cx="80" cy="76" r="56" fill="#ffffff" stroke="url(#trustGold)" stroke-width="4"/>
+  <circle cx="80" cy="76" r="50" fill="#faf5ff" stroke="#047857" stroke-width="1.5" stroke-dasharray="2,2"/>
+
+  <!-- Trust Inner Icon -->
+  <circle cx="80" cy="76" r="36" fill="#ffffff" stroke="url(#trustGold)" stroke-width="2"/>
+  
+  <!-- Rays / Rising Sun -->
+  <g stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round">
+    <line x1="80" y1="50" x2="80" y2="44"/>
+    <line x1="68" y1="54" x2="64" y2="49"/>
+    <line x1="92" y1="54" x2="96" y2="49"/>
+    <line x1="60" y1="64" x2="54" y2="62"/>
+    <line x1="100" y1="64" x2="106" y2="62"/>
+  </g>
+
+  <!-- Open Book of Wisdom -->
+  <g transform="translate(80, 80) scale(0.9)" fill="#0284c7">
+    <path d="M -2 -8 C -10 -11 -18 -10 -24 -6 L -24 14 C -18 10 -10 9 -2 12 Z" fill="#0284c7" stroke="#0369a1" stroke-width="0.8"/>
+    <path d="M 2 -8 C 10 -11 18 -10 24 -6 L 24 14 C 18 10 10 9 2 12 Z" fill="#0284c7" stroke="#0369a1" stroke-width="0.8"/>
+    <line x1="-20" y1="-2" x2="-6" y2="-3" stroke="#e0f2fe" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="-20" y1="3" x2="-6" y2="2" stroke="#e0f2fe" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="6" y1="-3" x2="20" y2="-2" stroke="#e0f2fe" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="6" y1="2" x2="20" y2="3" stroke="#e0f2fe" stroke-width="1.2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Ribbon -->
+  <g transform="translate(80, 140)">
+    <path d="M -54 -10 C -25 -6 25 -6 54 -10 L 52 8 C 25 12 -25 12 -52 8 Z" fill="url(#trustRed)" stroke="url(#trustGold)" stroke-width="1.5"/>
+    <text x="0" y="2" font-family="'Inter', sans-serif" font-size="5.8" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">
+      SSVV EDUCATION SOCIETY
+    </text>
+  </g>
+</svg>

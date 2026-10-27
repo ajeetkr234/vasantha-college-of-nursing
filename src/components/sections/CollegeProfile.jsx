@@ -27,19 +27,19 @@ export default function CollegeProfile() {
           {/* Column 1: College Intro */}
           <article className="card-about-college-text">
             <div>
-              <div className="tag-red-caps">OUR COLLEGE</div>
+              <div className="tag-red-caps">OUR INSTITUTION</div>
               <h3 className="about-heading-title">
-                Smt. M. C. Vasantha College of Nursing, <span>Bidar</span>
+                VASANTHA GROUP OF EDUCATION, <span>Bidar</span>
               </h3>
               <p className="about-body-text">
-                Smt. M. C. Vasantha College of Nursing, established in 1991 under Shri Shivaling Vidhya Vardhak Education Society (R), is dedicated to providing excellence in nursing education with rigorous clinical training, ethical values, and community service.
+                VASANTHA GROUP OF EDUCATION, serving for over 43 years (seeds of an idea sown in 1984), is dedicated to providing excellence in nursing and healthcare education with rigorous clinical training, ethical values, and community service.
               </p>
               <p className="about-body-text" style={{ marginTop: '8px' }}>
                 Affiliated to Rajiv Gandhi University of Health Sciences (RGUHS Bangalore) and recognised by the Karnataka State Nursing Council (KSNC) and Government of Karnataka, our graduates serve in premier hospital networks worldwide.
               </p>
             </div>
             <Link to="/about" className="btn-know-more-red" aria-label="Know more about our college history">
-              <span>Know More About Us</span>
+              <span>Know More About College</span>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
@@ -49,17 +49,18 @@ export default function CollegeProfile() {
 
           {/* Column 2: Trust Card */}
           <article className="card-trust-center">
-            <div className="card-trust-inner-top">
+            <div className="card-trust-inner-top" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', width: '100%' }}>
               <img
                 src="/images/trust_logo.svg"
-                alt="Shri Shivaling Vidhya Vardhak Education Society Emblem"
+                alt="VASANTHA GROUP OF EDUCATION Emblem"
                 className="trust-crest-icon"
                 loading="lazy"
+                style={{ display: 'block', margin: '0 auto 10px auto' }}
               />
-              <div className="tag-red-caps" style={{ marginTop: '4px' }}>SPONSORING TRUST</div>
-              <h3 className="trust-title-text">Shri Shivaling Vidhya Vardhak Education Society (R)</h3>
+              <div className="tag-red-caps" style={{ marginTop: '4px' }}>EDUCATIONAL GROUP</div>
+              <h3 className="trust-title-text">VASANTHA GROUP OF EDUCATION</h3>
               <p className="trust-desc-p">
-                A pioneering educational society established in 1991, dedicated to youth empowerment, quality health sciences education, and healthcare service across Karnataka.
+                A premier educational group serving for 43+ years, dedicated to youth empowerment, quality health sciences education, incubation, and healthcare leadership across Karnataka.
               </p>
             </div>
             <div>
@@ -103,7 +104,7 @@ export default function CollegeProfile() {
           <div className="panoramic-header-row">
             <div className="panoramic-header-left">
               <span className="tag-red-caps">AUTHENTIC CAMPUS INFRASTRUCTURE</span>
-              <h3 className="panoramic-title">Smt. M. C. Vasantha College of Nursing Campus, Bidar</h3>
+              <h3 className="panoramic-title">VASANTHA GROUP OF EDUCATION Campus, Bidar</h3>
               <p className="panoramic-desc">
                 Purpose-built 3-storey health sciences academic complex with high-fidelity nursing simulation labs, digital anatomy museum, ventilated lecture halls, and lush landscaped campus grounds.
               </p>
@@ -127,13 +128,13 @@ export default function CollegeProfile() {
           <div className="panoramic-image-container">
             <img
               src="/images/college_building.png"
-              alt="Smt. M. C. Vasantha College of Nursing Official Campus Building Elevation in Bidar"
+              alt="VASANTHA GROUP OF EDUCATION Official Campus Building Elevation in Bidar"
               className="panoramic-building-photo"
               loading="lazy"
             />
             <div className="panoramic-photo-tag">
               <span className="tag-pulse"></span>
-              <span>Official Front Elevation &amp; Main Entrance • Shahpur Gate, Bidar</span>
+              <span>Official Front Elevation &amp; Main Entrance • Naubad-bhalki Road, Naubad Karnataka 585402</span>
             </div>
           </div>
 
@@ -144,8 +145,8 @@ export default function CollegeProfile() {
             </div>
             <div className="pano-divider"></div>
             <div className="pano-metric">
-              <span className="pano-metric-number">Shahpur Gate</span>
-              <span className="pano-metric-label">Bidar City Campus</span>
+              <span className="pano-metric-number">Naubad</span>
+              <span className="pano-metric-label">Karnataka Campus</span>
             </div>
             <div className="pano-divider"></div>
             <div className="pano-metric">
@@ -198,7 +199,7 @@ export default function CollegeProfile() {
         {/* Why Choose Us */}
         <div className="why-choose-header-block">
           <h2 className="section-title-styled" style={{ marginBottom: '16px' }}>
-            Why Choose <span>Smt. M. C. Vasantha College of Nursing?</span>
+            Why Choose <span>VASANTHA GROUP OF EDUCATION?</span>
           </h2>
         </div>
 

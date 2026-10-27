@@ -122,7 +122,7 @@ export default function PlacementsSection() {
             <line x1="12" y1="8" x2="12.01" y2="8"></line>
           </svg>
           <span>
-            <strong>Note on Career Services:</strong> Smt. M. C. Vasantha College provides 100% placement assistance, rigorous clinical preparation, and recruitment coordination. Final selection and appointment remain subject to hospital eligibility criteria, licensing clearances, and student performance.
+            <strong>Note on Career Services:</strong> VASANTHA GROUP OF EDUCATION provides 100% placement assistance, rigorous clinical preparation, and recruitment coordination. Final selection and appointment remain subject to hospital eligibility criteria, licensing clearances, and student performance.
           </span>
         </div>
       </div>

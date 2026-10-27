@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useModal } from '../context/ModalContext';
+import { validateName, validatePhone, validateEmail } from '../utils/validators';
+import { processFormSubmission } from '../utils/formNotifier';
 
 export default function Modals() {
   const {
@@ -21,24 +23,132 @@ export default function Modals() {
 
   const [formData, setFormData] = useState({
     fullName: '',
-    course: selectedCourse,
+    course: selectedCourse || 'B.Sc. Nursing',
     phone: '',
     email: ''
   });
 
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
+
   // Sync course when prop changes
   React.useEffect(() => {
-    setFormData(prev => ({ ...prev, course: selectedCourse }));
+    setFormData(prev => ({ ...prev, course: selectedCourse || 'B.Sc. Nursing' }));
   }, [selectedCourse]);
+
+  // Real-time input handlers
+  const handleNameChange = (e) => {
+    let val = e.target.value;
+
+    // Check if starting character is a digit
+    if (/^\d/.test(val)) {
+      setErrors(prev => ({
+        ...prev,
+        fullName: 'Name cannot start with a number. Please start with a letter.'
+      }));
+      val = val.replace(/^\d+/, '');
+    } else if (/\d/.test(val)) {
+      setErrors(prev => ({
+        ...prev,
+        fullName: 'Name cannot contain numbers. Only letters and spaces are allowed.'
+      }));
+      val = val.replace(/\d/g, '');
+    } else if (touched.fullName) {
+      const res = validateName(val, 'Candidate Full Name', true);
+      setErrors(prev => ({ ...prev, fullName: res.isValid ? '' : res.error }));
+    }
+
+    setFormData(prev => ({ ...prev, fullName: val }));
+  };
+
+  const handlePhoneChange = (e) => {
+    // Only allow digits, max 10
+    const val = e.target.value.replace(/\D/g, '').slice(0, 10);
+    setFormData(prev => ({ ...prev, phone: val }));
+
+    if (touched.phone || val.length > 0) {
+      const res = validatePhone(val, true);
+      setErrors(prev => ({ ...prev, phone: res.isValid ? '' : res.error }));
+    }
+  };
+
+  const handleEmailChange = (e) => {
+    const val = e.target.value;
+    setFormData(prev => ({ ...prev, email: val }));
+
+    if (touched.email && val.trim()) {
+      const res = validateEmail(val, false);
+      setErrors(prev => ({ ...prev, email: res.isValid ? '' : res.error }));
+    } else if (!val.trim()) {
+      setErrors(prev => ({ ...prev, email: '' }));
+    }
+  };
+
+  const handleBlur = (field) => {
+    setTouched(prev => ({ ...prev, [field]: true }));
+    if (field === 'fullName') {
+      const res = validateName(formData.fullName, 'Candidate Full Name', true);
+      setErrors(prev => ({ ...prev, fullName: res.isValid ? '' : res.error }));
+    } else if (field === 'phone') {
+      const res = validatePhone(formData.phone, true);
+      setErrors(prev => ({ ...prev, phone: res.isValid ? '' : res.error }));
+    } else if (field === 'email') {
+      if (formData.email.trim()) {
+        const res = validateEmail(formData.email, false);
+        setErrors(prev => ({ ...prev, email: res.isValid ? '' : res.error }));
+      } else {
+        setErrors(prev => ({ ...prev, email: '' }));
+      }
+    }
+  };
 
   const handleApplySubmit = (e) => {
     e.preventDefault();
-    const applicantName = formData.fullName || 'Student';
-    const chosenCourse = formData.course || 'Nursing Program';
+
+    // Mark all as touched
+    setTouched({ fullName: true, phone: true, email: true });
+
+    const nameRes = validateName(formData.fullName, 'Candidate Full Name', true);
+    const phoneRes = validatePhone(formData.phone, true);
+    const emailRes = validateEmail(formData.email, false);
+
+    const newErrors = {
+      fullName: nameRes.isValid ? '' : nameRes.error,
+      phone: phoneRes.isValid ? '' : phoneRes.error,
+      email: emailRes.isValid ? '' : emailRes.error
+    };
+
+    setErrors(newErrors);
+
+    if (!nameRes.isValid || !phoneRes.isValid || !emailRes.isValid) {
+      // Focus first error field
+      if (!nameRes.isValid) {
+        document.getElementById('modalFullName')?.focus();
+      } else if (!phoneRes.isValid) {
+        document.getElementById('modalPhone')?.focus();
+      } else if (!emailRes.isValid) {
+        document.getElementById('modalEmail')?.focus();
+      }
+      return;
+    }
+
+    const applicantName = formData.fullName.trim();
+    const chosenCourse = formData.course || 'B.Sc. Nursing';
+
+    // 1. Process WhatsApp Forwarding + Email Notification
+    processFormSubmission({
+      type: 'admission',
+      data: {
+        fullName: applicantName,
+        course: chosenCourse,
+        phone: formData.phone,
+        email: formData.email
+      }
+    });
 
     closeApplyModal();
     showToast(
-      `Thank you, ${applicantName}! Your application for ${chosenCourse} (2026-27) has been received. Our admission cell will contact you shortly.`
+      `Thank you, ${applicantName}! Forwarding your application for ${chosenCourse} to our WhatsApp Admission Desk (+91 9512592211)...`
     );
     setFormData({
       fullName: '',
@@ -46,6 +156,8 @@ export default function Modals() {
       phone: '',
       email: ''
     });
+    setErrors({});
+    setTouched({});
   };
 
   return (
@@ -135,21 +247,34 @@ export default function Modals() {
               ✕
             </button>
             <h3 className="modal-title">Apply for Admission 2026-27</h3>
-            <p className="modal-sub">Smt. M. C. Vasantha College of Nursing, Bidar. Recognised by Govt. of Karnataka, KSNC &amp; RGUHS.</p>
-            <form className="admission-ajax-form" onSubmit={handleApplySubmit}>
-              <div className="form-group">
-                <label>Full Name *</label>
+            <p className="modal-sub">VASANTHA GROUP OF EDUCATION, Bidar. Recognised by Govt. of Karnataka, KSNC &amp; RGUHS.</p>
+            <form className="admission-ajax-form" onSubmit={handleApplySubmit} noValidate>
+              <div className={`form-group ${errors.fullName ? 'has-error' : touched.fullName && formData.fullName && !errors.fullName ? 'is-valid' : ''}`}>
+                <label htmlFor="modalFullName">Full Name *</label>
                 <input
+                  id="modalFullName"
                   type="text"
                   name="full_name"
                   placeholder="Enter full name"
                   required
                   value={formData.fullName}
-                  onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                  onChange={handleNameChange}
+                  onBlur={() => handleBlur('fullName')}
+                  className={errors.fullName ? 'is-invalid' : ''}
+                  aria-invalid={!!errors.fullName}
+                  aria-describedby={errors.fullName ? 'modalFullNameError' : undefined}
                 />
+                {errors.fullName && (
+                  <div className="form-error-msg" id="modalFullNameError" role="alert">
+                    <svg viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                    </svg>
+                    <span>{errors.fullName}</span>
+                  </div>
+                )}
               </div>
               <div className="form-group">
-                <label>Program *</label>
+                <label htmlFor="modalCourseSelect">Program *</label>
                 <select
                   name="course"
                   id="modalCourseSelect"
@@ -157,30 +282,62 @@ export default function Modals() {
                   value={formData.course}
                   onChange={(e) => setFormData({ ...formData, course: e.target.value })}
                 >
-                  <option value="B.Sc. Nursing">B.Sc. Nursing (4 Years)</option>
-                  <option value="GNM Nursing">GNM Nursing (3 Years)</option>
+                  <option value="B.Sc. Nursing">B.Sc. Nursing (4 Years Degree)</option>
+                  <option value="GNM Nursing">GNM Nursing (3 Years Diploma)</option>
+                  <option value="Post B.Sc. Nursing">Post B.Sc. Nursing (2 Years Degree)</option>
+                  <option value="Diploma in Pharmacy (D.Pharm)">Diploma in Pharmacy - D.Pharm (2 Years)</option>
+                  <option value="Bachelor of Pharmacy (B.Pharm)">Bachelor of Pharmacy - B.Pharm (4 Years)</option>
+                  <option value="Bachelor of Physiotherapy (BPT)">Bachelor of Physiotherapy - BPT (4.5 Years)</option>
+                  <option value="Bachelor of Education (B.Ed)">Bachelor of Education - B.Ed (2 Years)</option>
                 </select>
               </div>
-              <div className="form-group">
-                <label>Mobile Number *</label>
+              <div className={`form-group ${errors.phone ? 'has-error' : touched.phone && formData.phone.length === 10 && !errors.phone ? 'is-valid' : ''}`}>
+                <label htmlFor="modalPhone">Mobile Number *</label>
                 <input
+                  id="modalPhone"
                   type="tel"
                   name="phone"
                   placeholder="10-digit mobile number"
                   required
+                  maxLength={10}
                   value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  onChange={handlePhoneChange}
+                  onBlur={() => handleBlur('phone')}
+                  className={errors.phone ? 'is-invalid' : ''}
+                  aria-invalid={!!errors.phone}
+                  aria-describedby={errors.phone ? 'modalPhoneError' : undefined}
                 />
+                {errors.phone && (
+                  <div className="form-error-msg" id="modalPhoneError" role="alert">
+                    <svg viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                    </svg>
+                    <span>{errors.phone}</span>
+                  </div>
+                )}
               </div>
-              <div className="form-group">
-                <label>Email Address</label>
+              <div className={`form-group ${errors.email ? 'has-error' : touched.email && formData.email && !errors.email ? 'is-valid' : ''}`}>
+                <label htmlFor="modalEmail">Email Address</label>
                 <input
+                  id="modalEmail"
                   type="email"
                   name="email"
                   placeholder="email@domain.com"
                   value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  onChange={handleEmailChange}
+                  onBlur={() => handleBlur('email')}
+                  className={errors.email ? 'is-invalid' : ''}
+                  aria-invalid={!!errors.email}
+                  aria-describedby={errors.email ? 'modalEmailError' : undefined}
                 />
+                {errors.email && (
+                  <div className="form-error-msg" id="modalEmailError" role="alert">
+                    <svg viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                    </svg>
+                    <span>{errors.email}</span>
+                  </div>
+                )}
               </div>
               <button type="submit" className="btn-form-submit">
                 Submit Application →
@@ -248,8 +405,8 @@ export default function Modals() {
               ✕
             </button>
             <div className="tag-red-caps">VIRTUAL CAMPUS WALKTHROUGH</div>
-            <h3 className="modal-title">Welcome to Smt. M. C. Vasantha College of Nursing</h3>
-            <p className="modal-sub">Shahpur Gate Gunnalli Road, Bidar - 585 403, Karnataka</p>
+            <h3 className="modal-title">Welcome to VASANTHA GROUP OF EDUCATION</h3>
+            <p className="modal-sub">Naubad-bhalki Road, Naubad Karnataka 585402</p>
 
             <div className="tour-modal-grid">
               <div style={{ borderRadius: 'var(--radius-sm)', overflow: 'hidden', border: '1px solid var(--border-card)' }}>

@@ -4,19 +4,21 @@ import ApprovalsSection from '../components/sections/ApprovalsSection';
 
 export default function About() {
   const [chairmanExpanded, setChairmanExpanded] = useState(false);
+  const [groupHeadExpanded, setGroupHeadExpanded] = useState(false);
+  const [provostExpanded, setProvostExpanded] = useState(false);
   const [principalExpanded, setPrincipalExpanded] = useState(false);
   return (
     <main>
       {/* PAGE BANNER */}
-      <section className="page-banner-strip" aria-label="About Us Header">
+      <section className="page-banner-strip" aria-label="About Header">
         <div className="container">
           <div className="page-banner-inner">
             <div className="banner-left-text">
               <div className="banner-breadcrumb-link">
-                <Link to="/">Home</Link> &gt; <span>About Us</span>
+                <Link to="/">Home</Link> &gt; <span>About</span>
               </div>
               <h1 className="banner-main-title">
-                About <span className="gold-text">Our College</span>
+                About <span className="gold-text">Vasantha Group of Education</span>
               </h1>
               <p className="banner-sub-p">
                 A legacy of compassion, clinical skill and academic excellence in nursing education.
@@ -44,16 +46,16 @@ export default function About() {
             {/* Column 1: Our College Text */}
             <article className="card-about-college-text">
               <div>
-                <div className="tag-red-caps">OUR COLLEGE</div>
+                <div className="tag-red-caps">OUR INSTITUTION</div>
                 <h2 className="about-heading-title">
-                  Smt. M. C. Vasantha College of Nursing, <span>Bidar</span>
+                  VASANTHA GROUP OF EDUCATION, <span>Bidar</span>
                 </h2>
                 <p className="about-body-text">
-                  Smt. M. C. Vasantha College of Nursing, established in 1991 under Shri Shivaling Vidhya Vardhak Education Society (R), is dedicated to providing quality nursing education with a strong focus on practical training, ethical values and community service. Our institution aims to shape skilled, empathetic and confident nurses who can contribute to better healthcare and a healthier society.
+                  VASANTHA GROUP OF EDUCATION, serving society for over 43 years (seeds of an idea sown in 1984), is dedicated to providing quality healthcare and nursing education with a strong focus on practical training, ethical values and community service. Our institution aims to shape skilled, empathetic and confident healthcare champions who can contribute to better healthcare and a healthier society.
                 </p>
               </div>
               <Link to="/courses" className="btn-know-more-red">
-                <span>Know More About Us</span>
+                <span>Know More About College</span>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
@@ -63,16 +65,23 @@ export default function About() {
 
             {/* Column 2: Campus Building Image */}
             <div className="about-building-photo-box">
-              <img src="/images/college_building.jpg" alt="Smt. M. C. Vasantha College of Nursing Campus Building" />
+              <img src="/images/college_building.jpg" alt="VASANTHA GROUP OF EDUCATION Campus Building" />
             </div>
 
-            {/* Column 3: Shri Shivaling Vidhya Vardhak Education Society (R) Card */}
+            {/* Column 3: VASANTHA GROUP OF EDUCATION Card */}
             <article className="card-trust-center">
-              <img src="/images/trust_logo.svg" alt="Shri Shivaling Vidhya Vardhak Education Society Logo" className="trust-crest-icon" />
-              <h3 className="trust-title-text">Shri Shivaling Vidhya Vardhak Education Society (R)</h3>
-              <p className="trust-desc-p">
-                A committed educational trust working for quality education, community development and empowerment of youth through skill and value-based learning.
-              </p>
+              <div className="card-trust-inner-top" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', width: '100%' }}>
+                <img
+                  src="/images/trust_logo.svg"
+                  alt="VASANTHA GROUP OF EDUCATION Logo"
+                  className="trust-crest-icon"
+                  style={{ display: 'block', margin: '0 auto 10px auto' }}
+                />
+                <h3 className="trust-title-text">VASANTHA GROUP OF EDUCATION</h3>
+                <p className="trust-desc-p">
+                  A premier educational institution serving for 43+ years, dedicated to quality education, incubation, community development and empowerment of youth through skill and value-based learning.
+                </p>
+              </div>
               <div className="trust-3-pills">
                 <div className="trust-3-item">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -98,24 +107,24 @@ export default function About() {
             </article>
           </div>
 
-          {/* SECTION: INSTITUTIONAL LEADERSHIP (2 COLUMNS WITH READ MORE) */}
+          {/* SECTION: INSTITUTIONAL LEADERSHIP (3 DESKS: FOUNDER & CHAIRMAN, PRINCIPAL, VICE PRINCIPAL) */}
           <section className="section-leadership-messages" id="leadership-messages" aria-label="Institutional Leadership Messages">
             
             {/* Leadership Section Header */}
             <div className="leadership-section-header">
-              <div className="tag-red-caps">INSTITUTIONAL LEADERSHIP &amp; VISION</div>
+              <div className="tag-red-caps">PRESIDENT DESK &amp; LEADERSHIP</div>
               <h2 className="section-title-styled" style={{ marginBottom: '8px' }}>
                 Guiding Voices: <span>Messages from Our Leadership</span>
               </h2>
               <p className="leadership-subtext">
-                Over 43 years of visionary education, compassionate healthcare service, and shaping global clinical champions at Vasantha Group Educational Campus.
+                Serving 43+ years with a firm foundation sown in 1984. Our campus has grown as a sturdy banyan tree nurturing thousands of healthcare champions across India and globally.
               </p>
             </div>
 
-            {/* TWO-COLUMN BALANCED GRID */}
-            <div className="leadership-two-col-grid">
+            {/* THREE-COLUMN BALANCED GRID */}
+            <div className="leadership-three-col-grid">
               
-              {/* COLUMN 1: CHAIRMAN CARD */}
+              {/* DESK 1: FOUNDER & CHAIRMAN */}
               <article
                 className="leader-col-card chairman-theme"
                 id="chairman-message"
@@ -125,8 +134,10 @@ export default function About() {
                 <div className="leader-col-header">
                   <div className="leader-col-photo-frame gold-border">
                     <img
-                      src="/images/chairman_dr_chandrakant_gaddagi.jpg"
+                      src="/images/chairman_dr_chandrakant_gaddagi_v4.jpg"
                       alt="Shri Chandrakant Gadaggi - Founder & Chairman"
+                      loading="eager"
+                      decoding="async"
                     />
                   </div>
                   <div className="leader-col-meta">
@@ -137,14 +148,14 @@ export default function About() {
                       Founder &amp; Chairman
                     </span>
                     <h3 className="leader-col-name">Shri Chandrakant Gadaggi</h3>
-                    <span className="leader-col-degree amber">Dr. Chandrakant M. Gaddgi, B.A., LL.B.</span>
+                    <span className="leader-col-degree amber">Founder &amp; Chairman, Vasantha Group</span>
                     <p className="leader-col-trust">
                       Vasantha Group Educational Campus
                       <br />
-                      <span style={{ fontSize: '0.72rem', color: 'var(--text-sub)' }}>SSVVES (R), Estd. 1984 / 1991</span>
+                      <span style={{ fontSize: '0.72rem', color: 'var(--text-sub)' }}>SSVVES (R), Estd. 1984</span>
                     </p>
                     <span className="leader-col-milestone-pill gold">
-                      🌱 43+ Years Serving Society (Seeds Sown 1984)
+                      🌱 43 Years Serving Society (Rooted 1984)
                     </span>
                   </div>
                 </div>
@@ -152,7 +163,7 @@ export default function About() {
                 {/* Featured Quote Callout */}
                 <blockquote className="leader-col-quote gold">
                   <p>
-                    “My heart is full of pleasure and pride as I perceive the progress being made at Vasantha Group Educational Campus, serving from 43 years. The seeds of an idea sown in 1984 have taken firm root, and our campus has grown as a sturdy banyan tree with widespread branches.”
+                    “My heart is full of pleasure and pride as I perceive the progress being made at Vasantha Group Educational Campus &amp; serving from 43 years. The seeds of an idea sown in 1984 have taken firm root, and our campus has grown as a sturdy banyan tree with different branches widespread.”
                   </p>
                   <cite>— Shri Chandrakant Gadaggi, Founder &amp; Chairman</cite>
                 </blockquote>
@@ -160,17 +171,20 @@ export default function About() {
                 {/* Body Content & Preview */}
                 <div className="leader-col-body">
                   <p>
-                    I extend my warm wishes to one and all who have worked for the progress of the campus and are still creating a road towards excellence. My dream has come true when thousands of students are striving hard for their best career and leaving the campus with best opportunities and ideas to become healthcare entrepreneurs and clinical leaders.
+                    I extend my warm wishes to one and all who have worked for the progress of the campus and still creating a road towards excellence. My dream has come true when thousands of students are striving hard for their best career and leaving the campus with best opportunities and number of ideas to become an entrepreneur.
                   </p>
 
                   {/* Expandable Section */}
                   {chairmanExpanded && (
                     <div className="leader-expandable-content animate-fade-in">
                       <p>
-                        Our Educational Campus plays an important role to shape students with the highest caliber for global education culture by providing a Center of Excellence and incubation center right at their doorstep. We believe in empowering our students to become not just healthcare providers, but also proactive advocates for health and wellness in their communities.
+                        Our Educational Campus will play an important role to shape the students with the highest Caliber for the global education culture by providing center of excellence incubation center at the doorstep. We believe in empowering our students to become not just healthcare providers, but also advocates for health and wellness in their communities.
                       </p>
                       <p>
-                        The college’s state-of-the-art facilities, experienced faculty, and diverse student body create a vibrant learning environment that inspires innovation and excellence. With the establishment of Vasantha Group of Education, we intend to considerably invest in research, technology, and industrial-academic partnerships to drive socio-economic growth and international recognition.
+                        The college’s state-of-the-art facilities, experienced faculty, and diverse student body create a vibrant learning environment that inspires innovation and excellence. To this end, we are committed to empowering our students with the accumulated knowledge and driving them towards a healthier, progressive, and prosperous future. This kind of educational system not only focuses on the socio-economic growth of the region but takes a leap towards international recognition as well.
+                      </p>
+                      <p>
+                        With the establishment of Vasantha Group of Education, we intend to considerably invest in the educational sector in order to proportionately focus on entrepreneurship along with education. By doing so, we aim to nurture society in the areas of research and technology and also drive growth via industrial and academic partnerships.
                       </p>
 
                       {/* 3 Chairman Highlights */}
@@ -192,8 +206,8 @@ export default function About() {
                         <div className="leader-mini-pill">
                           <span className="mini-icon">🤝</span>
                           <div>
-                            <strong>Global Ties</strong>
-                            <small>Industry &amp; academic partners</small>
+                            <strong>Research &amp; Tech</strong>
+                            <small>Industrial &amp; academic partnerships</small>
                           </div>
                         </div>
                       </div>
@@ -217,7 +231,7 @@ export default function About() {
                 {/* Read More / Show Less Button */}
                 <button
                   type="button"
-                  className={`btn-readmore-toggle chairman-btn ${chairmanExpanded ? 'is-expanded' : ''}`}
+                  className={`btn-readmore-toggle ${chairmanExpanded ? 'is-expanded' : ''}`}
                   onClick={() => setChairmanExpanded(!chairmanExpanded)}
                   aria-expanded={chairmanExpanded}
                 >
@@ -228,18 +242,21 @@ export default function About() {
                 </button>
               </article>
 
-              {/* COLUMN 2: PRINCIPAL CARD */}
+              {/* DESK 2: GROUP HEAD & DIRECTOR */}
               <article
                 className="leader-col-card principal-theme"
-                id="principal-message"
-                style={{ minWidth: 0, width: '100%', boxSizing: 'border-box' }}
+                id="grouphead-message"
+                style={{ minWidth: 0, width: '100%', boxSizing: 'border-box', position: 'relative' }}
               >
+                <span id="director-message" style={{ position: 'absolute', top: '-30px' }}></span>
                 {/* Profile Header Row */}
                 <div className="leader-col-header">
                   <div className="leader-col-photo-frame crimson-border">
                     <img
-                      src="/images/principal_dr_chinamma_gadggi.jpg"
-                      alt="Dr. Chinamma C. Gadggi - Principal & Group Head"
+                      src="/images/principal_dr_chinamma_gadggi_v4.jpg"
+                      alt="Dr. Chinamma C. Gadggi - Group Head & Director - Nursing Education"
+                      loading="eager"
+                      decoding="async"
                     />
                   </div>
                   <div className="leader-col-meta">
@@ -248,17 +265,17 @@ export default function About() {
                         <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
                         <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
                       </svg>
-                      Principal &amp; Group Head
+                      Group Head &amp; Director
                     </span>
                     <h3 className="leader-col-name">Dr. Chinamma C. Gadggi</h3>
-                    <span className="leader-col-degree blue">Principal &amp; Group Head - Nursing Education</span>
+                    <span className="leader-col-degree blue">Group Head &amp; Director - Nursing &amp; Health Sciences</span>
                     <p className="leader-col-trust">
-                      Smt. M. C. Vasantha College of Nursing
+                      VASANTHA GROUP OF EDUCATION
                       <br />
-                      <span style={{ fontSize: '0.72rem', color: 'var(--text-sub)' }}>Vasantha Group of Education</span>
+                      <span style={{ fontSize: '0.72rem', color: 'var(--text-sub)' }}>Faculty of Nursing &amp; Health Sciences</span>
                     </p>
                     <span className="leader-col-milestone-pill crimson">
-                      ❤️ Motto: “Service with a Smile”
+                      ❤️ Motto: “Services with a Smile”
                     </span>
                   </div>
                 </div>
@@ -266,25 +283,31 @@ export default function About() {
                 {/* Featured Quote Callout */}
                 <blockquote className="leader-col-quote crimson">
                   <p>
-                    “Nursing makes Vasantha educational institutions outstanding in all endeavors through personalized care given to patients. The nurses are the pride of Vasantha, and their motto, ‘Service with a Smile,’ is meticulously translated into action.”
+                    “Nursing makes Vasantha educational institutions outstanding in all its endeavors through the personalized care given to patients. The nurses are the pride of Vasantha, and their motto, ‘Services with a Smile,’ is meticulously translated into action while serving the sick.”
                   </p>
-                  <cite>— Dr. Chinamma C. Gadggi, Principal &amp; Group Head</cite>
+                  <cite>— Dr. Chinamma C. Gadggi, Group Head &amp; Director</cite>
                 </blockquote>
 
                 {/* Body Content & Preview */}
                 <div className="leader-col-body">
                   <p>
-                    We strive to provide our students with an educational experience that is both challenging and rewarding, preparing them to excel in their nursing careers and to make a meaningful impact on the health and well-being of individuals and communities. Our curriculum blends theoretical knowledge with practical, hands-on clinical experience.
+                    We strive to provide our students with an educational experience that is both challenging and rewarding, preparing them to excel in their nursing careers and to make a meaningful impact on the health and well-being of individuals and communities. Our curriculum is designed with the latest advancements in healthcare in mind, ensuring that our students receive a comprehensive education that blends theoretical knowledge with practical, hands-on experience.
                   </p>
 
                   {/* Expandable Section */}
-                  {principalExpanded && (
+                  {groupHeadExpanded && (
                     <div className="leader-expandable-content animate-fade-in">
                       <p>
-                        In addition to academic excellence, we place a strong emphasis on personal and professional growth. We believe that nursing is not just a profession but a calling, and we are committed to nurturing not only the minds but also the hearts of our students through extracurricular activities, community outreach, and leadership opportunities that cultivate empathy and lifelong learning.
+                        Our state-of-the-art facilities, experienced faculty, and robust clinical partnerships enable us to offer a learning environment that is second to none. In addition to academic excellence, we place a strong emphasis on personal and professional growth. We believe that nursing is not just a profession but a calling, and we are committed to nurturing not only the minds but also the hearts of our students.
                       </p>
                       <p>
-                        A Vasantha nurse is not merely a caregiver; she is computer-savvy, confident, and highly resourceful, capable of deftly handling state-of-the-art equipment in the hospital. Endowed with unique qualities of love, courage, and mercy, our nurses are much in demand. When you become part of the Vasantha family, we leave no stone unturned to prepare strong and ethical leaders who shape the future of healthcare.
+                        Through a variety of extracurricular activities, community outreach programs, and leadership opportunities, we encourage our students to develop the qualities that define a true healthcare professional: empathy, integrity, and a lifelong commitment to learning.
+                      </p>
+                      <p>
+                        A Vasantha nurse is not merely a caregiver; she is computer-savvy, confident, and highly resourceful, capable of deftly handling state-of-the-art equipment in the hospital. Endowed with unique qualities of love, courage, and mercy, which are the hallmarks of nursing, our nurses are much in demand in today’s modern healthcare system.
+                      </p>
+                      <p>
+                        Vasantha has a unique platform that gives students a plethora of unparalleled opportunities to experience the joy of learning, the wonders of new knowledge and to unearth their limitless potential and capabilities. When you become part of the Vasantha family, we leave no stone unturned to guide, mentor, nurture and prepare you to meet the global requirements, both personal and professional. Our gift to you and our nation are strong and ethical leaders who will shape and change the destiny and future of the world.
                       </p>
 
                       {/* 3 Principal Highlights */}
@@ -293,21 +316,21 @@ export default function About() {
                           <span className="mini-icon">❤️</span>
                           <div>
                             <strong>Love, Courage &amp; Mercy</strong>
-                            <small>Motto: ‘Service with a Smile’</small>
+                            <small>Motto: ‘Services with a Smile’</small>
                           </div>
                         </div>
                         <div className="leader-mini-pill">
                           <span className="mini-icon">💻</span>
                           <div>
                             <strong>Computer-Savvy</strong>
-                            <small>State-of-the-art clinical tech</small>
+                            <small>Deftly handling state-of-the-art tech</small>
                           </div>
                         </div>
                         <div className="leader-mini-pill">
                           <span className="mini-icon">🌍</span>
                           <div>
                             <strong>Ethical Leaders</strong>
-                            <small>Prepared for global healthcare</small>
+                            <small>Meeting global healthcare standards</small>
                           </div>
                         </div>
                       </div>
@@ -317,7 +340,7 @@ export default function About() {
                         <div>
                           <div className="sig-bless">With Dedication &amp; Care,</div>
                           <strong className="sig-name">Dr. Chinamma C. Gadggi</strong>
-                          <div className="sig-title">Principal &amp; Group Head, Nursing Education</div>
+                          <div className="sig-title">Group Head &amp; Director - Nursing &amp; Health Sciences</div>
                         </div>
                         <div className="sig-seal">
                           <img src="/images/logo.svg" alt="College Crest" />
@@ -331,7 +354,240 @@ export default function About() {
                 {/* Read More / Show Less Button */}
                 <button
                   type="button"
-                  className={`btn-readmore-toggle principal-btn ${principalExpanded ? 'is-expanded' : ''}`}
+                  className={`btn-readmore-toggle ${groupHeadExpanded ? 'is-expanded' : ''}`}
+                  onClick={() => setGroupHeadExpanded(!groupHeadExpanded)}
+                  aria-expanded={groupHeadExpanded}
+                >
+                  <span>{groupHeadExpanded ? 'Show Less' : 'Read Full Message'}</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+              </article>
+
+              {/* DESK 3: COLLEGE PROVOST */}
+              <article
+                className="leader-col-card provost-theme"
+                id="provost-message"
+                style={{ minWidth: 0, width: '100%', boxSizing: 'border-box', position: 'relative' }}
+              >
+                {/* Profile Header Row */}
+                <div className="leader-col-header">
+                  <div className="leader-col-photo-frame blue-border">
+                    <img
+                      src="/images/provost_dr_bhuleshwar_patel.jpg?v=20261027_v1"
+                      alt="Dr. Bhuleshwar Patel - Provost, Smt. M. C. Vasantha College of Nursing"
+                    />
+                  </div>
+                  <div className="leader-col-meta">
+                    <span className="leader-role-chip royal-blue">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM3.45 9L12 4.33 20.55 9 12 13.67 3.45 9zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z" />
+                      </svg>
+                      College Provost
+                    </span>
+                    <h3 className="leader-col-name">Dr. Bhuleshwar Patel</h3>
+                    <span className="leader-col-degree blue">Provost, Higher Education &amp; Research Visionary</span>
+                    <p className="leader-col-trust">
+                      VASANTHA GROUP OF EDUCATION
+                      <br />
+                      <span style={{ fontSize: '0.72rem', color: 'var(--text-sub)' }}>Academic &amp; Research Governance</span>
+                    </p>
+                    <span className="leader-col-milestone-pill blue">
+                      🌱 15+ Years Higher Education &amp; Research
+                    </span>
+                  </div>
+                </div>
+
+                {/* Featured Quote Callout */}
+                <blockquote className="leader-col-quote blue">
+                  <p>
+                    “We, at Smt. M. C. Vasantha College of Nursing, Bidar (Vasantha Group of Education), have quickly adapted to the emerging pedagogy and have continued our attempts to promote Higher education in the Allied Health sciences, Nursing and Pharmacy areas with focus on profound research. Further, to achieve our aim, we have strived to establish a regional model of higher education laced with an international competitive ecosystem.”
+                  </p>
+                  <cite>— Dr. Bhuleshwar Patel, Provost</cite>
+                </blockquote>
+
+                {/* Body Content & Preview */}
+                <div className="leader-col-body">
+                  <p>
+                    Dr. Bhuleshwar Patel is a Visionary, philanthropist and social worker who has been working in the field of Higher education studies, Tribal youth development, Rural livelihood, women empowerment, and upliftment of backward class and BPL families through quality and sustainable education for the last fifteen years.
+                  </p>
+
+                  {/* Expandable Section */}
+                  {provostExpanded && (
+                    <div className="leader-expandable-content animate-fade-in">
+                      <p>
+                        We have the requisite intellectual and physical infrastructure that supports the College to emerge as a leading citadel in the arena of higher education. The College has inviting ambience for academically committed and passionately creative people. Here, the faculty is highly qualified and equally passionate to nurture the creativity and innovation of young minds. At the same time, there is an urge at the student's end to match their steps with the rigors taken by the college for the healthy and overall development of self and humanity at large.
+                      </p>
+                      <p>
+                        We take pride in our innovative teaching-learning practices, flexible academic structure customizable as per the need of our students amalgamating internship program, thesis/dissertation, entrepreneurial projects and social outreach programmes. This enables us to produce graduates who are industry &amp; research ready with humanity serving skills &amp; zeal.
+                      </p>
+                      <p>
+                        Additionally, a healthy mix of co-curricular &amp; extra-curricular activities like club activities, general knowledge, speed typing, writing competency, interview training, standard practice instructions for students and faculties, sports competition, social initiative programs &amp; the likes are observed on campus for the holistic development of students.
+                      </p>
+
+                      {/* 3 Provost Highlights */}
+                      <div className="leader-mini-highlights-grid">
+                        <div className="leader-mini-pill">
+                          <span className="mini-icon">🔬</span>
+                          <div>
+                            <strong>Profound Research</strong>
+                            <small>Allied Health, Nursing &amp; Pharmacy</small>
+                          </div>
+                        </div>
+                        <div className="leader-mini-pill">
+                          <span className="mini-icon">🌐</span>
+                          <div>
+                            <strong>Global Pedagogy</strong>
+                            <small>International competitive ecosystem</small>
+                          </div>
+                        </div>
+                        <div className="leader-mini-pill">
+                          <span className="mini-icon">🌱</span>
+                          <div>
+                            <strong>Empowerment &amp; Outreach</strong>
+                            <small>Inclusive sustainable education</small>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Signature */}
+                      <div className="leader-col-signature">
+                        <div>
+                          <div className="sig-bless">With Visionary Leadership &amp; Warmth,</div>
+                          <strong className="sig-name">Dr. Bhuleshwar Patel</strong>
+                          <div className="sig-title">Provost, Smt. M. C. Vasantha College of Nursing</div>
+                        </div>
+                        <div className="sig-seal">
+                          <img src="/images/logo.svg" alt="College Crest" />
+                          <span>Vasantha Group</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Read More / Show Less Button */}
+                <button
+                  type="button"
+                  className={`btn-readmore-toggle ${provostExpanded ? 'is-expanded' : ''}`}
+                  onClick={() => setProvostExpanded(!provostExpanded)}
+                  aria-expanded={provostExpanded}
+                >
+                  <span>{provostExpanded ? 'Show Less' : 'Read Full Message'}</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+              </article>
+
+              {/* DESK 4: PRINCIPAL */}
+              <article
+                className="leader-col-card vice-principal-theme"
+                id="principal-message"
+                style={{ minWidth: 0, width: '100%', boxSizing: 'border-box', position: 'relative' }}
+              >
+                <span id="vice-principal-message" style={{ position: 'absolute', top: '-30px' }}></span>
+                {/* Profile Header Row */}
+                <div className="leader-col-header">
+                  <div className="leader-col-photo-frame emerald-border">
+                    <img
+                      src="/images/principal_dr_dinesh_joy_v4.jpg"
+                      alt="Dr. Dinesh Joy - Principal, Smt. M. C. Vasantha College of Nursing"
+                      loading="eager"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className="leader-col-meta">
+                    <span className="leader-role-chip teal-emerald">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                      </svg>
+                      College Principal
+                    </span>
+                    <h3 className="leader-col-name">Dr. Dinesh Joy</h3>
+                    <span className="leader-col-degree emerald">Principal, Smt. M. C. Vasantha College of Nursing</span>
+                    <p className="leader-col-trust">
+                      VASANTHA GROUP OF EDUCATION
+                      <br />
+                      <span style={{ fontSize: '0.72rem', color: 'var(--text-sub)' }}>Faculty of Nursing &amp; Health Sciences</span>
+                    </p>
+                    <span className="leader-col-milestone-pill" style={{ color: '#047857' }}>
+                      🌟 Legacy of Care &amp; Academic Leadership
+                    </span>
+                  </div>
+                </div>
+
+                {/* Featured Quote Callout */}
+                <blockquote className="leader-col-quote" style={{ background: 'linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%)', borderLeft: '3.5px solid #10b981' }}>
+                  <p style={{ color: '#064e3b' }}>
+                    “As part of the VASANTHA GROUP OF EDUCATION family, our students have the unique opportunity to be part of a legacy of care and compassion. We are dedicated to supporting you in every aspect of your educational journey, and we look forward to witnessing your contributions to the field of nursing.”
+                  </p>
+                  <cite style={{ color: '#047857' }}>— Dr. Dinesh Joy, Principal</cite>
+                </blockquote>
+
+                {/* Body Content & Preview */}
+                <div className="leader-col-body">
+                  <p>
+                    At VASANTHA GROUP OF EDUCATION, we understand the pivotal role nurses play in shaping the future of healthcare. We are proud to offer a dynamic and supportive atmosphere where our students can thrive and grow both personally and professionally.
+                  </p>
+
+                  {/* Expandable Section */}
+                  {principalExpanded && (
+                    <div className="leader-expandable-content animate-fade-in">
+                      <p>
+                        Our commitment to our students extends beyond the classroom, offering a range of co-curricular activities, mentorship programs, community engagement and job opportunities (Domestic and International).
+                      </p>
+                      <p>
+                        Every nurse entering our classrooms receives personal guidance and comprehensive clinical exposure in premier hospital settings, ensuring they step out fully equipped to deliver exceptional bedside care and ethical healthcare leadership anywhere across the globe.
+                      </p>
+
+                      {/* 3 Principal Highlights */}
+                      <div className="leader-mini-highlights-grid">
+                        <div className="leader-mini-pill">
+                          <span className="mini-icon">🏥</span>
+                          <div>
+                            <strong>Dynamic Atmosphere</strong>
+                            <small>Supportive clinical environment</small>
+                          </div>
+                        </div>
+                        <div className="leader-mini-pill">
+                          <span className="mini-icon">🌐</span>
+                          <div>
+                            <strong>Job Opportunities</strong>
+                            <small>Domestic &amp; International career ties</small>
+                          </div>
+                        </div>
+                        <div className="leader-mini-pill">
+                          <span className="mini-icon">🤝</span>
+                          <div>
+                            <strong>Holistic Mentorship</strong>
+                            <small>Co-curricular &amp; community outreach</small>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Signature */}
+                      <div className="leader-col-signature">
+                        <div>
+                          <div className="sig-bless">With Guidance &amp; Warm Regards,</div>
+                          <strong className="sig-name">Dr. Dinesh Joy</strong>
+                          <div className="sig-title">Principal, Smt. M. C. Vasantha College of Nursing</div>
+                        </div>
+                        <div className="sig-seal">
+                          <img src="/images/logo.svg" alt="College Crest" />
+                          <span>Vasantha Nursing</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Read More / Show Less Button */}
+                <button
+                  type="button"
+                  className={`btn-readmore-toggle ${principalExpanded ? 'is-expanded' : ''}`}
                   onClick={() => setPrincipalExpanded(!principalExpanded)}
                   aria-expanded={principalExpanded}
                 >
@@ -342,6 +598,67 @@ export default function About() {
                 </button>
               </article>
 
+            </div>
+          </section>
+
+          {/* SECTION: FACULTY TEAM OF VASANTHA GROUP OF EDUCATION: DISCOVER HEALTH */}
+          <section className="section-faculty-health-sciences" id="faculty-team" aria-label="Faculty Team of VASANTHA GROUP OF EDUCATION: Discover Health">
+            <div className="faculty-health-card">
+              <div className="faculty-health-grid">
+                
+                {/* Visual Col */}
+                <div className="faculty-health-visual">
+                  <img
+                    src="/images/faculty_team_health_sciences.jpg"
+                    alt="Learned Faculty Team of VASANTHA GROUP OF EDUCATION - Discover Health"
+                    className="faculty-team-photo"
+                  />
+                  <div className="faculty-photo-badge">
+                    <span className="badge-pulse-green"></span>
+                    <span>DISCOVER HEALTH • 21st Century Excellence</span>
+                  </div>
+                  <div className="faculty-disciplines-bar">
+                    <span className="discipline-tag">🩺 Nursing</span>
+                    <span className="discipline-tag">💊 Pharmacy</span>
+                    <span className="discipline-tag">🏃 Physiotherapy</span>
+                    <span className="discipline-tag">👶 Midwifery</span>
+                  </div>
+                </div>
+
+                {/* Content Col */}
+                <div className="faculty-health-content">
+                  <div className="tag-red-caps">FACULTY TEAM OF VASANTHA GROUP OF EDUCATION</div>
+                  <h2 className="faculty-section-title">
+                    Discover Health: <span>Multidisciplinary Healthcare Education</span>
+                  </h2>
+                  <p className="faculty-lead-p">
+                    The Faculty of Health Sciences aims to provide a healthy future to the upcoming generations with the help of multidisciplinary education and research that covers both practical as well as theoretical aspects. The programmes are designed considering the revolutionary changes and needs of the 21st century. We focus on various disciplines of Pharmacy, Physiotherapy, Nursing and Midwifery, etc.
+                  </p>
+                  <p className="faculty-body-p">
+                    The clinical practices and their adaptation through the means of clinical training, tie-ups, training, and research throws a significant impact in integrating the best practices to solve modern healthcare problems. The commitment to sheer learning and dedication to excellence hold the utmost importance and is delivered through our learned faculty members, and national as well as international experts, with hospital tie-ups that nurture the practical experiences. Such experiential educational opportunities are a stepping stone towards learning beyond classrooms.
+                  </p>
+                  <p className="faculty-body-p">
+                    The Faculty of Health Sciences strive to make a remarkable impact in the future of healthcare of the country. With hands-on experiences and holistic syllabus can boost the mindset of the students, hereby, equipping them with the right resources and learnings to create an ecosystem of professional healthcare.
+                  </p>
+
+                  {/* Highlights Pillars Strip */}
+                  <div className="faculty-pillars-strip">
+                    <div className="faculty-pillar-chip">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span>Multidisciplinary Research &amp; Holistic Programs (Nursing, Pharmacy, Physiotherapy &amp; Midwifery)</span>
+                    </div>
+                    <div className="faculty-pillar-chip">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span>Experiential Hospital Training, Reputed Clinical Tie-ups &amp; Beyond-the-Classroom Learning</span>
+                    </div>
+                    <div className="faculty-pillar-chip">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span>Learned Faculty Members, National &amp; International Healthcare Experts</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
             </div>
           </section>
 
@@ -381,7 +698,7 @@ export default function About() {
 
           {/* SECTION 3: WHY CHOOSE US */}
           <h2 className="section-title-styled">
-            Why Choose <span>Smt. M. C. Vasantha College of Nursing?</span>
+            Why Choose <span>VASANTHA GROUP OF EDUCATION?</span>
           </h2>
 
           <div className="why-choose-4-grid">

@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useModal } from '../context/ModalContext';
+import {
+  validateName,
+  validatePhone,
+  validateEmail,
+  validateMessage
+} from '../utils/validators';
+import { processFormSubmission } from '../utils/formNotifier';
 
 export default function Contact() {
   const { showToast, openApplyModal } = useModal();
@@ -12,10 +19,109 @@ export default function Contact() {
     message: ''
   });
 
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
+
+  const handleNameChange = (e) => {
+    let val = e.target.value;
+    if (/^\d/.test(val)) {
+      setErrors(prev => ({
+        ...prev,
+        name: 'Name cannot start with a number. Please start with a letter.'
+      }));
+      val = val.replace(/^\d+/, '');
+    } else if (/\d/.test(val)) {
+      setErrors(prev => ({
+        ...prev,
+        name: 'Name cannot contain numbers. Only letters and spaces are allowed.'
+      }));
+      val = val.replace(/\d/g, '');
+    } else if (touched.name) {
+      const res = validateName(val, 'Your Full Name', true);
+      setErrors(prev => ({ ...prev, name: res.isValid ? '' : res.error }));
+    }
+    setForm(prev => ({ ...prev, name: val }));
+  };
+
+  const handlePhoneChange = (e) => {
+    const val = e.target.value.replace(/\D/g, '').slice(0, 10);
+    setForm(prev => ({ ...prev, phone: val }));
+    if (touched.phone || val.length > 0) {
+      const res = validatePhone(val, true);
+      setErrors(prev => ({ ...prev, phone: res.isValid ? '' : res.error }));
+    }
+  };
+
+  const handleEmailChange = (e) => {
+    const val = e.target.value;
+    setForm(prev => ({ ...prev, email: val }));
+    if (touched.email && val.trim()) {
+      const res = validateEmail(val, false);
+      setErrors(prev => ({ ...prev, email: res.isValid ? '' : res.error }));
+    } else if (!val.trim()) {
+      setErrors(prev => ({ ...prev, email: '' }));
+    }
+  };
+
+  const handleMessageChange = (e) => {
+    const val = e.target.value;
+    setForm(prev => ({ ...prev, message: val }));
+    if (touched.message) {
+      const res = validateMessage(val, true, 10);
+      setErrors(prev => ({ ...prev, message: res.isValid ? '' : res.error }));
+    }
+  };
+
+  const handleBlur = (field) => {
+    setTouched(prev => ({ ...prev, [field]: true }));
+    let res = { isValid: true, error: '' };
+    if (field === 'name') res = validateName(form.name, 'Your Full Name', true);
+    else if (field === 'phone') res = validatePhone(form.phone, true);
+    else if (field === 'email') res = validateEmail(form.email, false);
+    else if (field === 'message') res = validateMessage(form.message, true, 10);
+    setErrors(prev => ({ ...prev, [field]: res.isValid ? '' : res.error }));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    setTouched({ name: true, phone: true, email: true, message: true });
+
+    const nameRes = validateName(form.name, 'Your Full Name', true);
+    const phoneRes = validatePhone(form.phone, true);
+    const emailRes = validateEmail(form.email, false);
+    const msgRes = validateMessage(form.message, true, 10);
+
+    const newErrors = {
+      name: nameRes.isValid ? '' : nameRes.error,
+      phone: phoneRes.isValid ? '' : phoneRes.error,
+      email: emailRes.isValid ? '' : emailRes.error,
+      message: msgRes.isValid ? '' : msgRes.error
+    };
+
+    setErrors(newErrors);
+
+    if (!nameRes.isValid || !phoneRes.isValid || !emailRes.isValid || !msgRes.isValid) {
+      if (!nameRes.isValid) document.getElementById('contactName')?.focus();
+      else if (!phoneRes.isValid) document.getElementById('contactPhone')?.focus();
+      else if (!emailRes.isValid) document.getElementById('contactEmail')?.focus();
+      else if (!msgRes.isValid) document.getElementById('contactMessage')?.focus();
+      return;
+    }
+
+    processFormSubmission({
+      type: 'contact',
+      data: {
+        name: form.name.trim(),
+        phone: form.phone.trim(),
+        email: form.email.trim(),
+        course: form.course,
+        message: form.message.trim()
+      }
+    });
+
     showToast(
-      `Thank you, ${form.name || 'Friend'}! Your enquiry regarding ${form.course} has been received. Our campus admission desk will call you shortly.`
+      `Thank you, ${form.name.trim()}! Forwarding your enquiry to our WhatsApp Admission Desk (+91 9512592211)...`
     );
     setForm({
       name: '',
@@ -24,6 +130,8 @@ export default function Contact() {
       course: 'B.Sc. Nursing',
       message: ''
     });
+    setErrors({});
+    setTouched({});
   };
 
   return (
@@ -45,7 +153,7 @@ export default function Contact() {
             </div>
 
             <div className="banner-right-visual">
-              <img src="/images/college_building.jpg" alt="Smt. M. C. Vasantha College Campus Building" />
+              <img src="/images/college_building.jpg" alt="VASANTHA GROUP OF EDUCATION Campus Building" />
             </div>
             <div className="banner-ribbon-swoosh">
               <div className="ribbon-script-stack">
@@ -73,11 +181,11 @@ export default function Contact() {
               <div>
                 <h3 className="contact-card-title">Campus Address</h3>
                 <p className="contact-card-desc">
-                  Smt. M. C. Vasantha College of Nursing<br />
-                  Shahpur Gate Gunnalli Road, Bidar - 585 403, Karnataka, India
+                  VASANTHA GROUP OF EDUCATION<br />
+                  Naubad-bhalki Road, Naubad Karnataka 585402
                 </p>
                 <div className="contact-card-highlight red">
-                  Near Shahpur Gate Junction
+                  Naubad-Bhalki Road, Naubad
                 </div>
               </div>
             </div>
@@ -115,9 +223,9 @@ export default function Contact() {
               <div>
                 <h3 className="contact-card-title">Email Support</h3>
                 <p className="contact-card-desc">
-                  <a href="mailto:admissions@smtmcvasanthanursing.com">admissions@smtmcvasanthanursing.com</a>
+                  <a href="mailto:admissions@vasanthagroup.edu.in">admissions@vasanthagroup.edu.in</a>
                   <br />
-                  <a href="mailto:info@smtmcvasanthanursing.com">info@smtmcvasanthanursing.com</a>
+                  <a href="mailto:info@vasanthagroup.edu.in">info@vasanthagroup.edu.in</a>
                 </p>
                 <div className="contact-card-highlight gray">
                   Response within 24 hours
@@ -138,50 +246,87 @@ export default function Contact() {
                 Have questions about eligibility, course fees, hostel or hospital postings? Send us a message below.
               </p>
 
-              <form id="contactForm" onSubmit={handleSubmit}>
-                <div className="form-group">
-                  <label>Your Full Name *</label>
+              <form id="contactForm" onSubmit={handleSubmit} noValidate>
+                <div className={`form-group ${errors.name ? 'has-error' : touched.name && form.name && !errors.name ? 'is-valid' : ''}`}>
+                  <label htmlFor="contactName">Your Full Name *</label>
                   <input
+                    id="contactName"
                     type="text"
                     name="name"
                     placeholder="Enter your full name"
                     required
-                    className="contact-input"
+                    className={`contact-input ${errors.name ? 'is-invalid' : ''}`}
                     value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    onChange={handleNameChange}
+                    onBlur={() => handleBlur('name')}
+                    aria-invalid={!!errors.name}
+                    aria-describedby={errors.name ? 'contactNameError' : undefined}
                   />
+                  {errors.name && (
+                    <div className="form-error-msg" id="contactNameError" role="alert">
+                      <svg viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                      </svg>
+                      <span>{errors.name}</span>
+                    </div>
+                  )}
                 </div>
 
                 <div className="contact-form-row-2">
-                  <div className="form-group">
-                    <label>Mobile Number *</label>
+                  <div className={`form-group ${errors.phone ? 'has-error' : touched.phone && form.phone.length === 10 && !errors.phone ? 'is-valid' : ''}`}>
+                    <label htmlFor="contactPhone">Mobile Number *</label>
                     <input
+                      id="contactPhone"
                       type="tel"
                       name="phone"
                       placeholder="10-digit mobile"
                       required
-                      pattern="[0-9]{10}"
-                      className="contact-input"
+                      maxLength={10}
+                      className={`contact-input ${errors.phone ? 'is-invalid' : ''}`}
                       value={form.phone}
-                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                      onChange={handlePhoneChange}
+                      onBlur={() => handleBlur('phone')}
+                      aria-invalid={!!errors.phone}
+                      aria-describedby={errors.phone ? 'contactPhoneError' : undefined}
                     />
+                    {errors.phone && (
+                      <div className="form-error-msg" id="contactPhoneError" role="alert">
+                        <svg viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                        </svg>
+                        <span>{errors.phone}</span>
+                      </div>
+                    )}
                   </div>
-                  <div className="form-group">
-                    <label>Email Address</label>
+                  <div className={`form-group ${errors.email ? 'has-error' : touched.email && form.email && !errors.email ? 'is-valid' : ''}`}>
+                    <label htmlFor="contactEmail">Email Address</label>
                     <input
+                      id="contactEmail"
                       type="email"
                       name="email"
                       placeholder="email@domain.com"
-                      className="contact-input"
+                      className={`contact-input ${errors.email ? 'is-invalid' : ''}`}
                       value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      onChange={handleEmailChange}
+                      onBlur={() => handleBlur('email')}
+                      aria-invalid={!!errors.email}
+                      aria-describedby={errors.email ? 'contactEmailError' : undefined}
                     />
+                    {errors.email && (
+                      <div className="form-error-msg" id="contactEmailError" role="alert">
+                        <svg viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                        </svg>
+                        <span>{errors.email}</span>
+                      </div>
+                    )}
                   </div>
                 </div>
 
                 <div className="form-group">
-                  <label>Interested Course</label>
+                  <label htmlFor="contactCourse">Interested Academic Program</label>
                   <select
+                    id="contactCourse"
                     name="course"
                     className="contact-select"
                     value={form.course}
@@ -189,21 +334,38 @@ export default function Contact() {
                   >
                     <option value="B.Sc. Nursing">B.Sc. Nursing (4 Years Degree)</option>
                     <option value="GNM Nursing">GNM Nursing (3 Years Diploma)</option>
+                    <option value="Post B.Sc. Nursing">Post Basic B.Sc. Nursing (2 Years Degree)</option>
+                    <option value="Diploma in Pharmacy (D.Pharm)">Diploma in Pharmacy - D.Pharm (2 Years Diploma)</option>
+                    <option value="Bachelor of Pharmacy (B.Pharm)">Bachelor of Pharmacy - B.Pharm (4 Years Degree)</option>
+                    <option value="Bachelor of Physiotherapy (BPT)">Bachelor of Physiotherapy - BPT (4.5 Years Degree)</option>
+                    <option value="Bachelor of Education (B.Ed)">Bachelor of Education - B.Ed (2 Years Degree)</option>
                     <option value="General Enquiry">General Campus Visit / Enquiry</option>
                   </select>
                 </div>
 
-                <div className="form-group">
-                  <label>Your Message / Query *</label>
+                <div className={`form-group ${errors.message ? 'has-error' : touched.message && form.message && !errors.message ? 'is-valid' : ''}`}>
+                  <label htmlFor="contactMessage">Your Message / Query *</label>
                   <textarea
+                    id="contactMessage"
                     name="message"
                     rows="4"
                     placeholder="How can we assist you with admissions or campus visits?"
                     required
-                    className="contact-textarea"
+                    className={`contact-textarea ${errors.message ? 'is-invalid' : ''}`}
                     value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    onChange={handleMessageChange}
+                    onBlur={() => handleBlur('message')}
+                    aria-invalid={!!errors.message}
+                    aria-describedby={errors.message ? 'contactMsgError' : undefined}
                   ></textarea>
+                  {errors.message && (
+                    <div className="form-error-msg" id="contactMsgError" role="alert">
+                      <svg viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                      </svg>
+                      <span>{errors.message}</span>
+                    </div>
+                  )}
                 </div>
 
                 <button type="submit" className="btn-form-submit">
@@ -224,7 +386,7 @@ export default function Contact() {
                   <li className="transit-step-item">
                     <div className="transit-step-num">1</div>
                     <div>
-                      <strong>From Bidar Central Bus Stand:</strong> Just 3.5 km away. Frequent auto-rickshaws, city buses, and college transport buses are available directly to Shahpur Gate Gunnalli Road.
+                      <strong>From Bidar Central Bus Stand:</strong> Just 3.5 km away. Frequent auto-rickshaws, city buses, and college transport buses are available directly to Naubad-bhalki Road, Naubad.
                     </div>
                   </li>
                   <li className="transit-step-item">
@@ -277,12 +439,12 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <div className="map-header-title">Smt. M. C. Vasantha College of Nursing Campus Location</div>
-                  <div className="map-header-sub">Shahpur Gate Gunnalli Road, Bidar - 585 403, Karnataka, India</div>
+                  <div className="map-header-title">VASANTHA GROUP OF EDUCATION Campus Location</div>
+                  <div className="map-header-sub">Naubad-bhalki Road, Naubad Karnataka 585402</div>
                 </div>
               </div>
               <a
-                href="https://maps.google.com/maps?q=Shahpur+Gate+Gunnalli+Road+Bidar+Karnataka"
+                href="https://maps.google.com/maps?q=Naubad-Bhalki+Road+Naubad+Karnataka+585402"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-open-maps"
@@ -297,8 +459,8 @@ export default function Contact() {
             </div>
             <iframe
               className="map-iframe"
-              src="https://maps.google.com/maps?q=Shahpur%20Gate%20Gunnalli%20Road,%20Bidar,%20Karnataka&t=&z=14&ie=UTF8&iwloc=&output=embed"
-              title="Smt. M. C. Vasantha College of Nursing Campus Location Map"
+              src="https://maps.google.com/maps?q=Naubad-Bhalki%20Road,%20Naubad,%20Karnataka%20585402&t=&z=14&ie=UTF8&iwloc=&output=embed"
+              title="VASANTHA GROUP OF EDUCATION Campus Location Map"
               loading="lazy"
               allowFullScreen
             ></iframe>

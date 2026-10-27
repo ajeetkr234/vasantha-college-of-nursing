@@ -19,7 +19,7 @@ export const alumniData = [
     hospital: 'Manipal Hospitals, Bengaluru',
     package: '₹4.8 LPA Package',
     img: '/images/alumni_priya.jpg',
-    quote: '"The hands-on simulation training at Smt. M. C. Vasantha College and rigorous clinical rotations at BRIMS 750-bed hospital gave me immense confidence during recruitment interviews and daily patient care in ICU."'
+    quote: '"The hands-on simulation training at VASANTHA GROUP OF EDUCATION and rigorous clinical rotations at BRIMS 750-bed hospital gave me immense confidence during recruitment interviews and daily patient care in ICU."'
   },
   {
     name: 'Sneha Patel, GNM Nursing',

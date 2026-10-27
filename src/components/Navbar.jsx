@@ -6,18 +6,52 @@ import { useModal } from '../context/ModalContext';
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
 
   const { openApplyModal } = useModal();
   const location = useLocation();
   const pathname = location.pathname;
 
+  // Smart Sticky Navbar: Hide on scroll down, show on scroll up (mouse backward)
   useEffect(() => {
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 15);
+      const currentScrollY = window.scrollY;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          // If mobile menu is open, keep navbar visible
+          if (mobileOpen) {
+            setHidden(false);
+            ticking = false;
+            return;
+          }
+
+          // Header shadow trigger
+          setScrolled(currentScrollY > 20);
+
+          // Always visible near top of page
+          if (currentScrollY <= 80) {
+            setHidden(false);
+          } else if (currentScrollY > lastScrollY && currentScrollY - lastScrollY > 6) {
+            // Scrolling down towards bottom -> hide navbar
+            setHidden(true);
+          } else if (currentScrollY < lastScrollY && lastScrollY - currentScrollY > 6) {
+            // Scrolling backward / up -> make navbar visible
+            setHidden(false);
+          }
+
+          lastScrollY = Math.max(0, currentScrollY);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [mobileOpen]);
 
   // Prevent background scrolling when mobile menu drawer is open
   useEffect(() => {
@@ -31,9 +65,10 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
-  // Close mobile navigation menu on route change
+  // Close mobile navigation menu and reset navbar on route change
   useEffect(() => {
     setMobileOpen(false);
+    setHidden(false);
   }, [pathname]);
 
   // Handle Escape key to close mobile menu
@@ -51,7 +86,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className={`site-header ${scrolled ? 'scrolled' : ''}`}>
+      <header className={`site-header ${scrolled ? 'scrolled' : ''} ${hidden ? 'header-hidden' : ''}`}>
         <div className="container">
           <div className="header-inner">
             {/* Elegant, Uncluttered Brand Area */}
@@ -59,19 +94,19 @@ export default function Navbar() {
               to="/"
               className="header-brand"
               onClick={closeMobile}
-              aria-label="Smt. M. C. Vasantha College of Nursing Homepage"
+              aria-label="VASANTHA GROUP OF EDUCATION Homepage"
             >
               <img
                 src="/images/logo.png"
-                alt="Smt. M. C. Vasantha College of Nursing Emblem"
+                alt="VASANTHA GROUP OF EDUCATION Emblem"
                 className="header-logo"
                 width="46"
                 height="46"
               />
               <div className="brand-info">
-                <div className="brand-name">SMT. M. C. VASANTHA COLLEGE OF NURSING</div>
+                <div className="brand-name">VASANTHA GROUP OF EDUCATION</div>
                 <div className="brand-tagline">
-                  Recognised by KSNC, INC &amp; Govt. of Karnataka • Affiliated to RGUHS Bangalore
+                  Nursing • Pharmacy • Physiotherapy • B.Ed • KSNC, PCI &amp; NCTE Approved • RGUHS Affiliated
                 </div>
               </div>
             </Link>
@@ -197,7 +232,7 @@ export default function Navbar() {
                   </li>
                   <li>
                     <NavLink to="/courses" onClick={closeMobile} className={({ isActive }) => (isActive ? 'active' : '')}>
-                      <span>🎓 Academic Courses (B.Sc &amp; GNM)</span>
+                      <span>🎓 Academic Programs (7 Courses)</span>
                     </NavLink>
                   </li>
                   <li>
@@ -241,7 +276,7 @@ export default function Navbar() {
                     <span>9512592211</span>
                   </a>
                   <a
-                    href="https://wa.me/919512592211?text=Hello%20Smt.%20M.%20C.%20Vasantha%20College%20of%20Nursing,%20I%20would%20like%20to%20enquire%20about%20admissions%20for%202026-27."
+                    href="https://wa.me/919512592211?text=Hello%20VASANTHA%20GROUP%20OF%20EDUCATION,%20I%20would%20like%20to%20enquire%20about%20admissions%20for%202026-27."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mobile-contact-pill whatsapp"

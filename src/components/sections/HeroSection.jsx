@@ -17,7 +17,7 @@ export default function HeroSection() {
   const handleOpenCampusImage = () => {
     openLightbox(
       '/images/college_building.png',
-      'Smt. M. C. Vasantha College of Nursing - Official Campus Elevation (Shahpur Gate, Bidar)',
+      'VASANTHA GROUP OF EDUCATION - Official Campus Elevation (Naubad-bhalki Road, Naubad Karnataka 585402)',
       'Official College Building'
     );
   };
@@ -36,18 +36,18 @@ export default function HeroSection() {
               </span>
               <span className="badge-admissions-title">Admissions Open 2026–27</span>
               <span className="badge-bullet">•</span>
-              <span className="badge-courses-highlight">B.Sc. Nursing &amp; GNM</span>
-              <span className="badge-pill-pill">No NEET Required</span>
-              <span className="badge-estd-tag">ESTD. 1991</span>
+              <span className="badge-courses-highlight">Nursing • Pharmacy • Physiotherapy • B.Ed</span>
+              <span className="badge-pill-pill">Merit Admissions</span>
+              <span className="badge-estd-tag">ESTD. 1984</span>
             </div>
 
             <h1 className="hero-title">
-              Learn Nursing.{' '}
+              Excellence in Healthcare &amp; Education.{' '}
               <span className="title-red">Build a Career That Matters.</span>
             </h1>
 
             <p className="hero-description">
-              Develop clinical excellence through bedside hospital rotations at affiliated <strong>750+ Bedded BRIMS Teaching Hospital</strong>, high-fidelity clinical simulation laboratories, and dedicated NCLEX &amp; placement mentorship.
+              Pioneering educational institution offering <strong>Nursing, Pharmacy, Physiotherapy &amp; Teacher Education</strong> with bedside clinical rotations at affiliated <strong>750+ Bedded BRIMS Teaching Hospital</strong>, high-tech laboratories, and dedicated career placement support.
             </p>
 
             {/* Symmetrical 2x2 Clinical Feature Matrix */}
@@ -146,7 +146,7 @@ export default function HeroSection() {
             <div
               className="hero-campus-card"
               onClick={handleOpenCampusImage}
-              title="Click to view high-resolution campus photo"
+              aria-label="View high-resolution official campus photograph"
               role="button"
               tabIndex={0}
               onKeyDown={(e) => {
@@ -158,7 +158,7 @@ export default function HeroSection() {
               <div className="hero-campus-image-frame">
                 <img
                   src="/images/college_building.png"
-                  alt="Smt. M. C. Vasantha College of Nursing Official Campus Building in Bidar"
+                  alt="VASANTHA GROUP OF EDUCATION Official Campus Building in Bidar"
                   className="hero-college-full-image"
                   loading="eager"
                   fetchPriority="high"
@@ -168,11 +168,11 @@ export default function HeroSection() {
               <div className="hero-campus-caption-strip">
                 <div className="caption-tag-left">
                   <span className="caption-live-dot" aria-hidden="true"></span>
-                  <span className="caption-title">Smt. M. C. Vasantha College of Nursing</span>
+                  <span className="caption-title">VASANTHA GROUP OF EDUCATION</span>
                   <span className="caption-badge">Bidar Campus</span>
                 </div>
                 <div className="caption-tag-right">
-                  <span>Shahpur Gate, Bidar • ESTD. 1991</span>
+                  <span>Naubad, Karnataka • ESTD. 1984</span>
                 </div>
               </div>
             </div>

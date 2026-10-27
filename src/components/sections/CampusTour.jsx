@@ -6,10 +6,10 @@ const tourSpots = [
     id: 'campus',
     title: 'Main Academic Complex & Front Elevation',
     shortTitle: 'Academic Complex',
-    category: 'Shahpur Gate Campus',
+    category: 'Naubad Campus',
     badge: '3-Storey Facility',
     image: '/images/college_building.png',
-    caption: 'Official front elevation of Smt. M. C. Vasantha College of Nursing on Shahpur Gate Gunnalli Road, Bidar.',
+    caption: 'Official front elevation of VASANTHA GROUP OF EDUCATION on Naubad-bhalki Road, Naubad Karnataka 585402.',
     description: 'Purpose-built 3-storey health sciences educational complex featuring spacious ventilated lecture halls, digital demonstration theatres, administrative chambers, and serene green campus environs.',
     metrics: [
       { label: 'Infrastructure', val: '3-Storey' },
@@ -125,7 +125,7 @@ export default function CampusTour() {
             Explore Our Campus &amp; <span>Clinical Infrastructure</span>
           </h2>
           <p className="virtual-tour-subheading">
-            Take an interactive visual walk-through of our 3-storey Shahpur Gate campus, advanced clinical demonstration labs, affiliated 750+ bedded BRIMS teaching hospital, and secure residential life in Bidar.
+            Take an interactive visual walk-through of our 3-storey Naubad campus, advanced clinical demonstration labs, affiliated 750+ bedded BRIMS teaching hospital, and secure residential life in Bidar.
           </p>
         </div>
 
@@ -356,7 +356,7 @@ export default function CampusTour() {
               </svg>
             </div>
             <div>
-              <div className="tour-trust-card-title">Shahpur Gate Campus</div>
+              <div className="tour-trust-card-title">Naubad Campus</div>
               <div className="tour-trust-card-desc">3-Storey modern health sciences educational complex in Bidar.</div>
             </div>
           </div>

@@ -13,7 +13,7 @@ export default function ApprovalsSection() {
             Institutional <span>Approvals &amp; Recognitions</span>
           </h2>
           <p className="approvals-sub-p">
-            Smt. M. C. Vasantha College of Nursing operates with full statutory approvals, legal authorizations,
+            VASANTHA GROUP OF EDUCATION operates with full statutory approvals, legal authorizations,
             and academic affiliations from Rajiv Gandhi University of Health Sciences (RGUHS), Indian Nursing Council (INC),
             Karnataka State Nursing Council (KSNC), and the Government of Karnataka.
           </p>

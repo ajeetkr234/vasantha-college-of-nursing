@@ -15,7 +15,7 @@ export default function FinalAdmissionsCta() {
                 ADMISSIONS OPEN • 2026–27 ACADEMIC SESSION
               </span>
             </div>
-            <h4>Begin Your Nursing Career at Smt. M. C. Vasantha College of Nursing</h4>
+            <h4>Begin Your Healthcare Career at VASANTHA GROUP OF EDUCATION</h4>
             <p>
               Admissions Open for <strong>B.Sc. Nursing (4-Year Degree)</strong> and <strong>GNM (3-Year Diploma)</strong>. 
               Recognised by the Government of Karnataka, KSNC, Indian Nursing Council (INC New Delhi) &amp; affiliated to RGUHS Bangalore with 100% clinical hospital training.

@@ -141,8 +141,8 @@ export const facilitiesData = [
     categoryLabel: 'Student Facilities',
     img: '/images/college_building.jpg',
     beds: 'Green Campus',
-    specs: 'Shahpur Gate, Bidar',
-    desc: 'Peaceful, pollution-free, green campus setting situated at Shahpur Gate Gunnalli Road, Bidar, providing a serene and focused educational environment for healthcare professionals.',
+    specs: 'Naubad-bhalki Road, Naubad Karnataka 585402',
+    desc: 'Peaceful, pollution-free, green campus setting situated at Naubad-bhalki Road, Naubad Karnataka 585402, providing a serene and focused educational environment for healthcare professionals.',
     keyPoints: [
       'Serene, distraction-free environment conducive to learning',
       'Lush green landscape with open-air relaxation courtyards',

@@ -14,7 +14,7 @@ export default function AdmissionStrip() {
             onClick={() =>
               openLightbox(
                 '/images/college_banner.png',
-                'Smt. M. C. Vasantha College of Nursing - Official Banner & Leadership',
+                'VASANTHA GROUP OF EDUCATION - Official Banner & Leadership',
                 'Official Institutional Banner'
               )
             }
@@ -25,7 +25,7 @@ export default function AdmissionStrip() {
               if (e.key === 'Enter' || e.key === ' ') {
                 openLightbox(
                   '/images/college_banner.png',
-                  'Smt. M. C. Vasantha College of Nursing - Official Banner & Leadership',
+                  'VASANTHA GROUP OF EDUCATION - Official Banner & Leadership',
                   'Official Institutional Banner'
                 );
               }
@@ -33,7 +33,7 @@ export default function AdmissionStrip() {
           >
             <img
               src="/images/college_banner.png"
-              alt="Smt. M. C. Vasantha College of Nursing Official Banner - Featuring Chairman Dr. Chandrakant M. Gaddagi & Principal Dr. Chinnamma C. Gaddagi"
+              alt="VASANTHA GROUP OF EDUCATION Official Banner - Featuring Chairman Shri Chandrakant Gadaggi & Principal Dr. Chinnamma C. Gadaggi"
               className="landing-banner-img"
               loading="eager"
             />

@@ -3,12 +3,22 @@ import { useModal } from '../context/ModalContext';
 
 export default function FloatingActions() {
   const [showBackTop, setShowBackTop] = useState(false);
+  const [showJumpFooter, setShowJumpFooter] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
   const { openApplyModal } = useModal();
 
   useEffect(() => {
     const handleScroll = () => {
-      setShowBackTop(window.scrollY > 300);
+      const scrollY = window.scrollY;
+      const windowH = window.innerHeight;
+      const docH = document.documentElement.scrollHeight || document.body.scrollHeight;
+
+      const scrolled = scrollY > 200;
+      setHasScrolled(scrolled);
+      setShowBackTop(scrollY > 250);
+      setShowJumpFooter(scrolled && scrollY + windowH < docH - 450);
     };
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -21,12 +31,28 @@ export default function FloatingActions() {
     });
   };
 
+  const scrollToFooter = () => {
+    const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const footer = document.getElementById('footer') || document.querySelector('footer');
+    if (footer) {
+      footer.scrollIntoView({ behavior: isReducedMotion ? 'auto' : 'smooth' });
+    } else {
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: isReducedMotion ? 'auto' : 'smooth'
+      });
+    }
+  };
+
   return (
     <>
-      {/* Desktop Floating Actions Bar (WhatsApp, Call, Back to Top) */}
-      <aside className="floating-actions-bar desktop-floating-actions" aria-label="Desktop Quick Actions">
+      {/* Desktop & Tablet Floating Actions Bar */}
+      <aside
+        className={`floating-actions-bar desktop-floating-actions ${hasScrolled ? 'floating-actions-visible' : ''}`}
+        aria-label="Quick Actions"
+      >
         <a
-          href="https://wa.me/919512592211?text=Hello%20Smt.%20M.%20C.%20Vasantha%20College%20of%20Nursing,%20I%20would%20like%20to%20enquire%20about%20admissions%20for%202026-27."
+          href="https://wa.me/919512592211?text=Hello%20VASANTHA%20GROUP%20OF%20EDUCATION,%20I%20would%20like%20to%20enquire%20about%20admissions%20for%202026-27."
           target="_blank"
           rel="noopener noreferrer"
           className="float-btn float-whatsapp"
@@ -51,6 +77,22 @@ export default function FloatingActions() {
           <span>Call Desk</span>
         </a>
 
+        {showJumpFooter && (
+          <button
+            className="float-btn float-footer"
+            id="jumpToFooterBtn"
+            aria-label="Jump directly to footer section"
+            title="Jump to Footer & Contact"
+            type="button"
+            onClick={scrollToFooter}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+            <span>To Footer</span>
+          </button>
+        )}
+
         <button
           className={`float-back-top ${showBackTop ? 'visible' : ''}`}
           id="backToTopBtn"
@@ -65,22 +107,40 @@ export default function FloatingActions() {
         </button>
       </aside>
 
-      {/* Mobile Floating Back To Top Button */}
-      <button
-        type="button"
-        className={`mobile-float-back-top ${showBackTop ? 'visible' : ''}`}
-        aria-label="Scroll back to top"
-        onClick={scrollToTop}
-      >
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" aria-hidden="true">
-          <polyline points="18 15 12 9 6 15" />
-        </svg>
-      </button>
+      {/* Mobile Floating Scroll Navigation (Scroll to Top & Jump to Footer) */}
+      <div className="mobile-float-nav-stack" aria-label="Quick Page Scroll Controls">
+        {showJumpFooter && (
+          <button
+            type="button"
+            className="mobile-float-scroll-btn mobile-float-footer visible"
+            aria-label="Scroll straight to footer"
+            title="Jump to Footer"
+            onClick={scrollToFooter}
+          >
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+            <span className="mobile-scroll-badge">Footer</span>
+          </button>
+        )}
+
+        <button
+          type="button"
+          className={`mobile-float-scroll-btn mobile-float-back-top ${showBackTop ? 'visible' : ''}`}
+          aria-label="Scroll back to top"
+          title="Back to Top"
+          onClick={scrollToTop}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" aria-hidden="true">
+            <polyline points="18 15 12 9 6 15" />
+          </svg>
+        </button>
+      </div>
 
       {/* Feature 3: Mobile Sticky Action Dock (WhatsApp • Call • Apply) */}
       <nav className="mobile-sticky-action-dock" aria-label="Mobile Quick Action Dock">
         <a
-          href="https://wa.me/919512592211?text=Hello%20Smt.%20M.%20C.%20Vasantha%20College%20of%20Nursing,%20I%20would%20like%20to%20enquire%20about%20admissions%20for%202026-27."
+          href="https://wa.me/919512592211?text=Hello%20VASANTHA%20GROUP%20OF%20EDUCATION,%20I%20would%20like%20to%20enquire%20about%20admissions%20for%202026-27."
           target="_blank"
           rel="noopener noreferrer"
           className="dock-item dock-whatsapp"
