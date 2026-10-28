@@ -47,7 +47,7 @@ export default function HeroSection() {
             </h1>
 
             <p className="hero-description">
-              Pioneering educational institution offering <strong>Nursing, Pharmacy, Physiotherapy &amp; Teacher Education</strong> with bedside clinical rotations at affiliated <strong>750+ Bedded BRIMS Teaching Hospital</strong>, high-tech laboratories, and dedicated career placement support.
+              Pioneering educational institution offering <strong>Nursing, Pharmacy, Physiotherapy &amp; Teacher Education</strong> with bedside clinical rotations at our <strong>50-Bedded Attached Hospital</strong>, Medical Laboratory, CT Scan Center, Cancer Diagnostic Center, and dedicated career placement support.
             </p>
 
             {/* Symmetrical 2x2 Clinical Feature Matrix */}
@@ -59,8 +59,8 @@ export default function HeroSection() {
                   </svg>
                 </div>
                 <div className="feature-text-block">
-                  <strong className="feature-title">750+ Bed Clinical Postings</strong>
-                  <span className="feature-sub">Affiliated BRIMS Teaching Hospital</span>
+                  <strong className="feature-title">50-Bed Attached Hospital</strong>
+                  <span className="feature-sub">Attached with Vasantha College</span>
                 </div>
               </div>
 
@@ -71,33 +71,35 @@ export default function HeroSection() {
                   </svg>
                 </div>
                 <div className="feature-text-block">
-                  <strong className="feature-title">6 Clinical Simulation Labs</strong>
-                  <span className="feature-sub">Foundations, Maternity &amp; Child Health</span>
+                  <strong className="feature-title">Medical Laboratory</strong>
+                  <span className="feature-sub">Automated Pathology &amp; Diagnostics</span>
                 </div>
               </div>
 
               <div className="hero-feature-card">
-                <div className="feature-icon-circle nclex">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                </div>
-                <div className="feature-text-block">
-                  <strong className="feature-title">100% Placement &amp; NCLEX</strong>
-                  <span className="feature-sub">Reciprocity in UK, Gulf, USA &amp; India</span>
-                </div>
-              </div>
-
-              <div className="hero-feature-card">
-                <div className="feature-icon-circle hostel">
+                <div className="feature-icon-circle cancer" style={{ background: '#eff6ff', color: '#1d4ed8' }}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true">
-                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <circle cx="12" cy="12" r="6"></circle>
+                    <circle cx="12" cy="12" r="2"></circle>
                   </svg>
                 </div>
                 <div className="feature-text-block">
-                  <strong className="feature-title">Safe Girls Hostel &amp; Mess</strong>
-                  <span className="feature-sub">24/7 CCTV, Dining &amp; Resident Warden</span>
+                  <strong className="feature-title">CT Scan &amp; Cancer Center</strong>
+                  <span className="feature-sub">Specialized Diagnostics &amp; Imaging</span>
+                </div>
+              </div>
+
+              <div className="hero-feature-card">
+                <div className="feature-icon-circle placement">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                </div>
+                <div className="feature-text-block">
+                  <strong className="feature-title">Placement Assistance</strong>
+                  <span className="feature-sub">Top Hospital Networks &amp; Guidance</span>
                 </div>
               </div>
             </div>

@@ -76,6 +76,31 @@ const leadershipData = [
     actionClass: 'vice-principal',
     actionText: "Read Principal's Message",
     actionAria: "Read Principal Dr. Dinesh Joy's full message"
+  },
+  {
+    id: 'coordinator',
+    roleKicker: 'Admission Coordinator',
+    roleChipClass: 'royal-blue',
+    name: 'Dr. Bhuleshwar Patel',
+    degrees: 'Admission Coordinator, Higher Education Visionary',
+    designation: 'Vasantha Group of Education',
+    milestonePill: '🌱 15+ Years Higher Education & Guidance',
+    milestoneClass: 'blue',
+    photo: '/images/provost_dr_bhuleshwar_patel.jpg',
+    alt: 'Dr. Bhuleshwar Patel - Admission Coordinator',
+    photoClass: 'provost-photo',
+    cardClass: 'provost-card coordinator-card',
+    quoteBoxBorder: '#2563eb',
+    quoteBoxBg: '#eff6ff',
+    quoteIconColor: '#1d4ed8',
+    quoteTextColor: '#1e3a8a',
+    quote:
+      '“We adapt to emerging healthcare pedagogy and student aspirations, providing transparent merit counseling, comprehensive academic guidance, and vibrant career opportunities for aspiring nursing professionals.”',
+    pillars: ['Academic Guidance & Counseling', 'Scholarship & Merit Support'],
+    actionLink: '/about#admission-coordinator-message',
+    actionClass: 'provost',
+    actionText: "Read Coordinator's Message",
+    actionAria: "Read Admission Coordinator Dr. Bhuleshwar Patel's full message"
   }
 ];
 
@@ -214,7 +239,7 @@ export default function LeadershipSection() {
             Guiding Our Institution with <span>43+ Years of Excellence</span>
           </h2>
           <p className="leadership-sub-p">
-            Under the visionary stewardship of our Founder &amp; Chairman, the dynamic guidance of our Group Head &amp; Director, and the dedicated academic leadership of our Principal, Vasantha Group Educational Campus has grown as a sturdy banyan tree shaping ethical leaders for healthcare globally.
+            Under the visionary stewardship of our Founder &amp; Chairman, the dynamic guidance of our Group Head &amp; Director, the dedicated academic leadership of our Principal, and strategic student guidance by our Admission Coordinator, Vasantha Group Educational Campus has grown as a sturdy banyan tree shaping ethical leaders for healthcare globally.
           </p>
         </div>
 

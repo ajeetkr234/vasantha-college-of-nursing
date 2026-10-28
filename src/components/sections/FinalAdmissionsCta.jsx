@@ -25,13 +25,13 @@ export default function FinalAdmissionsCta() {
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                750+ Bedded BRIMS Teaching Hospital
+                50-Bedded Attached Hospital
               </span>
               <span className="cta-banner-mini-pill">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                Safe Campus Hostels &amp; Transport
+                Medical Lab, CT Scan &amp; Cancer Center
               </span>
               <span className="cta-banner-mini-pill">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">

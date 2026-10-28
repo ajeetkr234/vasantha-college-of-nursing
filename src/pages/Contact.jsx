@@ -243,7 +243,7 @@ export default function Contact() {
                 Admission &amp; General Enquiries
               </h3>
               <p className="contact-form-sub">
-                Have questions about eligibility, course fees, hostel or hospital postings? Send us a message below.
+                Have questions about eligibility, course fees, or hospital postings? Send us a message below.
               </p>
 
               <form id="contactForm" onSubmit={handleSubmit} noValidate>
@@ -410,7 +410,7 @@ export default function Contact() {
                   Schedule a Personal Campus Tour
                 </h4>
                 <p className="campus-tour-desc">
-                  Experience our high-fidelity simulation labs, classrooms, anatomy museum, and girls hostel in person. Parents and guardians are warmly welcomed.
+                  Experience our high-fidelity simulation labs, classrooms, anatomy museum, and 50-bedded attached hospital in person. Parents and guardians are warmly welcomed.
                 </p>
                 <button
                   className="btn-card-apply-red"

@@ -278,11 +278,11 @@ export const faqsData = [
   },
   {
     q: 'Where do students undergo clinical hospital training and rotations?',
-    a: 'Health sciences students (Nursing, Pharmacy, Physiotherapy) undergo comprehensive clinical training at our affiliated 750+ bed BRIMS District Government Teaching Hospital in Bidar, along with rotations in super-specialty partner hospitals covering Intensive Care (ICU/CCU), Emergency & Trauma, Operation Theatres, Pediatrics, and Outpatient Rehabilitation Clinics.'
+    a: 'Health sciences students (Nursing, Pharmacy, Physiotherapy) undergo comprehensive clinical training at our 50-Bedded Hospital attached directly with Vasantha College, equipped with an advanced Medical Laboratory, CT Scan Center, and Cancer Diagnostic Center, along with bedside rotations across ICU/CCU, Emergency & Trauma, Operation Theatres, Pediatrics, and Outpatient Clinics.'
   },
   {
-    q: 'Are hostel and dining facilities available for outstation students?',
-    a: 'Yes. VASANTHA GROUP OF EDUCATION provides safe, on-campus residential hostel facilities specifically designed for female students. The hostel features 24/7 CCTV surveillance, a dedicated resident warden, disciplined security, continuous water and power backup, hygienic dining mess providing nutritious meals, and quiet study halls.'
+    q: 'What clinical facilities and diagnostic centers are available on campus?',
+    a: 'VASANTHA GROUP OF EDUCATION features a 50-Bedded Hospital directly attached with the college campus, along with a fully automated Medical Laboratory for pathology and biochemistry, a high-speed CT Scan Center, and a dedicated Cancer Diagnostic Center for immediate bedside learning and patient care.'
   },
   {
     q: 'What placement and career support does the group provide?',

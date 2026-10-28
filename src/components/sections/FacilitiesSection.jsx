@@ -45,7 +45,7 @@ export default function FacilitiesSection() {
         <div className="section-title-with-badge">
           <div>
             <div className="tag-red-caps">INFRASTRUCTURE &amp; CLINICAL LABS</div>
-            <h2 className="section-title-styled" style={{ margin: 0, textAlign: 'left' }}>
+            <h2 className="section-title-styled">
               Campus Facilities &amp; <span>Clinical Infrastructure</span>
             </h2>
           </div>
@@ -152,9 +152,9 @@ export default function FacilitiesSection() {
             </svg>
           </div>
           <div className="callout-text-col">
-            <h4 className="callout-heading">750+ Bedded BRIMS District Teaching Hospital Affiliation</h4>
+            <h4 className="callout-heading">50-Bedded Hospital Attached with Vasantha College</h4>
             <p className="callout-desc">
-              All students undergo structured clinical postings across ICU, CCU, Emergency Trauma, OT, Maternal-Child Hospital (250+ Beds), and primary healthcare centers under senior clinical mentors.
+              All students undergo structured bedside clinical postings directly at our 50-bedded attached hospital equipped with modern Medical Laboratory, CT Scan Center, and Cancer Diagnostic Center.
             </p>
           </div>
           <Link to="/clinical-training" className="btn-callout-link" aria-label="View complete clinical rotation syllabus">

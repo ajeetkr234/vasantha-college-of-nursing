@@ -42,15 +42,15 @@ export default function ClinicalRoadmap() {
       shortFocus: 'Med-Surg Wards',
       badge: 'Year 2 • Clinical Rotations Milestone',
       title: 'Medical-Surgical Nursing & Bedside Hospital Training',
-      desc: 'Students transition into regular bedside rotations at our 750+ bed affiliated BRIMS District Government Teaching Hospital in Bidar.',
+      desc: 'Students transition into regular bedside rotations at our 50-bedded hospital attached directly with Vasantha College, with access to Medical Laboratory, CT Scan Center, and Cancer Diagnostic Center.',
       points: [
         {
-          head: 'BRIMS Teaching Hospital Rotations:',
-          text: 'Direct bedside patient nursing across General Medicine, Surgery, and Orthopedic wards.'
+          head: '50-Bed Attached Hospital Rotations:',
+          text: 'Direct bedside patient nursing across General Medicine, Surgery, and diagnostic units.'
         },
         {
           head: 'Pharmacology & Pathology:',
-          text: 'Applying medication safety protocols, IV cannulation, dosage calculations, and diagnostic interpretation.'
+          text: 'Applying medication safety protocols, IV cannulation, dosage calculations, and diagnostic interpretation in the Medical Lab.'
         },
         {
           head: 'Pre & Post-Operative Nursing:',
@@ -58,8 +58,8 @@ export default function ClinicalRoadmap() {
         }
       ],
       img: '/images/hospital_postings.jpg',
-      alt: 'Year 2 Hospital Ward Rotations at BRIMS',
-      tag: '750+ Bedded Teaching Hospital',
+      alt: 'Year 2 Hospital Ward Rotations at Attached Hospital',
+      tag: '50-Bed Attached Hospital',
       caption: 'Direct Bedside Patient Encounters & Clinical Rounds',
       ctaText: 'View Clinical Training Details',
       ctaLink: '/clinical-training'

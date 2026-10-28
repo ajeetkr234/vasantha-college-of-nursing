@@ -107,7 +107,7 @@ export default function About() {
             </article>
           </div>
 
-          {/* SECTION: INSTITUTIONAL LEADERSHIP (3 DESKS: FOUNDER & CHAIRMAN, PRINCIPAL, VICE PRINCIPAL) */}
+          {/* SECTION: INSTITUTIONAL LEADERSHIP (4 DESKS: FOUNDER & CHAIRMAN, GROUP HEAD & DIRECTOR, PRINCIPAL, ADMISSION COORDINATOR) */}
           <section className="section-leadership-messages" id="leadership-messages" aria-label="Institutional Leadership Messages">
             
             {/* Leadership Section Header */}
@@ -365,123 +365,7 @@ export default function About() {
                 </button>
               </article>
 
-              {/* DESK 3: COLLEGE PROVOST */}
-              <article
-                className="leader-col-card provost-theme"
-                id="provost-message"
-                style={{ minWidth: 0, width: '100%', boxSizing: 'border-box', position: 'relative' }}
-              >
-                {/* Profile Header Row */}
-                <div className="leader-col-header">
-                  <div className="leader-col-photo-frame blue-border">
-                    <img
-                      src="/images/provost_dr_bhuleshwar_patel.jpg?v=20261027_v1"
-                      alt="Dr. Bhuleshwar Patel - Provost, Smt. M. C. Vasantha College of Nursing"
-                    />
-                  </div>
-                  <div className="leader-col-meta">
-                    <span className="leader-role-chip royal-blue">
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM3.45 9L12 4.33 20.55 9 12 13.67 3.45 9zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z" />
-                      </svg>
-                      College Provost
-                    </span>
-                    <h3 className="leader-col-name">Dr. Bhuleshwar Patel</h3>
-                    <span className="leader-col-degree blue">Provost, Higher Education &amp; Research Visionary</span>
-                    <p className="leader-col-trust">
-                      VASANTHA GROUP OF EDUCATION
-                      <br />
-                      <span style={{ fontSize: '0.72rem', color: 'var(--text-sub)' }}>Academic &amp; Research Governance</span>
-                    </p>
-                    <span className="leader-col-milestone-pill blue">
-                      🌱 15+ Years Higher Education &amp; Research
-                    </span>
-                  </div>
-                </div>
-
-                {/* Featured Quote Callout */}
-                <blockquote className="leader-col-quote blue">
-                  <p>
-                    “We, at Smt. M. C. Vasantha College of Nursing, Bidar (Vasantha Group of Education), have quickly adapted to the emerging pedagogy and have continued our attempts to promote Higher education in the Allied Health sciences, Nursing and Pharmacy areas with focus on profound research. Further, to achieve our aim, we have strived to establish a regional model of higher education laced with an international competitive ecosystem.”
-                  </p>
-                  <cite>— Dr. Bhuleshwar Patel, Provost</cite>
-                </blockquote>
-
-                {/* Body Content & Preview */}
-                <div className="leader-col-body">
-                  <p>
-                    Dr. Bhuleshwar Patel is a Visionary, philanthropist and social worker who has been working in the field of Higher education studies, Tribal youth development, Rural livelihood, women empowerment, and upliftment of backward class and BPL families through quality and sustainable education for the last fifteen years.
-                  </p>
-
-                  {/* Expandable Section */}
-                  {provostExpanded && (
-                    <div className="leader-expandable-content animate-fade-in">
-                      <p>
-                        We have the requisite intellectual and physical infrastructure that supports the College to emerge as a leading citadel in the arena of higher education. The College has inviting ambience for academically committed and passionately creative people. Here, the faculty is highly qualified and equally passionate to nurture the creativity and innovation of young minds. At the same time, there is an urge at the student's end to match their steps with the rigors taken by the college for the healthy and overall development of self and humanity at large.
-                      </p>
-                      <p>
-                        We take pride in our innovative teaching-learning practices, flexible academic structure customizable as per the need of our students amalgamating internship program, thesis/dissertation, entrepreneurial projects and social outreach programmes. This enables us to produce graduates who are industry &amp; research ready with humanity serving skills &amp; zeal.
-                      </p>
-                      <p>
-                        Additionally, a healthy mix of co-curricular &amp; extra-curricular activities like club activities, general knowledge, speed typing, writing competency, interview training, standard practice instructions for students and faculties, sports competition, social initiative programs &amp; the likes are observed on campus for the holistic development of students.
-                      </p>
-
-                      {/* 3 Provost Highlights */}
-                      <div className="leader-mini-highlights-grid">
-                        <div className="leader-mini-pill">
-                          <span className="mini-icon">🔬</span>
-                          <div>
-                            <strong>Profound Research</strong>
-                            <small>Allied Health, Nursing &amp; Pharmacy</small>
-                          </div>
-                        </div>
-                        <div className="leader-mini-pill">
-                          <span className="mini-icon">🌐</span>
-                          <div>
-                            <strong>Global Pedagogy</strong>
-                            <small>International competitive ecosystem</small>
-                          </div>
-                        </div>
-                        <div className="leader-mini-pill">
-                          <span className="mini-icon">🌱</span>
-                          <div>
-                            <strong>Empowerment &amp; Outreach</strong>
-                            <small>Inclusive sustainable education</small>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Signature */}
-                      <div className="leader-col-signature">
-                        <div>
-                          <div className="sig-bless">With Visionary Leadership &amp; Warmth,</div>
-                          <strong className="sig-name">Dr. Bhuleshwar Patel</strong>
-                          <div className="sig-title">Provost, Smt. M. C. Vasantha College of Nursing</div>
-                        </div>
-                        <div className="sig-seal">
-                          <img src="/images/logo.svg" alt="College Crest" />
-                          <span>Vasantha Group</span>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* Read More / Show Less Button */}
-                <button
-                  type="button"
-                  className={`btn-readmore-toggle ${provostExpanded ? 'is-expanded' : ''}`}
-                  onClick={() => setProvostExpanded(!provostExpanded)}
-                  aria-expanded={provostExpanded}
-                >
-                  <span>{provostExpanded ? 'Show Less' : 'Read Full Message'}</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <polyline points="6 9 12 15 18 9"></polyline>
-                  </svg>
-                </button>
-              </article>
-
-              {/* DESK 4: PRINCIPAL */}
+              {/* DESK 3: PRINCIPAL */}
               <article
                 className="leader-col-card vice-principal-theme"
                 id="principal-message"
@@ -598,6 +482,123 @@ export default function About() {
                 </button>
               </article>
 
+              {/* DESK 4: ADMISSION COORDINATOR */}
+              <article
+                className="leader-col-card provost-theme"
+                id="admission-coordinator-message"
+                style={{ minWidth: 0, width: '100%', boxSizing: 'border-box', position: 'relative' }}
+              >
+                <span id="provost-message" style={{ position: 'absolute', top: '-100px', visibility: 'hidden' }} aria-hidden="true"></span>
+                {/* Profile Header Row */}
+                <div className="leader-col-header">
+                  <div className="leader-col-photo-frame blue-border">
+                    <img
+                      src="/images/provost_dr_bhuleshwar_patel.jpg?v=20261027_v1"
+                      alt="Dr. Bhuleshwar Patel - Admission Coordinator, Smt. M. C. Vasantha College of Nursing"
+                    />
+                  </div>
+                  <div className="leader-col-meta">
+                    <span className="leader-role-chip royal-blue">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM3.45 9L12 4.33 20.55 9 12 13.67 3.45 9zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z" />
+                      </svg>
+                      Admission Coordinator
+                    </span>
+                    <h3 className="leader-col-name">Dr. Bhuleshwar Patel</h3>
+                    <span className="leader-col-degree blue">Admission Coordinator &amp; Higher Education Visionary</span>
+                    <p className="leader-col-trust">
+                      VASANTHA GROUP OF EDUCATION
+                      <br />
+                      <span style={{ fontSize: '0.72rem', color: 'var(--text-sub)' }}>Academic &amp; Admission Counseling</span>
+                    </p>
+                    <span className="leader-col-milestone-pill blue">
+                      🌱 15+ Years Higher Education &amp; Research
+                    </span>
+                  </div>
+                </div>
+
+                {/* Featured Quote Callout */}
+                <blockquote className="leader-col-quote blue">
+                  <p>
+                    “We, at Smt. M. C. Vasantha College of Nursing, Bidar (Vasantha Group of Education), have quickly adapted to the emerging pedagogy and have continued our attempts to promote Higher education in the Allied Health sciences, Nursing and Pharmacy areas with focus on profound research. Further, to achieve our aim, we have strived to establish a regional model of higher education laced with an international competitive ecosystem.”
+                  </p>
+                  <cite>— Dr. Bhuleshwar Patel, Admission Coordinator</cite>
+                </blockquote>
+
+                {/* Body Content & Preview */}
+                <div className="leader-col-body">
+                  <p>
+                    Dr. Bhuleshwar Patel is a Visionary, philanthropist and social worker who has been working in the field of Higher education studies, Tribal youth development, Rural livelihood, women empowerment, and upliftment of backward class and BPL families through quality and sustainable education for the last fifteen years.
+                  </p>
+
+                  {/* Expandable Section */}
+                  {provostExpanded && (
+                    <div className="leader-expandable-content animate-fade-in">
+                      <p>
+                        We have the requisite intellectual and physical infrastructure that supports the College to emerge as a leading citadel in the arena of higher education. The College has inviting ambience for academically committed and passionately creative people. Here, the faculty is highly qualified and equally passionate to nurture the creativity and innovation of young minds. At the same time, there is an urge at the student's end to match their steps with the rigors taken by the college for the healthy and overall development of self and humanity at large.
+                      </p>
+                      <p>
+                        We take pride in our innovative teaching-learning practices, flexible academic structure customizable as per the need of our students amalgamating internship program, thesis/dissertation, entrepreneurial projects and social outreach programmes. This enables us to produce graduates who are industry &amp; research ready with humanity serving skills &amp; zeal.
+                      </p>
+                      <p>
+                        Additionally, a healthy mix of co-curricular &amp; extra-curricular activities like club activities, general knowledge, speed typing, writing competency, interview training, standard practice instructions for students and faculties, sports competition, social initiative programs &amp; the likes are observed on campus for the holistic development of students.
+                      </p>
+
+                      {/* 3 Provost Highlights */}
+                      <div className="leader-mini-highlights-grid">
+                        <div className="leader-mini-pill">
+                          <span className="mini-icon">🔬</span>
+                          <div>
+                            <strong>Profound Research</strong>
+                            <small>Allied Health, Nursing &amp; Pharmacy</small>
+                          </div>
+                        </div>
+                        <div className="leader-mini-pill">
+                          <span className="mini-icon">🌐</span>
+                          <div>
+                            <strong>Global Pedagogy</strong>
+                            <small>International competitive ecosystem</small>
+                          </div>
+                        </div>
+                        <div className="leader-mini-pill">
+                          <span className="mini-icon">🌱</span>
+                          <div>
+                            <strong>Empowerment &amp; Outreach</strong>
+                            <small>Inclusive sustainable education</small>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Signature */}
+                      <div className="leader-col-signature">
+                        <div>
+                          <div className="sig-bless">With Visionary Leadership &amp; Warmth,</div>
+                          <strong className="sig-name">Dr. Bhuleshwar Patel</strong>
+                          <div className="sig-title">Admission Coordinator, Smt. M. C. Vasantha College of Nursing</div>
+                        </div>
+                        <div className="sig-seal">
+                          <img src="/images/logo.svg" alt="College Crest" />
+                          <span>Vasantha Group</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Read More / Show Less Button */}
+                <button
+                  type="button"
+                  className={`btn-readmore-toggle ${provostExpanded ? 'is-expanded' : ''}`}
+                  onClick={() => setProvostExpanded(!provostExpanded)}
+                  aria-expanded={provostExpanded}
+                >
+                  <span>{provostExpanded ? 'Show Less' : 'Read Full Message'}</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+              </article>
+
             </div>
           </section>
 
@@ -646,6 +647,10 @@ export default function About() {
                     <div className="faculty-pillar-chip">
                       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
                       <span>Multidisciplinary Research &amp; Holistic Programs (Nursing, Pharmacy, Physiotherapy &amp; Midwifery)</span>
+                    </div>
+                    <div className="faculty-pillar-chip">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span>50-Bedded Hospital Attached with Vasantha College (Medical Laboratory, CT Scan Center &amp; Cancer Diagnostic Center)</span>
                     </div>
                     <div className="faculty-pillar-chip">
                       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>

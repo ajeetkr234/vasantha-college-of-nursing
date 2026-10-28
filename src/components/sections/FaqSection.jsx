@@ -18,7 +18,7 @@ export default function FaqSection() {
               Frequently Asked <span>Questions</span>
             </h2>
             <p className="faq-intro-sub">
-              Essential guidance regarding recognized courses, clinical hospital postings, hostels, and 2026-27 admissions.
+              Essential guidance regarding recognized courses, clinical hospital postings, diagnostics, and 2026-27 admissions.
             </p>
           </div>
 

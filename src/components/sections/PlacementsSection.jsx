@@ -62,7 +62,7 @@ export default function PlacementsSection() {
         <div className="section-title-with-badge">
           <div>
             <div className="tag-red-caps">CAREER PATHWAYS</div>
-            <h2 className="section-title-styled" style={{ margin: 0, textAlign: 'left' }}>
+            <h2 className="section-title-styled">
               Our Recruiting <span>Hospital Partners</span>
             </h2>
           </div>

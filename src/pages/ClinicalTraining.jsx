@@ -6,6 +6,24 @@ import CampusTour from '../components/sections/CampusTour';
 
 const teachingHospitals = [
   {
+    id: 'vasantha-hospital',
+    name: '50-Bedded Hospital Attached with Vasantha College',
+    type: 'In-Campus Hospital & Advanced Diagnostics',
+    beds: '50 Beds Attached',
+    badgeTheme: 'crimson',
+    location: 'Vasantha Campus, Bidar',
+    leadSpec: 'Medical Laboratory, CT Scan Center & Cancer Diagnostic Center',
+    rotations: ['Medical Laboratory', 'CT Scan & Imaging', 'Cancer Diagnostic Unit', 'Inpatient Nursing Care', 'Day Care & Casualty'],
+    features: [
+      '50-Bedded hospital directly attached with Vasantha College campus for immediate bedside training',
+      'Advanced Medical Laboratory for automated biochemistry, pathology, and hematology investigations',
+      'High-speed CT Scan Center providing advanced computed tomography and imaging training',
+      'Specialized Cancer Diagnostic Center with oncology screening and early diagnostic infrastructure'
+    ],
+    accreditation: 'Attached Institutional Hospital • Vasantha Group',
+    tag: 'Attached Hospital'
+  },
+  {
     id: 'brims',
     name: 'District Teaching Hospital (BRIMS)',
     type: 'Autonomous Govt. Medical College',
@@ -107,11 +125,11 @@ const roadmapYears = [
     title: 'Medical-Surgical Nursing & Bedside Rotations',
     hours: '450+ Hospital Hours',
     badge: 'Year 2 • Hospital Inpatient Rotations',
-    venue: '750+ Bedded BRIMS District Teaching Hospital',
+    venue: '50-Bedded Hospital Attached with Vasantha College',
     img: '/images/hospital_postings.jpg',
-    tag: 'BRIMS Bedside',
+    tag: 'Attached Hospital',
     caption: 'Direct Bedside Patient Encounters & Clinical Rounds',
-    desc: 'Students transition into regular bedside patient rotations at our 750+ bed affiliated BRIMS District Government Teaching Hospital in Bidar across General Medicine, Surgery, and Orthopedic wards.',
+    desc: 'Students transition into regular bedside patient rotations at our 50-bedded hospital attached with Vasantha College, with direct learning in the Medical Laboratory, CT Scan Center, and Cancer Diagnostic Center.',
     competencies: [
       {
         title: 'Pre & Post-Operative Surgical Nursing',
@@ -332,8 +350,8 @@ export default function ClinicalTraining() {
                 </svg>
               </div>
               <div>
-                <div className="quick-pill-title">Hostel &amp; Mess</div>
-                <div className="quick-pill-sub">Safe, secure residential campus.</div>
+                <div className="quick-pill-title">CT Scan &amp; Cancer Center</div>
+                <div className="quick-pill-sub">Advanced diagnostic infrastructure.</div>
               </div>
             </div>
 
@@ -497,12 +515,29 @@ export default function ClinicalTraining() {
                 Key Affiliated Teaching Hospitals &amp; <span>Bed Capacity</span>
               </h2>
               <p className="facilities-header-sub">
-                Over 1,000+ total active hospital beds providing rigorous bedside clinical rotations across government medical colleges, super-specialty maternal centers, and community outreach stations in Bidar.
+                50-Bedded Hospital attached with Vasantha College featuring a dedicated Medical Laboratory, CT Scan Center, and Cancer Diagnostic Center, alongside 1,000+ total active clinical beds across affiliated government medical colleges and super-specialty hospitals in Bidar.
               </p>
             </div>
 
             {/* Network Metric Highlights Strip */}
             <div className="hosp-network-metrics-strip">
+              <div className="hosp-metric-pill">
+                <div className="hosp-metric-icon red">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
+                    <path d="M3 21h18"></path>
+                    <path d="M5 21V7l8-4v18"></path>
+                    <path d="M19 21V11l-6-4"></path>
+                    <path d="M9 9h1"></path>
+                    <path d="M9 13h1"></path>
+                    <path d="M9 17h1"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div className="hosp-metric-val">50-Bed Attached Hospital</div>
+                  <div className="hosp-metric-sub">Medical Lab, CT Scan &amp; Cancer Center</div>
+                </div>
+              </div>
+
               <div className="hosp-metric-pill">
                 <div className="hosp-metric-icon red">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">

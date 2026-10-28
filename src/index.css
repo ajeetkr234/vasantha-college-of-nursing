@@ -2358,6 +2358,14 @@ a {
   color: var(--crimson);
 }
 
+.leader-col-milestone-pill.blue {
+  color: #1d4ed8;
+}
+
+.leader-col-milestone-pill.emerald {
+  color: #047857;
+}
+
 /* Lead Quote Callout */
 .leader-col-quote {
   border-radius: 0 10px 10px 0;
@@ -12857,15 +12865,6 @@ input.is-valid {
     width: 14px !important;
     height: 14px !important;
   }
-  .mobile-float-scroll-btn.mobile-float-footer {
-    width: 34px !important;
-    height: 34px !important;
-    min-width: 34px !important;
-  }
-  .mobile-float-scroll-btn.mobile-float-footer svg {
-    width: 13px !important;
-    height: 13px !important;
-  }
 
   /* Compact Carousel Controls on 320px - 360px */
   .mobile-carousel-control-bar {
@@ -13340,6 +13339,230 @@ textarea:focus-visible,
 .btn-callout-link:hover {
   background-color: #F1F5F9;
   color: var(--crimson);
+}
+
+/* ==========================================================================
+   FEATURE: 50-BEDDED ATTACHED HOSPITAL & ADVANCED DIAGNOSTICS CARD
+   ========================================================================== */
+.attached-hospital-featured-card {
+  background: linear-gradient(135deg, #071e3d 0%, #0d2847 60%, #153e6d 100%);
+  border-radius: var(--radius-lg, 16px);
+  padding: 24px 28px;
+  color: #ffffff;
+  margin-bottom: 24px;
+  box-shadow: 0 12px 30px rgba(7, 30, 61, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+.attached-hospital-featured-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #c01823 0%, #f59e0b 50%, #3b82f6 100%);
+}
+
+.attached-hosp-top-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.attached-hosp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(192, 24, 35, 0.25);
+  border: 1px solid rgba(248, 113, 113, 0.4);
+  color: #fecaca;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+
+.attached-hosp-badge .live-indicator-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ef4444;
+  box-shadow: 0 0 8px #ef4444;
+}
+
+.attached-hosp-beds-tag {
+  background: rgba(245, 158, 11, 0.2);
+  border: 1px solid rgba(251, 191, 36, 0.45);
+  color: #fef08a;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  letter-spacing: 0.4px;
+}
+
+.attached-hosp-header-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.attached-hosp-icon-bubble {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fde047;
+  flex-shrink: 0;
+}
+
+.attached-hosp-title-group {
+  flex: 1;
+  min-width: 0;
+}
+
+.attached-hosp-main-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+  line-height: 1.25;
+}
+
+.attached-hosp-desc {
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.attached-diagnostic-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.diagnostic-unit-pill {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.diagnostic-unit-pill:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.28);
+  transform: translateY(-2px);
+}
+
+.diag-icon-bubble {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.diag-icon-bubble.lab {
+  background: rgba(59, 130, 246, 0.2);
+  color: #93c5fd;
+  border: 1px solid rgba(147, 197, 253, 0.3);
+}
+
+.diag-icon-bubble.scan {
+  background: rgba(16, 185, 129, 0.2);
+  color: #a7f3d0;
+  border: 1px solid rgba(167, 243, 208, 0.3);
+}
+
+.diag-icon-bubble.cancer {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+  border: 1px solid rgba(252, 165, 165, 0.3);
+}
+
+.diag-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.diag-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+}
+
+.diag-sub {
+  font-size: 0.75rem;
+  color: #cbd5e1;
+  line-height: 1.35;
+}
+
+@media (max-width: 900px) {
+  .attached-diagnostic-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .attached-hospital-featured-card {
+    padding: 18px 16px;
+  }
+  .attached-hosp-main-title {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .attached-hosp-header-row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+  .attached-hosp-main-title {
+    font-size: 1.05rem;
+    text-align: center;
+  }
+  .attached-hosp-desc {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .attached-hosp-top-banner {
+    justify-content: center;
+  }
+  .diagnostic-unit-pill {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+  .diag-name {
+    font-size: 0.88rem;
+  }
+  .diag-sub {
+    font-size: 0.72rem;
+  }
 }
 
 /* Hospital Partners Grid */
@@ -14786,100 +15009,15 @@ textarea:focus-visible,
 
 
 /* ==========================================================================
-   FEATURE 3: MOBILE STICKY ACTION DOCK (WHATSAPP, CALL, APPLY)
+   FEATURE 3: MOBILE STICKY ACTION DOCK (REPLACED WITH COMPACT FLOATING ACTIONS)
    ========================================================================== */
 .mobile-sticky-action-dock {
-  display: none;
+  display: none !important;
 }
 
 @media (max-width: 767px) {
-  body {
-    padding-bottom: 68px; /* Offset space so content isn't obscured by dock */
-  }
-
-  .desktop-floating-actions {
-    display: none !important;
-  }
-
   .mobile-sticky-action-dock {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr 1.3fr;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 64px;
-    background: rgba(255, 255, 255, 0.96);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-top: 1px solid #CBD5E1;
-    box-shadow: 0 -4px 16px rgba(16, 37, 65, 0.12);
-    z-index: 900;
-    padding: 0 8px;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .dock-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    height: 52px;
-    border-radius: var(--radius-sm);
-    text-decoration: none;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    padding: 2px 4px;
-    transition: transform 0.15s ease, background 0.15s ease;
-  }
-
-  .dock-item:active {
-    transform: scale(0.96);
-  }
-
-  .dock-icon-circle {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .dock-icon-circle.whatsapp {
-    background: #22C55E;
-    color: #FFFFFF;
-  }
-
-  .dock-icon-circle.call {
-    background: var(--navy-main);
-    color: #FFFFFF;
-  }
-
-  .dock-icon-circle.apply {
-    background: var(--crimson);
-    color: #FFFFFF;
-  }
-
-  .dock-label {
-    font-size: 0.68rem;
-    font-weight: 700;
-    color: #1E293B;
-    line-height: 1;
-    white-space: nowrap;
-  }
-
-  .dock-item.dock-apply {
-    background: #FFF1F2;
-    border: 1px solid #FECDD3;
-  }
-
-  .dock-item.dock-apply .dock-label {
-    color: var(--crimson);
-    font-weight: 800;
+    display: none !important;
   }
 
   /* Responsive floating proof badges on mobile */
@@ -15159,14 +15297,14 @@ textarea:focus-visible,
 
 .leadership-cards-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1200px) {
   .leadership-cards-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
+    gap: 16px;
   }
 }
 
@@ -15181,7 +15319,7 @@ textarea:focus-visible,
   background: #FFFFFF;
   border: 1.5px solid #E2E8F0;
   border-radius: var(--radius-lg);
-  padding: 22px 20px 20px;
+  padding: 20px 16px 18px;
   box-shadow: 0 4px 18px rgba(16, 37, 65, 0.05);
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   position: relative;
@@ -15226,6 +15364,17 @@ textarea:focus-visible,
   background: linear-gradient(90deg, #0284c7 0%, #10b981 100%);
 }
 
+.leadership-card-item.provost-card::before,
+.leadership-card-item.coordinator-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 100%);
+}
+
 .leadership-role-badge.vice-principal {
   background: #047857;
   color: #ffffff;
@@ -15256,17 +15405,17 @@ textarea:focus-visible,
 .leadership-card-header-row {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   margin-bottom: 12px;
   padding-bottom: 12px;
   border-bottom: 1px solid #f1f5f9;
 }
 
 .leadership-portrait-wrap {
-  width: 120px;
-  min-width: 120px;
-  max-width: 120px;
-  height: 150px;
+  width: 104px;
+  min-width: 104px;
+  max-width: 104px;
+  height: 130px;
   aspect-ratio: 4 / 5;
   border-radius: 12px;
   overflow: hidden;
@@ -18583,86 +18732,8 @@ img, video, iframe {
   background: var(--crimson, #be123c);
 }
 
-/* ==========================================================================
-   FLOATING DUAL SCROLL CONTROLS (Top & Footer)
-   ========================================================================== */
-.float-btn.float-footer {
-  background: #be123c;
-  color: #ffffff;
-}
-
-.float-btn.float-footer:hover {
-  background: #9f1239;
-  transform: translateY(-2px);
-}
-
 .mobile-float-nav-stack {
-  display: none;
-}
-
-@media (max-width: 767px) {
-  .mobile-float-nav-stack {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    position: fixed;
-    bottom: 72px;
-    right: 12px;
-    z-index: 999;
-  }
-
-  .mobile-float-scroll-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
-    transition: all 0.22s ease;
-    border: 1.5px solid rgba(255, 255, 255, 0.35);
-  }
-
-  .mobile-float-scroll-btn.mobile-float-back-top {
-    width: 38px;
-    height: 38px;
-    background: rgba(16, 37, 65, 0.94);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    color: #ffffff;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(6px);
-  }
-
-  .mobile-float-scroll-btn.mobile-float-back-top.visible {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-  }
-
-  .mobile-float-scroll-btn.mobile-float-footer {
-    width: 44px;
-    height: 44px;
-    border-radius: 9999px;
-    background: #be123c;
-    color: #ffffff;
-    padding: 2px;
-  }
-
-  .mobile-scroll-badge {
-    font-size: 0.52rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-    line-height: 1;
-    margin-top: 1px;
-  }
-
-  .mobile-float-scroll-btn:active {
-    transform: scale(0.92);
-  }
+  display: none !important;
 }
 
 
@@ -18814,6 +18885,658 @@ img, video, iframe {
     max-height: 150px !important;
   }
 }
+
+/* ==========================================================================
+   SENIOR UI/UX RESPONSIVE SYSTEM REFINEMENTS (Mobile-First 320px - 425px & Up)
+   ========================================================================== */
+
+/* 1. Global Overflow Prevention & Safe Box Sizing */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Screen-reader utility */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border-width: 0 !important;
+}
+
+/* 2. Floating Quick Actions (WhatsApp & Call): Clean, Icon-Only, Functional, Edge-Padded */
+.floating-actions-bar {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 18px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  gap: 10px !important;
+  z-index: 990 !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  transform: translateY(12px) !important;
+  transition: opacity 0.25s ease, transform 0.25s ease !important;
+}
+
+.floating-actions-bar.floating-actions-visible {
+  pointer-events: auto !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.floating-actions-bar .float-btn {
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px !important;
+  min-height: 48px !important;
+  max-width: 48px !important;
+  max-height: 48px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  border: none !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+}
+
+.floating-actions-bar .float-btn:hover {
+  transform: scale(1.08) !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28) !important;
+}
+
+.floating-actions-bar .float-btn:active {
+  transform: scale(0.94) !important;
+}
+
+.floating-actions-bar .float-btn span:not(.sr-only) {
+  display: none !important;
+}
+
+.floating-actions-bar .float-whatsapp {
+  background: #25D366 !important;
+  color: #ffffff !important;
+}
+
+.floating-actions-bar .float-whatsapp svg {
+  width: 22px !important;
+  height: 22px !important;
+  fill: currentColor !important;
+}
+
+.floating-actions-bar .float-call {
+  background: #102541 !important;
+  color: #fde047 !important;
+}
+
+.floating-actions-bar .float-call svg {
+  width: 20px !important;
+  height: 20px !important;
+  stroke: currentColor !important;
+}
+
+.floating-actions-bar .float-back-top {
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  min-height: 42px !important;
+  background: #ffffff !important;
+  color: #102541 !important;
+  border: 1.5px solid #cbd5e1 !important;
+  display: none !important;
+}
+
+.floating-actions-bar .float-back-top.visible {
+  display: flex !important;
+}
+
+.floating-actions-bar .float-back-top:hover {
+  background: #be123c !important;
+  color: #ffffff !important;
+  border-color: #be123c !important;
+}
+
+/* 3. Homepage Continuous Admissions Marquee (Seamless Looping, Accessible) */
+.homepage-admission-marquee-bar {
+  width: 100%;
+  background: linear-gradient(90deg, #fff1f2 0%, #fff7ed 50%, #fff1f2 100%);
+  border-bottom: 1.5px solid #fecaca;
+  overflow: hidden;
+  position: relative;
+  z-index: 30;
+  padding: 8px 0;
+}
+
+.marquee-content-link {
+  display: block;
+  text-decoration: none;
+  color: #991b1b;
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeContinuous 32s linear infinite;
+  will-change: transform;
+}
+
+.homepage-admission-marquee-bar:hover .marquee-track,
+.homepage-admission-marquee-bar:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeContinuous {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding-right: 32px;
+  white-space: nowrap;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.marquee-group .ticker-badge-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #c91f2c;
+  color: #ffffff;
+  font-size: 0.70rem;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+.marquee-group .ticker-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+  animation: pulseDot 1.6s infinite;
+}
+
+.marquee-group .ticker-action-chip {
+  display: inline-flex;
+  align-items: center;
+  background: #102541;
+  color: #fde047;
+  padding: 3px 9px;
+  border-radius: 9999px;
+  font-size: 0.70rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none !important;
+    transform: none !important;
+    overflow-x: auto;
+  }
+}
+
+/* 4. ValueBar 3-Pillar Rebalanced Symmetrical Grid */
+.stats-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.stats-grid-3 .stats-col-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.stats-grid-3 .stats-col-item:last-child {
+  border-right: none;
+}
+
+/* 5. Mobile & Responsive Layout Rules (Screens <= 425px) */
+@media (max-width: 425px) {
+  /* Proper floating spacing on mobile */
+  .floating-actions-bar {
+    bottom: 18px !important;
+    right: 14px !important;
+    gap: 8px !important;
+  }
+
+  .floating-actions-bar .float-btn {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    max-width: 44px !important;
+    max-height: 44px !important;
+  }
+
+  .floating-actions-bar .float-whatsapp svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .floating-actions-bar .float-call svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .floating-actions-bar .float-back-top {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    min-height: 38px !important;
+  }
+
+  /* Center headings across all sections */
+  .section-title-styled,
+  .section-title-with-badge,
+  .about-heading-title,
+  .tag-red-caps,
+  .facilities-header-sub,
+  .career-support-header-block,
+  .career-support-subtitle,
+  .leadership-section-header,
+  .leadership-subtext,
+  .approvals-header-center,
+  .approvals-sub-p,
+  .virtual-tour-header,
+  .virtual-tour-desc {
+    text-align: center !important;
+  }
+
+  .section-title-with-badge {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    text-align: center !important;
+    margin-bottom: 16px !important;
+  }
+
+  .section-title-with-badge > div {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .section-explore-badge,
+  .btn-view-more-outline {
+    margin: 0 auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .tag-red-caps {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: table !important;
+  }
+
+  /* Hero Section: Reduce Visual Crowding */
+  .hero-home {
+    padding: 16px 0 20px !important;
+  }
+
+  .hero-live-admission-badge {
+    justify-content: center !important;
+    text-align: center !important;
+    flex-wrap: wrap !important;
+    gap: 4px 6px !important;
+    padding: 6px 10px !important;
+  }
+
+  .hero-title {
+    font-size: clamp(1.4rem, 6.5vw, 1.75rem) !important;
+    line-height: 1.25 !important;
+    margin-bottom: 10px !important;
+    text-align: center !important;
+  }
+
+  .hero-description {
+    font-size: 0.84rem !important;
+    line-height: 1.48 !important;
+    margin-bottom: 14px !important;
+    text-align: center !important;
+  }
+
+  .hero-trust-subtext {
+    text-align: center !important;
+    justify-content: center !important;
+    font-size: 0.72rem !important;
+  }
+
+  /* Requirement 7: Feature Boxes & Service Cards - Single Column Layout (1 card per row) */
+  .hero-features-grid-2x2 {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 12px 0 16px !important;
+  }
+
+  .hero-feature-card {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 10px 14px !important;
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 10px !important;
+    box-sizing: border-box !important;
+  }
+
+  .feature-icon-circle {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    flex-shrink: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .feature-text-block {
+    flex: 1 !important;
+    min-width: 0 !important;
+    text-align: left !important;
+  }
+
+  .feature-title {
+    font-size: 0.88rem !important;
+    line-height: 1.2 !important;
+    display: block !important;
+    margin-bottom: 2px !important;
+  }
+
+  .feature-sub {
+    font-size: 0.74rem !important;
+    line-height: 1.3 !important;
+    display: block !important;
+  }
+
+  /* Single column for ValueBar pillars */
+  .stats-grid-3 {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    padding: 4px 0 !important;
+  }
+
+  .stats-grid-3 .stats-col-item {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding: 8px 10px !important;
+    justify-content: flex-start !important;
+  }
+
+  .stats-grid-3 .stats-col-item:last-child {
+    border-bottom: none !important;
+  }
+
+  /* Single column for Career Support cards */
+  .career-support-4 {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  .career-card,
+  .support-card {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 12px 14px !important;
+    box-sizing: border-box !important;
+  }
+
+  .career-icon-round,
+  .support-icon-circle {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    flex-shrink: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .career-card > div:last-child,
+  .support-card > div:last-child {
+    flex: 1 !important;
+    min-width: 0 !important;
+    text-align: left !important;
+  }
+
+  /* Hero buttons row */
+  .hero-buttons-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin-bottom: 16px !important;
+  }
+
+  .hero-buttons-row .btn-pill-red,
+  .hero-buttons-row .btn-pill-navy {
+    width: 100% !important;
+    justify-content: center !important;
+    min-height: 44px !important;
+    padding: 10px 16px !important;
+    font-size: 0.88rem !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Requirement 8: About Us Section - Center Headings and Buttons */
+  .card-about-college-text {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: left !important;
+    padding: 18px 14px !important;
+  }
+
+  .card-about-college-text > div:first-child {
+    width: 100% !important;
+  }
+
+  .card-about-college-text .tag-red-caps,
+  .card-about-college-text .about-heading-title {
+    text-align: center !important;
+  }
+
+  .card-about-college-text .btn-know-more-red {
+    margin: 14px auto 0 auto !important;
+    display: inline-flex !important;
+    justify-content: center !important;
+    text-align: center !important;
+    max-width: 100% !important;
+    min-height: 42px !important;
+    box-sizing: border-box !important;
+  }
+
+  .about-body-text {
+    text-align: left !important;
+    font-size: 0.86rem !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Requirement 9: Hospital Partners and Placement Logos Alignment */
+  .hospital-partners-grid,
+  .hospital-partners-10 {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  .hospital-logo-card,
+  .partner-card {
+    height: auto !important;
+    min-height: 66px !important;
+    padding: 8px 10px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    box-sizing: border-box !important;
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+  }
+
+  .hospital-logo-img,
+  .partner-card img {
+    max-height: 32px !important;
+    max-width: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+
+  .partner-name-hint {
+    font-size: 0.68rem !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    color: #1e293b !important;
+    line-height: 1.2 !important;
+    width: 100% !important;
+    white-space: normal !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* Requirement 10: Courses and Disciplines */
+  .course-filter-tabs-wrapper,
+  .adm-course-tabs {
+    justify-content: center !important;
+  }
+
+  .course-card-horizontal,
+  .home-course-card {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .course-card-media {
+    width: 100% !important;
+    height: 150px !important;
+    max-height: 150px !important;
+  }
+
+  .course-card-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .course-card-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .btn-course-apply,
+  .btn-course-details {
+    width: 100% !important;
+    min-height: 42px !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Requirement 12: Admission Section - Book Icon Left, Info Right Alignment */
+  .prospectus-download-widget {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+    padding: 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    background: linear-gradient(135deg, #071e3d 0%, #0c2340 100%) !important;
+    border-radius: var(--radius-lg) !important;
+  }
+
+  .widget-cover-icon {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    flex-shrink: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 10px !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: #fde047 !important;
+    margin: 0 !important;
+  }
+
+  .widget-info {
+    flex: 1 !important;
+    min-width: 0 !important;
+    text-align: left !important;
+  }
+
+  .widget-info h4 {
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin-bottom: 4px !important;
+    line-height: 1.3 !important;
+  }
+
+  .widget-info p {
+    font-size: 0.78rem !important;
+    color: #cbd5e1 !important;
+    line-height: 1.4 !important;
+    margin-bottom: 10px !important;
+  }
+
+  .btn-widget-download {
+    width: 100% !important;
+    min-height: 40px !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+}
+
 
 
 

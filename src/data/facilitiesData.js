@@ -105,21 +105,6 @@ export const facilitiesData = [
     ]
   },
   {
-    id: 'hostel-mess',
-    title: 'Girls Hostel & Nutritious Mess',
-    category: 'student_facilities',
-    categoryLabel: 'Student Facilities',
-    img: '/images/hostel.jpg',
-    beds: 'Girls Hostel',
-    specs: '24/7 Security & CCTV',
-    desc: 'Safe, secure on-campus accommodation for girls with CCTV surveillance, resident warden supervision, hygienic dining mess providing wholesome nutrition, study halls, and 24/7 security.',
-    keyPoints: [
-      'Dedicated hostel warden and biometric campus access',
-      'Nutritious vegetarian & non-veg meal schedules',
-      'Quiet study lounges and 24/7 power backup'
-    ]
-  },
-  {
     id: 'transport',
     title: 'Transportation Fleet',
     category: 'student_facilities',
@@ -147,6 +132,21 @@ export const facilitiesData = [
       'Serene, distraction-free environment conducive to learning',
       'Lush green landscape with open-air relaxation courtyards',
       'Strategic location close to Bidar city medical institutions'
+    ]
+  },
+  {
+    id: 'attached-hospital',
+    title: '50-Bedded Hospital Attached with Vasantha College',
+    category: 'hospital_training',
+    categoryLabel: 'Hospital Training',
+    img: '/images/hospital_postings.jpg',
+    beds: '50 Beds Attached',
+    specs: 'Medical Lab, CT Scan & Cancer Center',
+    desc: '50-Bedded Hospital attached directly with Vasantha College campus, featuring an advanced Medical Laboratory, high-speed CT Scan Center, and dedicated Cancer Diagnostic Center for direct bedside clinical rotations, diagnostic training, and immediate healthcare services.',
+    keyPoints: [
+      '50-Bedded Hospital attached with Vasantha College',
+      'Advanced Medical Laboratory for automated pathology & biochemistry testing',
+      'High-resolution CT Scan Center & Cancer Diagnostic Center'
     ]
   },
   {

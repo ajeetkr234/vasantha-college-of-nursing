@@ -9,7 +9,7 @@ export default function CollegeProfile() {
         <div className="section-title-with-badge" style={{ marginBottom: '24px' }}>
           <div>
             <div className="tag-red-caps">INSTITUTIONAL PROFILE</div>
-            <h2 className="section-title-styled" style={{ margin: 0, textAlign: 'left' }}>
+            <h2 className="section-title-styled">
               About <span>Our College &amp; Trust</span>
             </h2>
           </div>
@@ -106,7 +106,7 @@ export default function CollegeProfile() {
               <span className="tag-red-caps">AUTHENTIC CAMPUS INFRASTRUCTURE</span>
               <h3 className="panoramic-title">VASANTHA GROUP OF EDUCATION Campus, Bidar</h3>
               <p className="panoramic-desc">
-                Purpose-built 3-storey health sciences academic complex with high-fidelity nursing simulation labs, digital anatomy museum, ventilated lecture halls, and lush landscaped campus grounds.
+                Purpose-built 3-storey health sciences academic complex with 50-bedded attached hospital, advanced Medical Laboratory, CT Scan Center, Cancer Diagnostic Center, high-fidelity nursing simulation labs, and lush landscaped campus grounds.
               </p>
             </div>
             <div className="panoramic-header-pills">
@@ -140,23 +140,23 @@ export default function CollegeProfile() {
 
           <div className="panoramic-metrics-strip">
             <div className="pano-metric">
-              <span className="pano-metric-number">3-Storey</span>
-              <span className="pano-metric-label">Academic Complex</span>
+              <span className="pano-metric-number">50 Beds</span>
+              <span className="pano-metric-label">Attached Hospital</span>
             </div>
             <div className="pano-divider"></div>
             <div className="pano-metric">
-              <span className="pano-metric-number">Naubad</span>
-              <span className="pano-metric-label">Karnataka Campus</span>
+              <span className="pano-metric-number">CT Scan</span>
+              <span className="pano-metric-label">Center &amp; Diagnostics</span>
             </div>
             <div className="pano-divider"></div>
             <div className="pano-metric">
-              <span className="pano-metric-number">100% Practical</span>
-              <span className="pano-metric-label">Clinical Demo Labs</span>
+              <span className="pano-metric-number">Cancer Center</span>
+              <span className="pano-metric-label">Diagnostic Oncology</span>
             </div>
             <div className="pano-divider"></div>
             <div className="pano-metric">
-              <span className="pano-metric-number">750+ Beds</span>
-              <span className="pano-metric-label">BRIMS Teaching Hospital</span>
+              <span className="pano-metric-number">Medical Lab</span>
+              <span className="pano-metric-label">Pathology &amp; Clinical Labs</span>
             </div>
           </div>
         </div>
@@ -227,7 +227,7 @@ export default function CollegeProfile() {
             </div>
             <div className="why-card-text">
               <div className="why-card-title">Modern Facilities</div>
-              <div className="why-card-desc">6 high-fidelity simulation labs, anatomical museum, digital library, and hostels.</div>
+              <div className="why-card-desc">6 high-fidelity simulation labs, anatomical museum, and digital library.</div>
             </div>
           </div>
 
@@ -238,8 +238,8 @@ export default function CollegeProfile() {
               </svg>
             </div>
             <div className="why-card-text">
-              <div className="why-card-title">750+ Bedded Training</div>
-              <div className="why-card-desc">Intensive bedside clinical exposure at affiliated BRIMS District Teaching Hospital.</div>
+              <div className="why-card-title">50-Bed Attached Hospital</div>
+              <div className="why-card-desc">Bedside clinical exposure with Medical Laboratory, CT Scan Center &amp; Cancer Center.</div>
             </div>
           </div>
 
@@ -254,7 +254,7 @@ export default function CollegeProfile() {
             </div>
             <div className="why-card-text">
               <div className="why-card-title">Student Support</div>
-              <div className="why-card-desc">Comprehensive scholarship guidance, hostel facilities, and career placement support.</div>
+              <div className="why-card-desc">Comprehensive scholarship guidance, clinical training, and career placement support.</div>
             </div>
           </div>
         </div>

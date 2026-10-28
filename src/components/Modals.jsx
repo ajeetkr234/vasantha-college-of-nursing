@@ -424,7 +424,7 @@ export default function Modals() {
               <div style={{ borderRadius: 'var(--radius-sm)', overflow: 'hidden', border: '1px solid var(--border-card)' }}>
                 <img src="/images/hospital_postings.jpg" alt="Hospital Wards" style={{ width: '100%', height: '110px', objectFit: 'cover' }} />
                 <div style={{ padding: '6px 8px', fontSize: '0.75rem', fontWeight: 700, color: 'var(--navy-main)' }}>
-                  BRIMS Hospital Postings (750 Beds)
+                  50-Bed Attached Hospital
                 </div>
               </div>
               <div style={{ borderRadius: 'var(--radius-sm)', overflow: 'hidden', border: '1px solid var(--border-card)' }}>
@@ -434,9 +434,9 @@ export default function Modals() {
                 </div>
               </div>
               <div style={{ borderRadius: 'var(--radius-sm)', overflow: 'hidden', border: '1px solid var(--border-card)' }}>
-                <img src="/images/hostel.jpg" alt="Hostel" style={{ width: '100%', height: '110px', objectFit: 'cover' }} />
+                <img src="/images/hospital_postings.jpg" alt="CT Scan and Cancer Center" style={{ width: '100%', height: '110px', objectFit: 'cover' }} />
                 <div style={{ padding: '6px 8px', fontSize: '0.75rem', fontWeight: 700, color: 'var(--navy-main)' }}>
-                  Safe Girls Hostel &amp; Mess
+                  CT Scan &amp; Cancer Diagnostic Center
                 </div>
               </div>
               <div style={{ borderRadius: 'var(--radius-sm)', overflow: 'hidden', border: '1px solid var(--border-card)' }}>

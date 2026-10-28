@@ -290,14 +290,14 @@ export default function Admissions() {
     },
     {
       q: "Where does clinical practical training and hospital posting take place?",
-      a: "Our students undergo rigorous clinical hands-on postings at the 750+ Bed Bidar District Teaching Hospital (BRIMS) and our affiliated multi-speciality healthcare partners. Rotations cover Emergency, General Medicine, Pediatric ICU, Labour Room, Surgery, and Community Health."
+      a: "Our students undergo rigorous clinical hands-on postings at our 50-Bedded Hospital attached directly with Vasantha College, equipped with Medical Laboratory, CT Scan Center, and Cancer Diagnostic Center. Rotations cover Emergency, General Medicine, Pediatric Care, Surgery, and Diagnostics."
     },
     {
-      q: "What hostel and dining facilities are provided on campus?",
-      a: "We provide secure, separate hostels with 24/7 CCTV surveillance, biometric access, warden supervision, clean furnished rooms, and a hygienic dining hall serving fresh, nutritious South and North Indian meals."
+      q: "What clinical facilities and diagnostic centers are available on campus?",
+      a: "We provide an in-campus 50-Bedded Hospital attached directly with Vasantha College, along with an advanced Medical Laboratory, CT Scan Center, and specialized Cancer Diagnostic Center for comprehensive bedside nursing care and diagnostic training."
     },
     {
-      q: "Can college and hostel fees be paid in semester-wise installments?",
+      q: "Can college fees be paid in semester-wise installments?",
       a: "Yes. VASANTHA GROUP OF EDUCATION provides flexible semester-wise fee installment options to ease financial pressure on families. We also provide all necessary bonafide certificates and fee quotation letters for bank education loans."
     }
   ];
@@ -1122,7 +1122,7 @@ export default function Admissions() {
                         <span className="stepper-time-badge same-day">🎯 Same Day</span>
                       </div>
                       <p className="stepper-desc">
-                        Meet with our senior nursing faculty and principal for personalized career counseling. Review the RGUHS syllabus, clinical hospital postings at Bidar District Hospital, hostel rooms, mess menu, and scholarship options. Receive your Provisional Seat Allotment Letter.
+                        Meet with our senior nursing faculty and principal for personalized career counseling. Review the RGUHS syllabus, clinical postings at our 50-bed attached hospital, diagnostic centers, and scholarship options. Receive your Provisional Seat Allotment Letter.
                       </p>
                     </div>
                   </div>
@@ -1345,10 +1345,10 @@ export default function Admissions() {
 
                   <div className="date-tile">
                     <div className="date-status-pill upcoming">Upcoming</div>
-                    <div className="date-main-num">Hostel</div>
-                    <div className="date-title">Hostel Check-in &amp; Room Allotment</div>
+                    <div className="date-main-num">Induction</div>
+                    <div className="date-title">Campus Orientation &amp; Batch Induction</div>
                     <div className="date-range">Late July 2026</div>
-                    <div className="date-desc">Girls hostel room allocation, mess registration &amp; campus orientation.</div>
+                    <div className="date-desc">Clinical labs orientation, hospital walk-through &amp; batch welcome.</div>
                   </div>
 
                   <div className="date-tile">
@@ -1668,7 +1668,7 @@ export default function Admissions() {
 
                     <div className="form-group">
                       <label className="form-label" htmlFor="hostel_needed">
-                        Hostel Required?
+                        College Bus Transport?
                       </label>
                       <select
                         id="hostel_needed"
@@ -1677,8 +1677,8 @@ export default function Admissions() {
                         value={formData.hostelNeeded}
                         onChange={(e) => setFormData({ ...formData, hostelNeeded: e.target.value })}
                       >
-                        <option value="Yes">Yes, Girls Hostel with Mess</option>
-                        <option value="No">No, Day Scholar</option>
+                        <option value="Yes">Yes, College Bus Required</option>
+                        <option value="No">No, Own Conveyance</option>
                       </select>
                     </div>
                   </div>
@@ -1820,10 +1820,15 @@ export default function Admissions() {
 
               {/* CARD 3: DOWNLOAD BROCHURE WIDGET */}
               <div className="prospectus-download-widget">
-                <div className="widget-cover-icon">📘</div>
+                <div className="widget-cover-icon" aria-hidden="true">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                  </svg>
+                </div>
                 <div className="widget-info">
                   <h4>Information Brochure 2026–27</h4>
-                  <p>Includes syllabus breakdown, clinical hospital postings, fee structure, and hostel guidelines.</p>
+                  <p>Includes syllabus breakdown, clinical hospital postings, fee structure, and scholarship guidelines.</p>
                   <button
                     type="button"
                     className="btn-widget-download"
@@ -1870,23 +1875,23 @@ export default function Admissions() {
 
             <div className="adm-fac-tile">
               <div className="fac-tile-img-box">
-                <img src="/images/hospital_postings.jpg" alt="100-Bed Hospital Postings" />
-                <span className="fac-tile-badge">Real-World Exposure</span>
+                <img src="/images/hospital_postings.jpg" alt="50-Bed Attached Hospital" />
+                <span className="fac-tile-badge">In-Campus Hospital</span>
               </div>
               <div className="fac-tile-desc">
-                <h4>100-Bed Hospital Rotations</h4>
-                <p>Daily clinical rotations at Bidar District Govt Hospital &amp; multi-speciality centers.</p>
+                <h4>50-Bed Attached Hospital</h4>
+                <p>Direct bedside clinical rotations at 50-bedded hospital attached with Vasantha College.</p>
               </div>
             </div>
 
             <div className="adm-fac-tile">
               <div className="fac-tile-img-box">
-                <img src="/images/hostel.jpg" alt="Girls Hostel" />
-                <span className="fac-tile-badge">Safe &amp; Furnished</span>
+                <img src="/images/hospital_postings.jpg" alt="CT Scan & Cancer Diagnostic Center" />
+                <span className="fac-tile-badge">Advanced Diagnostics</span>
               </div>
               <div className="fac-tile-desc">
-                <h4>Girls Hostel &amp; Mess</h4>
-                <p>Secure on-campus residence with 24/7 security, Wi-Fi, and nutritious dining hall.</p>
+                <h4>CT Scan &amp; Cancer Center</h4>
+                <p>Advanced diagnostic center with multi-slice CT imaging and specialized oncology screening.</p>
               </div>
             </div>
 

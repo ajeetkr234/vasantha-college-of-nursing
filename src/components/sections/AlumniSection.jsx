@@ -29,7 +29,7 @@ export default function AlumniSection() {
         <div className="alumni-row-header">
           <div>
             <div className="tag-red-caps">GRADUATE OUTCOMES</div>
-            <h2 className="section-title-styled" style={{ marginBottom: 0, textAlign: 'left' }}>
+            <h2 className="section-title-styled" style={{ marginBottom: 0 }}>
               Alumni <span>Experiences &amp; Placements</span>
             </h2>
           </div>

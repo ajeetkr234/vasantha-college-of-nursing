@@ -302,9 +302,9 @@ export default function Courses() {
             </div>
             <div className="training-gallery-card">
               <div className="gallery-card-img">
-                <img src="/images/hospital_postings.jpg" alt="Clinical Postings at 750+ Bed Hospital" />
+                <img src="/images/hospital_postings.jpg" alt="50-Bedded Attached Hospital Postings" />
               </div>
-              <div className="gallery-card-title">750+ Bed Hospital Postings</div>
+              <div className="gallery-card-title">50-Bed Attached Hospital Postings</div>
             </div>
           </div>
 

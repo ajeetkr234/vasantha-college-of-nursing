@@ -171,7 +171,7 @@ export default function ProgramsSection() {
         <div className="section-title-with-badge">
           <div>
             <div className="tag-red-caps">ACADEMIC EXCELLENCE • MULTIDISCIPLINARY EDUCATION</div>
-            <h2 className="section-title-styled" style={{ margin: 0, textAlign: 'left' }}>
+            <h2 className="section-title-styled">
               Academic <span>Programs &amp; Disciplines</span>
             </h2>
           </div>

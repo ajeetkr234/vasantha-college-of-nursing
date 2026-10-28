@@ -19,7 +19,7 @@ export const alumniData = [
     hospital: 'Manipal Hospitals, Bengaluru',
     package: '₹4.8 LPA Package',
     img: '/images/alumni_priya.jpg',
-    quote: '"The hands-on simulation training at VASANTHA GROUP OF EDUCATION and rigorous clinical rotations at BRIMS 750-bed hospital gave me immense confidence during recruitment interviews and daily patient care in ICU."'
+    quote: '"The hands-on simulation training at VASANTHA GROUP OF EDUCATION and clinical rotations at our 50-bed attached hospital gave me immense confidence during recruitment interviews and daily patient care in ICU."'
   },
   {
     name: 'Sneha Patel, GNM Nursing',
@@ -37,6 +37,6 @@ export const alumniData = [
     hospital: 'Narayana Health City, Bengaluru',
     package: '₹4.5 LPA Package',
     img: '/images/alumni_anjali.jpg',
-    quote: '"The college inculcates true compassion and professional ethics. Living in the safe campus hostel and practicing in modern labs enabled me to clear competitive hospital selection on my very first attempt."'
+    quote: '"The college inculcates true compassion and professional ethics. Training in modern labs and clinical rotations in the attached hospital enabled me to clear competitive hospital selection on my very first attempt."'
   }
 ];

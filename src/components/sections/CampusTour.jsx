@@ -34,17 +34,17 @@ const tourSpots = [
   },
   {
     id: 'hospital',
-    title: '750+ Bedded BRIMS District Teaching Hospital Postings',
-    shortTitle: 'BRIMS Teaching Hospital',
-    category: 'Clinical Affiliation',
-    badge: '750+ Hospital Beds',
+    title: '50-Bedded Hospital Attached with Vasantha College',
+    shortTitle: '50-Bed Attached Hospital',
+    category: 'In-Campus Hospital',
+    badge: '50 Attached Beds',
     image: '/images/hospital_postings.jpg',
-    caption: 'Intensive bedside clinical postings at affiliated Bidar Institute of Medical Sciences (BRIMS) Teaching Hospital.',
-    description: 'Comprehensive practical postings across Emergency, Intensive Care Units (ICU), Operation Theatres (OT), Obstetrics, Paediatrics, and Surgical wards under the guidance of senior medical professors and nursing superintendents.',
+    caption: 'Intensive bedside clinical postings at 50-bedded hospital attached directly with Vasantha College.',
+    description: 'Comprehensive practical postings with direct inpatient care, vital signs monitoring, and diagnostic exposure across general medicine, surgery, and emergency casualty under senior clinical faculty.',
     metrics: [
-      { label: 'Bed Capacity', val: '750+ Beds' },
+      { label: 'Bed Capacity', val: '50 Beds Attached' },
       { label: 'Postings', val: 'Daily Bedside' },
-      { label: 'Partner', val: 'Govt. Medical College' }
+      { label: 'Campus', val: 'Directly Attached' }
     ]
   },
   {
@@ -78,18 +78,18 @@ const tourSpots = [
     ]
   },
   {
-    id: 'hostel',
-    title: 'Safe Residential Girls Hostel & Dining Mess',
-    shortTitle: 'Girls Hostel & Mess',
-    category: 'Residential Life',
-    badge: '24/7 Security & Care',
-    image: '/images/hostel.jpg',
-    caption: 'Safe on-campus student residence with round-the-clock security, warden care, and hygienic mess.',
-    description: 'Dedicated residential accommodation for female students featuring secure access, resident warden care, CCTV surveillance, hygienic multi-cuisine dining mess, RO purified drinking water, and dedicated study areas.',
+    id: 'diagnostics',
+    title: 'Medical Laboratory, CT Scan & Cancer Diagnostic Center',
+    shortTitle: 'Diagnostics & Imaging',
+    category: 'Diagnostic Excellence',
+    badge: 'CT Scan & Oncology',
+    image: '/images/hospital_postings.jpg',
+    caption: 'Advanced diagnostic infrastructure supporting pathology, high-speed CT imaging, and cancer diagnostics.',
+    description: 'Comprehensive in-campus diagnostic complex featuring automated biochemistry and pathology Medical Laboratory, high-speed CT Scan Center, and specialized Cancer Diagnostic Center.',
     metrics: [
-      { label: 'Security', val: '24/7 Guarded' },
-      { label: 'Food', val: 'Hygienic Mess' },
-      { label: 'Water', val: 'RO Purified' }
+      { label: 'Laboratory', val: 'Automated Testing' },
+      { label: 'Radiology', val: 'High-Speed CT' },
+      { label: 'Oncology', val: 'Cancer Center' }
     ]
   }
 ];
@@ -125,7 +125,7 @@ export default function CampusTour() {
             Explore Our Campus &amp; <span>Clinical Infrastructure</span>
           </h2>
           <p className="virtual-tour-subheading">
-            Take an interactive visual walk-through of our 3-storey Naubad campus, advanced clinical demonstration labs, affiliated 750+ bedded BRIMS teaching hospital, and secure residential life in Bidar.
+            Take an interactive visual walk-through of our 3-storey Naubad campus, advanced clinical demonstration labs, 50-bedded attached hospital, and modern diagnostic centers in Bidar.
           </p>
         </div>
 
@@ -368,8 +368,8 @@ export default function CampusTour() {
               </svg>
             </div>
             <div>
-              <div className="tour-trust-card-title">750+ Bedded Training</div>
-              <div className="tour-trust-card-desc">Daily bedside clinical rotations at affiliated BRIMS Teaching Hospital.</div>
+              <div className="tour-trust-card-title">50-Bed Attached Hospital</div>
+              <div className="tour-trust-card-desc">Daily bedside clinical rotations at 50-bedded hospital attached with Vasantha College.</div>
             </div>
           </div>
 
@@ -389,12 +389,14 @@ export default function CampusTour() {
           <div className="tour-trust-card">
             <div className="tour-trust-icon-box">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="6"></circle>
+                <circle cx="12" cy="12" r="2"></circle>
               </svg>
             </div>
             <div>
-              <div className="tour-trust-card-title">Guarded Girls Hostel</div>
-              <div className="tour-trust-card-desc">24/7 CCTV surveillance, resident warden &amp; hygienic dining mess.</div>
+              <div className="tour-trust-card-title">Advanced Diagnostics</div>
+              <div className="tour-trust-card-desc">Medical Laboratory, CT Scan Center &amp; Cancer Diagnostic Center.</div>
             </div>
           </div>
         </div>

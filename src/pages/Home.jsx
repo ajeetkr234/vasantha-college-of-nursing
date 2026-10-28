@@ -1,4 +1,5 @@
 import React from 'react';
+import AdmissionAnnouncement from '../components/sections/AdmissionAnnouncement';
 import HeroSection from '../components/sections/HeroSection';
 import ValueBar from '../components/sections/ValueBar';
 import QuickJumpNav from '../components/sections/QuickJumpNav';
@@ -16,6 +17,9 @@ import FinalAdmissionsCta from '../components/sections/FinalAdmissionsCta';
 export default function Home() {
   return (
     <main id="mainContent">
+      {/* 2b. Mobile & Homepage Continuous Admissions Marquee */}
+      <AdmissionAnnouncement />
+
       {/* 3. Hero Section: Clean Two-Column Layout */}
       <HeroSection />
 
