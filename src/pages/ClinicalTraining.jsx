@@ -267,7 +267,12 @@ export default function ClinicalTraining() {
             </div>
 
             <div className="banner-right-visual">
-              <img src="/images/hero_students.jpg" alt="Clinical lab simulation students" />
+              <img
+                src="/images/hospital_postings.jpg"
+                alt="Bedside Clinical Hospital Rotations and Inpatient Postings"
+                className="img-pos-top"
+                loading="eager"
+              />
             </div>
             <div className="banner-ribbon-swoosh">
               <div className="ribbon-script-stack">

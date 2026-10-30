@@ -28,7 +28,12 @@ export default function Placements() {
             </div>
 
             <div className="banner-right-visual">
-              <img src="/images/hero_students.jpg" alt="Nursing students with clipboard" />
+              <img
+                src="/images/student_bsc_portrait.jpg"
+                alt="Healthcare Placement and Career Opportunities for Nursing Graduates"
+                className="img-pos-top"
+                loading="eager"
+              />
             </div>
             <div className="banner-ribbon-swoosh">
               <div className="ribbon-script-stack">

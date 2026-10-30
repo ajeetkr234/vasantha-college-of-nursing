@@ -351,7 +351,12 @@ export default function Admissions() {
             </div>
 
             <div className="banner-right-visual">
-              <img src="/images/hero_students.jpg" alt="VASANTHA GROUP OF EDUCATION Nursing Students in simulation lab" />
+              <img
+                src="/images/hero_students.jpg"
+                alt="VASANTHA GROUP OF EDUCATION Nursing Students welcoming 2026-27 applicants"
+                className="img-pos-top"
+                loading="eager"
+              />
             </div>
             <div className="banner-ribbon-swoosh">
               <div className="ribbon-script-stack">

@@ -153,7 +153,12 @@ export default function Contact() {
             </div>
 
             <div className="banner-right-visual">
-              <img src="/images/college_building.jpg" alt="VASANTHA GROUP OF EDUCATION Campus Building" />
+              <img
+                src="/images/college_building.jpg"
+                alt="VASANTHA GROUP OF EDUCATION Campus Building & Admission Office in Bidar"
+                className="img-pos-building"
+                loading="eager"
+              />
             </div>
             <div className="banner-ribbon-swoosh">
               <div className="ribbon-script-stack">

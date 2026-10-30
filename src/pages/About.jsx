@@ -21,12 +21,17 @@ export default function About() {
                 About <span className="gold-text">Vasantha Group of Education</span>
               </h1>
               <p className="banner-sub-p">
-                A legacy of compassion, clinical skill and academic excellence in nursing education.
+                A legacy of compassion, clinical skill and academic excellence in healthcare and nursing education.
               </p>
             </div>
 
             <div className="banner-right-visual">
-              <img src="/images/hero_students.jpg" alt="Clinical lab nursing students" />
+              <img
+                src="/images/community_health.jpg"
+                alt="Karnataka Nursing Students conducting Free Rural Community Health Camp with Kannada signage"
+                className="img-pos-top"
+                loading="eager"
+              />
             </div>
             <div className="banner-ribbon-swoosh">
               <div className="ribbon-script-stack">
@@ -610,8 +615,8 @@ export default function About() {
                 {/* Visual Col */}
                 <div className="faculty-health-visual">
                   <img
-                    src="/images/faculty_team_health_sciences.jpg"
-                    alt="Learned Faculty Team of VASANTHA GROUP OF EDUCATION - Discover Health"
+                    src="/images/simulation_training_group.jpg"
+                    alt="Karnataka Nursing Faculty Team and Students of VASANTHA GROUP OF EDUCATION"
                     className="faculty-team-photo"
                   />
                   <div className="faculty-photo-badge">

@@ -80,7 +80,12 @@ export default function Courses() {
             </div>
 
             <div className="banner-right-visual">
-              <img src="/images/hero_students.jpg" alt="VASANTHA GROUP OF EDUCATION students in academic lab" />
+              <img
+                src="/images/simulation_training_group.jpg"
+                alt="Karnataka Nursing Faculty and Students in clinical skills training under Karnataka Nursing Council"
+                className="img-pos-top"
+                loading="eager"
+              />
             </div>
             <div className="banner-ribbon-swoosh">
               <div className="ribbon-script-stack">
