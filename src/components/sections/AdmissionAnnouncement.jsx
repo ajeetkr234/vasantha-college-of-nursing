@@ -9,7 +9,7 @@ export default function AdmissionAnnouncement() {
         ADMISSIONS 2026–27
       </span>
       <span className="ticker-item-text">
-        Applications Open for <strong>B.Sc. Nursing (4 Yrs Degree)</strong>, <strong>GNM Diploma (3 Yrs)</strong>, <strong>P.B.B.Sc.</strong>, <strong>Pharmacy (D.Pharm &amp; B.Pharm)</strong> &amp; <strong>BPT</strong> • KSNC, INC, PCI &amp; RGUHS Affiliated • Helpline: <strong>+91 9512592211</strong>
+        Applications Open for <strong>M.Sc. Nursing</strong>, <strong>B.Sc. Nursing (4 Yrs Degree)</strong>, <strong>GNM Diploma (3 Yrs)</strong>, <strong>P.B.B.Sc.</strong>, <strong>Pharmacy (D.Pharm &amp; B.Pharm)</strong> &amp; <strong>BPT</strong> • KSNC, INC, PCI &amp; RGUHS Affiliated • Helpline: <strong>+91 9512592211</strong>
       </span>
       <span className="ticker-action-chip">Apply Online ➔</span>
     </>

@@ -232,7 +232,7 @@ export default function Navbar() {
                   </li>
                   <li>
                     <NavLink to="/courses" onClick={closeMobile} className={({ isActive }) => (isActive ? 'active' : '')}>
-                      <span>🎓 Academic Programs (7 Courses)</span>
+                      <span>🎓 Academic Programs (8 Courses)</span>
                     </NavLink>
                   </li>
                   <li>

@@ -1,14 +1,13 @@
 export const partnersData = [
-  { name: 'Apollo Hospitals', logo: '/images/partners/apollo.svg', beds: '10,000+ Beds Group', city: 'Pan India & Global' },
-  { name: 'Manipal Hospitals', logo: '/images/partners/manipal.svg', beds: '9,500+ Beds Network', city: 'Bengaluru & Pan India' },
-  { name: 'Fortis Healthcare', logo: '/images/partners/fortis.svg', beds: '4,500+ Beds Group', city: 'National Network' },
-  { name: 'Narayana Health', logo: '/images/partners/narayana.svg', beds: '6,000+ Beds', city: 'Bengaluru & International' },
-  { name: 'Max Healthcare', logo: '/images/partners/max.svg', beds: '3,500+ Beds Network', city: 'Delhi-NCR & North' },
-  { name: 'Medanta - The Medicity', logo: '/images/partners/medanta.svg', beds: '1,600+ Bed Super-Specialty', city: 'Gurugram' },
-  { name: 'Aster DM Healthcare', logo: '/images/partners/aster.svg', beds: '3,000+ Beds Network', city: 'South India & GCC' },
-  { name: 'KIMS Hospitals', logo: '/images/partners/kims.svg', beds: '4,000+ Beds Network', city: 'Hyderabad & Telangana' },
-  { name: 'HCG Oncology Network', logo: '/images/partners/hcg.svg', beds: 'Specialty Cancer Centers', city: 'Bengaluru & Regional' },
-  { name: 'BLK-Max Super Speciality', logo: '/images/partners/blk_max.svg', beds: '650+ Bed Tertiary Care', city: 'New Delhi' }
+  { name: 'Shalby Hospital', logo: '/images/partners/shalby.svg', beds: '2,000+ Beds Multi-Specialty', city: 'Ahmedabad, Surat & Pan India' },
+  { name: 'Niramaya Hospital', logo: '/images/partners/niramaya.svg', beds: 'Multi-Specialty Healthcare', city: 'Gujarat & Western Region' },
+  { name: 'Life Care Hospital', logo: '/images/partners/lifecare.svg', beds: 'Critical Care & Emergency', city: 'Gujarat & Regional Centers' },
+  { name: 'Surya Hospital', logo: '/images/partners/surya.svg', beds: 'Super-Specialty Hospital', city: 'Gujarat & Mumbai' },
+  { name: 'Hariya Hospital', logo: '/images/partners/hariya.svg', beds: 'Multi-Disciplinary Hospital', city: 'Vapi & South Gujarat' },
+  { name: 'Rotary Club Hospital', logo: '/images/partners/rotary_club.svg', beds: 'Community & Specialty Care', city: 'Gujarat Network' },
+  { name: 'Healfirst Hospital', logo: '/images/partners/healfirst.svg', beds: 'Advanced Surgical & Care', city: 'Ahmedabad & Regional' },
+  { name: 'Lotus Hospital', logo: '/images/partners/lotus.svg', beds: 'Multi-Specialty & Maternity', city: 'Gujarat & Western Region' },
+  { name: 'Parvarish Hospital', logo: '/images/partners/parvarish.svg', beds: 'Pediatric & Family Healthcare', city: 'Gujarat & Regional' }
 ];
 
 export const alumniData = [
@@ -16,7 +15,7 @@ export const alumniData = [
     name: 'Priya Sharma, B.Sc. Nursing',
     batch: 'Batch 2020-2024',
     role: 'Staff Nurse – Critical Care ICU',
-    hospital: 'Manipal Hospitals, Bengaluru',
+    hospital: 'Shalby Hospital, Ahmedabad',
     package: '₹4.8 LPA Package',
     img: '/images/alumni_priya.jpg',
     quote: '"The hands-on simulation training at VASANTHA GROUP OF EDUCATION and clinical rotations at our 50-bed attached hospital gave me immense confidence during recruitment interviews and daily patient care in ICU."'
@@ -25,7 +24,7 @@ export const alumniData = [
     name: 'Sneha Patel, GNM Nursing',
     batch: 'Batch 2021-2024',
     role: 'Clinical Nurse – Emergency Medicine',
-    hospital: 'Apollo Hospitals, Hyderabad',
+    hospital: 'Hariya Hospital, Vapi',
     package: '₹4.2 LPA Package',
     img: '/images/alumni_sneha.jpg',
     quote: '"Our college provided unmatched clinical exposure and constant mentorship from our teachers. The communication grooming and hands-on laboratory hours prepared me for high-pressure emergency nursing."'
@@ -34,7 +33,7 @@ export const alumniData = [
     name: 'Anjali Rao, B.Sc. Nursing',
     batch: 'Batch 2019-2023',
     role: 'Pediatric Care Specialist',
-    hospital: 'Narayana Health City, Bengaluru',
+    hospital: 'Niramaya Hospital',
     package: '₹4.5 LPA Package',
     img: '/images/alumni_anjali.jpg',
     quote: '"The college inculcates true compassion and professional ethics. Training in modern labs and clinical rotations in the attached hospital enabled me to clear competitive hospital selection on my very first attempt."'

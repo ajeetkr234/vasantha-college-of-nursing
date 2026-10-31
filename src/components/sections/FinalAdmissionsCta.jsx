@@ -17,7 +17,7 @@ export default function FinalAdmissionsCta() {
             </div>
             <h4>Begin Your Healthcare Career at VASANTHA GROUP OF EDUCATION</h4>
             <p>
-              Admissions Open for <strong>B.Sc. Nursing (4-Year Degree)</strong> and <strong>GNM (3-Year Diploma)</strong>. 
+              Admissions Open for <strong>B.Sc. Nursing (4-Year Degree)</strong>, <strong>M.Sc. Nursing (2-Year Master)</strong> and <strong>GNM (3-Year Diploma)</strong>. 
               Recognised by the Government of Karnataka, KSNC, Indian Nursing Council (INC New Delhi) &amp; affiliated to RGUHS Bangalore with 100% clinical hospital training.
             </p>
             <div className="cta-banner-pills-row">

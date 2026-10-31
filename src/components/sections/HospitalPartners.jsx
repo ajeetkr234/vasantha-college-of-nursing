@@ -107,19 +107,37 @@ export default function HospitalPartners() {
           </h3>
         </div>
 
-        {/* Partner Logos Grid with Consistent Responsive Containers */}
-        <div className="hospital-partners-grid">
-          {partnersData.map((partner, idx) => (
-            <div key={idx} className="hospital-logo-card">
-              <img
-                src={partner.logo}
-                alt={`${partner.name} logo`}
-                className="hospital-logo-img"
-                loading="lazy"
-              />
-              <div className="partner-name-hint">{partner.name}</div>
+        {/* Partner Logos Continuous Marquee - Logos Only */}
+        <div className="hospital-partners-marquee-container" aria-label="Associated Clinical & Placement Partners Marquee">
+          <div className="hospital-partners-marquee-track">
+            {/* Primary Set */}
+            <div className="hospital-partners-marquee-group">
+              {partnersData.map((partner, idx) => (
+                <div key={`hp1-${idx}`} className="hospital-marquee-card" title={partner.name}>
+                  <img
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    className="hospital-marquee-logo"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
             </div>
-          ))}
+
+            {/* Seamless Duplicated Set for Infinite Smooth Loop */}
+            <div className="hospital-partners-marquee-group" aria-hidden="true">
+              {partnersData.map((partner, idx) => (
+                <div key={`hp2-${idx}`} className="hospital-marquee-card" title={partner.name}>
+                  <img
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    className="hospital-marquee-logo"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

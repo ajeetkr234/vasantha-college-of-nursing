@@ -130,12 +130,37 @@ export default function Placements() {
             Our Recruiting <span>Hospital Partners</span>
           </h2>
 
-          <div className="hospital-partners-10">
-            {partnersData.map((p, idx) => (
-              <div key={idx} className="partner-card">
-                <img src={p.logo} alt={p.name} />
+          {/* Partner Logos Continuous Marquee - Logos Only */}
+          <div className="hospital-partners-marquee-container" aria-label="Our Recruiting Hospital Partners Marquee">
+            <div className="hospital-partners-marquee-track">
+              {/* Primary Set */}
+              <div className="hospital-partners-marquee-group">
+                {partnersData.map((p, idx) => (
+                  <div key={`pl1-${idx}`} className="hospital-marquee-card" title={p.name}>
+                    <img
+                      src={p.logo}
+                      alt={`${p.name} logo`}
+                      className="hospital-marquee-logo"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
               </div>
-            ))}
+
+              {/* Seamless Duplicated Set */}
+              <div className="hospital-partners-marquee-group" aria-hidden="true">
+                {partnersData.map((p, idx) => (
+                  <div key={`pl2-${idx}`} className="hospital-marquee-card" title={p.name}>
+                    <img
+                      src={p.logo}
+                      alt={`${p.name} logo`}
+                      className="hospital-marquee-logo"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* SECTION 3: HOW WE SUPPORT YOUR CAREER */}
@@ -232,16 +257,16 @@ export default function Placements() {
               </div>
               <div className="alumni-info-col">
                 <p className="alumni-quote-text">
-                  "Placed at Apollo Hospitals - Best-in-class training for a rewarding career!"
+                  "Placed at Shalby Hospital - Best-in-class training for a rewarding career!"
                 </p>
                 <div className="alumni-bottom-split">
                   <div className="alumni-author-block">
                     <h3 className="alumni-name">Anjali Deshmukh</h3>
                     <div className="alumni-batch">B.Sc. Nursing (2024)</div>
-                    <div className="alumni-placement-meta">Apollo Hospitals, Bangalore</div>
+                    <div className="alumni-placement-meta">Shalby Hospital, Ahmedabad</div>
                   </div>
                   <div className="alumni-logo-stamp">
-                    <img src="/images/partners/apollo.svg" alt="Apollo Hospitals" />
+                    <img src="/images/partners/shalby.svg" alt="Shalby Hospital" />
                   </div>
                 </div>
               </div>
@@ -253,16 +278,16 @@ export default function Placements() {
               </div>
               <div className="alumni-info-col">
                 <p className="alumni-quote-text">
-                  "Placed at Manipal Hospitals - Excellent learning experience and supportive environment!"
+                  "Placed at Niramaya Hospital - Excellent learning experience and supportive environment!"
                 </p>
                 <div className="alumni-bottom-split">
                   <div className="alumni-author-block">
                     <h3 className="alumni-name">Priya Patil</h3>
                     <div className="alumni-batch">GNM Nursing (2023)</div>
-                    <div className="alumni-placement-meta">Manipal Hospitals, Hubli</div>
+                    <div className="alumni-placement-meta">Niramaya Hospital, Gujarat</div>
                   </div>
                   <div className="alumni-logo-stamp">
-                    <img src="/images/partners/manipal.svg" alt="Manipal Hospitals" />
+                    <img src="/images/partners/niramaya.svg" alt="Niramaya Hospital" />
                   </div>
                 </div>
               </div>
@@ -274,16 +299,16 @@ export default function Placements() {
               </div>
               <div className="alumni-info-col">
                 <p className="alumni-quote-text">
-                  "Placed at Aster DM Healthcare - Great exposure and growth opportunities!"
+                  "Placed at Hariya Hospital - Great exposure and growth opportunities!"
                 </p>
                 <div className="alumni-bottom-split">
                   <div className="alumni-author-block">
                     <h3 className="alumni-name">Sneha Kulkarni</h3>
                     <div className="alumni-batch">B.Sc. Nursing (2024)</div>
-                    <div className="alumni-placement-meta">Aster DM Healthcare, Dubai</div>
+                    <div className="alumni-placement-meta">Hariya Hospital, Vapi</div>
                   </div>
                   <div className="alumni-logo-stamp">
-                    <img src="/images/partners/aster.svg" alt="Aster DM Healthcare" />
+                    <img src="/images/partners/hariya.svg" alt="Hariya Hospital" />
                   </div>
                 </div>
               </div>

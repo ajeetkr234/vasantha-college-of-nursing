@@ -285,6 +285,7 @@ export default function Modals() {
                   <option value="B.Sc. Nursing">B.Sc. Nursing (4 Years Degree)</option>
                   <option value="GNM Nursing">GNM Nursing (3 Years Diploma)</option>
                   <option value="Post B.Sc. Nursing">Post B.Sc. Nursing (2 Years Degree)</option>
+                  <option value="M.Sc. Nursing">M.Sc. Nursing (2 Years Postgraduate Degree)</option>
                   <option value="Diploma in Pharmacy (D.Pharm)">Diploma in Pharmacy - D.Pharm (2 Years)</option>
                   <option value="Bachelor of Pharmacy (B.Pharm)">Bachelor of Pharmacy - B.Pharm (4 Years)</option>
                   <option value="Bachelor of Physiotherapy (BPT)">Bachelor of Physiotherapy - BPT (4.5 Years)</option>

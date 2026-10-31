@@ -357,6 +357,14 @@ export default function Courses() {
                     <td>Nursing Supervisor, Clinical Lecturer, M.Sc. Scope</td>
                   </tr>
                   <tr>
+                    <td><strong>M.Sc. Nursing</strong></td>
+                    <td><span className="badge-degree">Nursing</span></td>
+                    <td>2 Years (Postgrad)</td>
+                    <td>RGUHS Bangalore • KSNC &amp; INC Approved</td>
+                    <td>B.Sc. / P.B.B.Sc. Nursing (55% Min) + 1 Yr Exp</td>
+                    <td>Asst. Professor, Clinical Nurse Specialist, CNO, Research</td>
+                  </tr>
+                  <tr>
                     <td><strong>D.Pharm</strong></td>
                     <td><span className="badge-diploma">Pharmacy</span></td>
                     <td>2 Years</td>

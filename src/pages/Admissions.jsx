@@ -30,6 +30,7 @@ export default function Admissions() {
   const [touched, setTouched] = useState({});
   const [activeFaq, setActiveFaq] = useState(0);
   const [selectedCourseTab, setSelectedCourseTab] = useState('all'); // 'all', 'nursing', 'pharmacy', 'physiotherapy', 'education'
+  const [showAllPrograms, setShowAllPrograms] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Field change handlers with live number prevention for names
@@ -234,7 +235,7 @@ export default function Admissions() {
   const handleScrollToTarget = (targetId) => {
     const el = document.getElementById(targetId);
     if (el) {
-      const offset = 75;
+      const offset = 135;
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = el.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -242,6 +243,12 @@ export default function Admissions() {
         top: Math.max(0, elementPosition - offset),
         behavior: 'smooth'
       });
+      if (targetId === 'admission-apply-form') {
+        const sidebar = document.querySelector('.admissions-sidebar-col');
+        if (sidebar) {
+          sidebar.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }
     }
   };
 
@@ -254,6 +261,510 @@ export default function Admissions() {
     setFormData(prev => ({ ...prev, course: courseName }));
     handleScrollToTarget('admission-apply-form');
   };
+
+  const toggleViewMorePrograms = () => {
+    if (!showAllPrograms) {
+      setShowAllPrograms(true);
+      setTimeout(() => {
+        const el = document.getElementById('all-academic-programs');
+        if (el) {
+          const offset = 120;
+          const bodyRect = document.body.getBoundingClientRect().top;
+          const elementRect = el.getBoundingClientRect().top;
+          const elementPosition = elementRect - bodyRect;
+          window.scrollTo({
+            top: Math.max(0, elementPosition - offset),
+            behavior: 'smooth'
+          });
+        }
+      }, 60);
+    } else {
+      setShowAllPrograms(false);
+      handleScrollToTarget('programs-eligibility');
+    }
+  };
+
+  // Reusable Course Cards for Category Tabs & Full-Width Expanded Grid
+  const renderCardPostBSc = () => (
+    <article className="program-showcase-box" key="program-post-bsc">
+      <div className="program-box-top">
+        <div className="program-tag-badge degree">Post Basic Degree Course</div>
+        <div className="program-seats-badge">Approved Intake: <strong>30 Seats</strong></div>
+      </div>
+
+      <div className="program-box-main">
+        <div className="program-info-left">
+          <h3 className="program-title">
+            Post Basic B.Sc. in Nursing <span className="program-abbr">(P.B.B.Sc. Nursing)</span>
+          </h3>
+          <div className="program-meta-chips">
+            <span className="meta-chip">⏱ 2 Years Duration</span>
+            <span className="meta-chip">🏛 Affiliated to RGUHS Bangalore</span>
+            <span className="meta-chip">🩺 Advanced Clinical Specialization</span>
+          </div>
+
+          <div className="eligibility-spec-box">
+            <h4 className="spec-heading">Mandatory Eligibility Criteria:</h4>
+            <ul className="spec-list">
+              <li>
+                <span className="check-bullet">✓</span>
+                <strong>Academic Qualification:</strong> Passed 10+2 / PUC and holds a Diploma in General Nursing and Midwifery (GNM) from an institution recognized by KSNC &amp; INC.
+              </li>
+              <li>
+                <span className="check-bullet">✓</span>
+                <strong>Council Registration:</strong> Must be registered as a Registered Nurse &amp; Registered Midwife (RN/RM) with Karnataka State Nursing Council or respective State Council.
+              </li>
+              <li>
+                <span className="check-bullet">✓</span>
+                <strong>Age Limit:</strong> No upper age limit for in-service candidates; ideal for career elevation to gazetted nursing grades.
+              </li>
+              <li>
+                <span className="check-bullet">✓</span>
+                <strong>Medical Fitness:</strong> Medically fit to undertake advanced hospital rotations and research.
+              </li>
+            </ul>
+          </div>
+
+          <div className="career-scope-mini">
+            <span className="scope-lbl">Career Pathways:</span>
+            <span className="scope-items">Nursing Supervisor, Clinical Nurse Specialist (CNS), Nursing Superintendent, Assistant Professor / Tutor, Overseas RN.</span>
+          </div>
+        </div>
+
+        <div className="program-actions-right">
+          <button
+            type="button"
+            className="btn-select-program primary"
+            onClick={() => handleSelectCourse('Post B.Sc. Nursing')}
+          >
+            <span>Apply for Post B.Sc.</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+          <Link to="/courses" className="link-course-detail">
+            View Syllabus &amp; Curriculum →
+          </Link>
+        </div>
+      </div>
+    </article>
+  );
+
+  const renderCardMSc = () => (
+    <article className="program-showcase-box featured" key="program-msc">
+      <div className="program-box-top">
+        <div className="program-tag-badge degree">Postgraduate Master Degree</div>
+        <div className="program-seats-badge">Approved Intake: <strong>25 Seats</strong></div>
+      </div>
+
+      <div className="program-box-main">
+        <div className="program-info-left">
+          <h3 className="program-title">
+            Master of Science in Nursing <span className="program-abbr">(M.Sc. Nursing)</span>
+          </h3>
+          <div className="program-meta-chips">
+            <span className="meta-chip">⏱ 2 Years Postgraduate</span>
+            <span className="meta-chip">🏛 Affiliated to RGUHS Bangalore</span>
+            <span className="meta-chip">🏥 KSNC &amp; INC Approved</span>
+            <span className="meta-chip">🩺 Super-Specialty Clinical Practice</span>
+          </div>
+
+          <div className="eligibility-spec-box">
+            <h4 className="spec-heading">Mandatory Eligibility Criteria:</h4>
+            <ul className="spec-list">
+              <li>
+                <span className="check-bullet">✓</span>
+                <strong>Academic Qualification:</strong> Passed B.Sc. Nursing / B.Sc. Hons Nursing / Post Basic B.Sc. Nursing from an institution recognized by INC and RGUHS Bangalore.
+              </li>
+              <li>
+                <span className="check-bullet">✓</span>
+                <strong>Minimum Aggregate Marks:</strong> Minimum <strong>55% aggregate marks</strong> in qualifying nursing degree (50% for SC/ST candidates).
+              </li>
+              <li>
+                <span className="check-bullet">✓</span>
+                <strong>Professional Registration:</strong> Registered Nurse &amp; Registered Midwife (RN &amp; RM) with Karnataka State Nursing Council (KSNC) or any State Nursing Council.
+              </li>
+              <li>
+                <span className="check-bullet">✓</span>
+                <strong>Work Experience:</strong> Minimum <strong>1 year of clinical/teaching work experience</strong> after B.Sc. Nursing registration (prior or post Post-Basic B.Sc. Nursing).
+              </li>
+            </ul>
+          </div>
+
+          <div className="career-scope-mini">
+            <span className="scope-lbl">Career Pathways:</span>
+            <span className="scope-items">Assistant Professor, Nursing Lecturer, Clinical Nurse Specialist (CNS), Chief Nursing Officer (CNO), Nurse Researcher, Healthcare Administrator.</span>
+          </div>
+        </div>
+
+        <div className="program-actions-right">
+          <button
+            type="button"
+            className="btn-select-program primary"
+            onClick={() => handleSelectCourse('M.Sc. Nursing')}
+          >
+            <span>Apply for M.Sc. Nursing</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+          <Link to="/courses" className="link-course-detail">
+            View Syllabus &amp; Curriculum →
+          </Link>
+        </div>
+      </div>
+    </article>
+  );
+
+  const renderCardDPharm = () => (
+    <article className="program-showcase-box" key="program-dpharm">
+      <div className="program-box-top">
+        <div className="program-tag-badge diploma">Pharmacy Diploma Course</div>
+        <div className="program-seats-badge">Approved Intake: <strong>60 Seats</strong></div>
+      </div>
+
+      <div className="program-box-main">
+        <div className="program-info-left">
+          <h3 className="program-title">
+            Diploma in Pharmacy <span className="program-abbr">(D.Pharm)</span>
+          </h3>
+          <div className="program-meta-chips">
+            <span className="meta-chip">⏱ 2 Years Duration</span>
+            <span className="meta-chip">🏛 Approved by PCI &amp; BEA Karnataka</span>
+            <span className="meta-chip">💊 Retail &amp; Hospital Pharmacy</span>
+          </div>
+
+          <div className="eligibility-spec-box">
+            <h4 className="spec-heading">Mandatory Eligibility Criteria:</h4>
+            <ul className="spec-list">
+              <li>
+                <span className="check-bullet">✓</span>
+                <strong>Academic Qualification:</strong> Passed 10+2 / 2nd PUC examination with Physics, Chemistry as compulsory subjects along with Mathematics or Biology (PCM or PCB).
+              </li>
+              <li>
+                <span className="check-bullet">✓</span>
+                <strong>Minimum Aggregate Marks:</strong> Minimum <strong>40% aggregate marks</strong> in qualifying science subjects (35% for SC/ST candidates).
+              </li>
+              <li>
+                <span className="check-bullet">✓</span>
+                <strong>Age Limit:</strong> Must have completed <strong>17 years</strong> of age on or before 31st December 2026.
+              </li>
+              <li>
+                <span className="check-bullet">✓</span>
+                <strong>Practical Training:</strong> 500 hours of approved hospital / retail pharmacy internship after year 2.
+              </li>
+            </ul>
+          </div>
+
+          <div className="career-scope-mini">
+            <span className="scope-lbl">Career Pathways:</span>
+            <span className="scope-items">Registered Pharmacist, Retail Medical Store Licensee, Hospital Pharmacist, Medical Representative, Pharma Distributor.</span>
+          </div>
+        </div>
+
+        <div className="program-actions-right">
+          <button
+            type="button"
+            className="btn-select-program secondary"
+            onClick={() => handleSelectCourse('Diploma in Pharmacy (D.Pharm)')}
+          >
+            <span>Apply for D.Pharm</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+          <Link to="/courses" className="link-course-detail">
+            View Syllabus &amp; Curriculum →
+          </Link>
+        </div>
+      </div>
+    </article>
+  );
+
+  const renderCardBPharm = () => (
+    <article className="program-showcase-box featured" key="program-bpharm">
+      <div className="program-box-top">
+        <div className="program-tag-badge degree">Pharmacy Professional Degree</div>
+        <div className="program-seats-badge">Approved Intake: <strong>60 Seats</strong></div>
+      </div>
+
+      <div className="program-box-main">
+        <div className="program-info-left">
+          <h3 className="program-title">
+            Bachelor of Pharmacy <span className="program-abbr">(B.Pharm)</span>
+          </h3>
+          <div className="program-meta-chips">
+            <span className="meta-chip">⏱ 4 Years (8 Semesters)</span>
+            <span className="meta-chip">🏛 Approved by PCI &amp; Affiliated to RGUHS</span>
+            <span className="meta-chip">🔬 Drug Formulation &amp; QA</span>
+          </div>
+
+          <div className="eligibility-spec-box">
+            <h4 className="spec-heading">Mandatory Eligibility Criteria:</h4>
+            <ul className="spec-list">
+              <li>
+                <span className="check-bullet">✓</span>
+                <strong>Academic Qualification:</strong> Passed 10+2 / 2nd PUC with Physics &amp; Chemistry as compulsory subjects along with Mathematics or Biology (PCM / PCB / PCMB).
+              </li>
+              <li>
+                <span className="check-bullet">✓</span>
+                <strong>Minimum Aggregate Marks:</strong> Minimum <strong>45% aggregate marks</strong> in group subjects (40% for SC/ST/OBC category candidates).
+              </li>
+              <li>
+                <span className="check-bullet">✓</span>
+                <strong>Lateral Entry (Direct 2nd Year):</strong> Candidates passed D.Pharm from a PCI-recognized institution with minimum 45% marks are eligible directly to 3rd semester.
+              </li>
+              <li>
+                <span className="check-bullet">✓</span>
+                <strong>Age Limit:</strong> Completed 17 years on or before 31st December 2026.
+              </li>
+            </ul>
+          </div>
+
+          <div className="career-scope-mini">
+            <span className="scope-lbl">Career Pathways:</span>
+            <span className="scope-items">Formulation Scientist, Quality Assurance / QC Officer, Drug Inspector, Regulatory Affairs Executive, Clinical Research Associate.</span>
+          </div>
+        </div>
+
+        <div className="program-actions-right">
+          <button
+            type="button"
+            className="btn-select-program primary"
+            onClick={() => handleSelectCourse('Bachelor of Pharmacy (B.Pharm)')}
+          >
+            <span>Apply for B.Pharm</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+          <Link to="/courses" className="link-course-detail">
+            View Syllabus &amp; Curriculum →
+          </Link>
+        </div>
+      </div>
+    </article>
+  );
+
+  const renderCardBPT = () => (
+    <article className="program-showcase-box featured" key="program-bpt">
+      <div className="program-box-top">
+        <div className="program-tag-badge degree">Healthcare Professional Degree</div>
+        <div className="program-seats-badge">Approved Intake: <strong>40 Seats</strong></div>
+      </div>
+
+      <div className="program-box-main">
+        <div className="program-info-left">
+          <h3 className="program-title">
+            Bachelor of Physiotherapy <span className="program-abbr">(BPT)</span>
+          </h3>
+          <div className="program-meta-chips">
+            <span className="meta-chip">⏱ 4.5 Years (Inc. 6M Internship)</span>
+            <span className="meta-chip">🏛 Affiliated to RGUHS Bangalore</span>
+            <span className="meta-chip">🏃 Neuro &amp; Orthopedic Rehabilitation</span>
+          </div>
+
+          <div className="eligibility-spec-box">
+            <h4 className="spec-heading">Mandatory Eligibility Criteria:</h4>
+            <ul className="spec-list">
+              <li>
+                <span className="check-bullet">✓</span>
+                <strong>Academic Qualification:</strong> Passed 10+2 / 2nd PUC / 12th standard with Physics, Chemistry and Biology (PCB) and English as compulsory subjects.
+              </li>
+              <li>
+                <span className="check-bullet">✓</span>
+                <strong>Minimum Aggregate Marks:</strong> Minimum <strong>45% aggregate marks</strong> in PCB subjects (40% aggregate for SC/ST/OBC category candidates).
+              </li>
+              <li>
+                <span className="check-bullet">✓</span>
+                <strong>Age Limit:</strong> Must have completed <strong>17 years</strong> of age on or before 31st December 2026.
+              </li>
+              <li>
+                <span className="check-bullet">✓</span>
+                <strong>Internship:</strong> Compulsory 6 months rotatory clinical posting in multi-specialty hospitals before degree award.
+              </li>
+            </ul>
+          </div>
+
+          <div className="career-scope-mini">
+            <span className="scope-lbl">Career Pathways:</span>
+            <span className="scope-items">Clinical Physiotherapist, Sports Rehab Specialist, Neuro-Physiotherapist, ICU Rehab Consultant, Independent Clinic Owner.</span>
+          </div>
+        </div>
+
+        <div className="program-actions-right">
+          <button
+            type="button"
+            className="btn-select-program primary"
+            onClick={() => handleSelectCourse('Bachelor of Physiotherapy (BPT)')}
+          >
+            <span>Apply for BPT</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+          <Link to="/courses" className="link-course-detail">
+            View Syllabus &amp; Curriculum →
+          </Link>
+        </div>
+      </div>
+    </article>
+  );
+
+  const renderCardBEd = () => (
+    <article className="program-showcase-box" key="program-bed">
+      <div className="program-box-top">
+        <div className="program-tag-badge degree">Teacher Education Professional Degree</div>
+        <div className="program-seats-badge">Approved Intake: <strong>50 Seats</strong></div>
+      </div>
+
+      <div className="program-box-main">
+        <div className="program-info-left">
+          <h3 className="program-title">
+            Bachelor of Education <span className="program-abbr">(B.Ed)</span>
+          </h3>
+          <div className="program-meta-chips">
+            <span className="meta-chip">⏱ 2 Years (4 Semesters)</span>
+            <span className="meta-chip">🏛 Approved by NCTE &amp; Affiliated to Gulbarga Univ</span>
+            <span className="meta-chip">📚 School Pedagogy &amp; Internship</span>
+          </div>
+
+          <div className="eligibility-spec-box">
+            <h4 className="spec-heading">Mandatory Eligibility Criteria:</h4>
+            <ul className="spec-list">
+              <li>
+                <span className="check-bullet">✓</span>
+                <strong>Academic Qualification:</strong> Candidates with at least <strong>50% marks</strong> in Bachelor's Degree and/or Master's Degree in Sciences / Social Sciences / Humanities (B.A., B.Sc., B.Com, B.E., M.A., M.Sc.).
+              </li>
+              <li>
+                <span className="check-bullet">✓</span>
+                <strong>Reserved Categories:</strong> Minimum <strong>45% aggregate marks</strong> for SC / ST / Category-1 / PwD candidates.
+              </li>
+              <li>
+                <span className="check-bullet">✓</span>
+                <strong>Methodology Combinations:</strong> Dual pedagogical options across Languages (Kannada/English), Mathematics, Science, and Social Sciences.
+              </li>
+              <li>
+                <span className="check-bullet">✓</span>
+                <strong>School Internship:</strong> Intensive practical teaching internship across high schools in Karnataka.
+              </li>
+            </ul>
+          </div>
+
+          <div className="career-scope-mini">
+            <span className="scope-lbl">Career Pathways:</span>
+            <span className="scope-items">High School Teacher (TGT/PGT), Govt School Educator (KARTET/CTET qualified), Educational Administrator, Curriculum Designer.</span>
+          </div>
+        </div>
+
+        <div className="program-actions-right">
+          <button
+            type="button"
+            className="btn-select-program secondary"
+            onClick={() => handleSelectCourse('Bachelor of Education (B.Ed)')}
+          >
+            <span>Apply for B.Ed</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+          <Link to="/courses" className="link-course-detail">
+            View Syllabus &amp; Curriculum →
+          </Link>
+        </div>
+      </div>
+    </article>
+  );
+
+  const renderComparisonTable = () => (
+    <div className="criteria-table-wrap">
+      <h4 className="table-caption-title">At-A-Glance Course Comparison (2026–27)</h4>
+      <table className="modern-criteria-table">
+        <thead>
+          <tr>
+            <th>Program</th>
+            <th>Level</th>
+            <th>Duration</th>
+            <th>Eligible Stream</th>
+            <th>Min. Marks</th>
+            <th>Annual Intake</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>B.Sc. Nursing</strong></td>
+            <td><span className="badge-type degree">Degree</span></td>
+            <td>4 Years</td>
+            <td>10+2 with PCB &amp; English</td>
+            <td>45% (40% SC/ST)</td>
+            <td><strong>60 Seats</strong></td>
+          </tr>
+          <tr>
+            <td><strong>GNM Nursing</strong></td>
+            <td><span className="badge-type diploma">Diploma</span></td>
+            <td>3 Years</td>
+            <td>10+2 Any Stream (Science / Arts / Commerce)</td>
+            <td>40% (35% SC/ST)</td>
+            <td><strong>40 Seats</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Post B.Sc. Nursing</strong></td>
+            <td><span className="badge-type degree">Post Basic Degree</span></td>
+            <td>2 Years</td>
+            <td>10+2 + GNM Passed &amp; Registered RN/RM</td>
+            <td>Pass in GNM</td>
+            <td><strong>30 Seats</strong></td>
+          </tr>
+          <tr>
+            <td><strong>M.Sc. Nursing</strong></td>
+            <td><span className="badge-type degree">Postgraduate Master</span></td>
+            <td>2 Years</td>
+            <td>B.Sc. / PB B.Sc. Nursing + Registered RN/RM + 1 Yr Exp</td>
+            <td>55% (50% SC/ST)</td>
+            <td><strong>25 Seats</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Diploma in Pharmacy (D.Pharm)</strong></td>
+            <td><span className="badge-type diploma">Diploma</span></td>
+            <td>2 Years</td>
+            <td>10+2 with PCM or PCB</td>
+            <td>40% (35% SC/ST)</td>
+            <td><strong>60 Seats</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Bachelor of Pharmacy (B.Pharm)</strong></td>
+            <td><span className="badge-type degree">Degree</span></td>
+            <td>4 Years (8 Sem)</td>
+            <td>10+2 with PCM / PCB (or D.Pharm Lateral)</td>
+            <td>45% (40% SC/ST)</td>
+            <td><strong>60 Seats</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Bachelor of Physiotherapy (BPT)</strong></td>
+            <td><span className="badge-type degree">Professional Degree</span></td>
+            <td>4.5 Years</td>
+            <td>10+2 with PCB &amp; English</td>
+            <td>45% (40% SC/ST)</td>
+            <td><strong>40 Seats</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Bachelor of Education (B.Ed)</strong></td>
+            <td><span className="badge-type degree">Professional Degree</span></td>
+            <td>2 Years (4 Sem)</td>
+            <td>Graduation / Post Graduation (Any Discipline)</td>
+            <td>50% (45% SC/ST)</td>
+            <td><strong>50 Seats</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
 
   const toggleFaq = (index) => {
     setActiveFaq(activeFaq === index ? -1 : index);
@@ -320,7 +831,7 @@ export default function Admissions() {
                 Start Your Healthcare &amp; Teaching Career with <span className="gold-text">Excellence</span>
               </h1>
               <p className="banner-sub-p">
-                Direct merit-based seats available for Nursing (B.Sc., GNM, Post B.Sc.), Pharmacy (D.Pharm, B.Pharm), Physiotherapy (BPT), and B.Ed Teacher Training. Affiliated to RGUHS Bangalore, PCI, NCTE &amp; Gulbarga University.
+                Direct merit-based seats available for Nursing (B.Sc., GNM, Post B.Sc., M.Sc.), Pharmacy (D.Pharm, B.Pharm), Physiotherapy (BPT), and B.Ed Teacher Training. Affiliated to RGUHS Bangalore, KSNC, INC, PCI, NCTE &amp; Gulbarga University.
               </p>
               
               <div className="banner-cta-group">
@@ -478,14 +989,14 @@ export default function Admissions() {
                     className={`adm-tab-btn ${selectedCourseTab === 'all' ? 'active' : ''}`}
                     onClick={() => setSelectedCourseTab('all')}
                   >
-                    All Programs (7)
+                    All Programs (8)
                   </button>
                   <button
                     type="button"
                     className={`adm-tab-btn ${selectedCourseTab === 'nursing' ? 'active' : ''}`}
                     onClick={() => setSelectedCourseTab('nursing')}
                   >
-                    Nursing (3)
+                    Nursing (4)
                   </button>
                   <button
                     type="button"
@@ -645,420 +1156,496 @@ export default function Admissions() {
                     </article>
                   )}
 
-                  {/* PROGRAM 3: POST B.SC. NURSING */}
-                  {(selectedCourseTab === 'all' || selectedCourseTab === 'nursing') && (
-                    <article className="program-showcase-box">
-                      <div className="program-box-top">
-                        <div className="program-tag-badge degree">Post Basic Degree Course</div>
-                        <div className="program-seats-badge">Approved Intake: <strong>30 Seats</strong></div>
-                      </div>
-
-                      <div className="program-box-main">
-                        <div className="program-info-left">
-                          <h3 className="program-title">
-                            Post Basic B.Sc. in Nursing <span className="program-abbr">(P.B.B.Sc. Nursing)</span>
-                          </h3>
-                          <div className="program-meta-chips">
-                            <span className="meta-chip">⏱ 2 Years Duration</span>
-                            <span className="meta-chip">🏛 Affiliated to RGUHS Bangalore</span>
-                            <span className="meta-chip">🩺 Advanced Clinical Specialization</span>
-                          </div>
-
-                          <div className="eligibility-spec-box">
-                            <h4 className="spec-heading">Mandatory Eligibility Criteria:</h4>
-                            <ul className="spec-list">
-                              <li>
-                                <span className="check-bullet">✓</span>
-                                <strong>Academic Qualification:</strong> Passed 10+2 / PUC and holds a Diploma in General Nursing and Midwifery (GNM) from an institution recognized by KSNC &amp; INC.
-                              </li>
-                              <li>
-                                <span className="check-bullet">✓</span>
-                                <strong>Council Registration:</strong> Must be registered as a Registered Nurse &amp; Registered Midwife (RN/RM) with Karnataka State Nursing Council or respective State Council.
-                              </li>
-                              <li>
-                                <span className="check-bullet">✓</span>
-                                <strong>Age Limit:</strong> No upper age limit for in-service candidates; ideal for career elevation to gazetted nursing grades.
-                              </li>
-                              <li>
-                                <span className="check-bullet">✓</span>
-                                <strong>Medical Fitness:</strong> Medically fit to undertake advanced hospital rotations and research.
-                              </li>
-                            </ul>
-                          </div>
-
-                          <div className="career-scope-mini">
-                            <span className="scope-lbl">Career Pathways:</span>
-                            <span className="scope-items">Nursing Supervisor, Clinical Nurse Specialist (CNS), Nursing Superintendent, Assistant Professor / Tutor, Overseas RN.</span>
-                          </div>
+                  {/* EXPLORE MORE CALLOUT CARD (WHEN ON ALL TAB) */}
+                  {selectedCourseTab === 'all' && (
+                    <div className="adm-explore-more-card">
+                      <div className="explore-more-content">
+                        <div className="explore-more-badge">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="16"></line>
+                            <line x1="8" y1="12" x2="16" y2="12"></line>
+                          </svg>
+                          6 More Programs Available
                         </div>
-
-                        <div className="program-actions-right">
-                          <button
-                            type="button"
-                            className="btn-select-program primary"
-                            onClick={() => handleSelectCourse('Post B.Sc. Nursing')}
-                          >
-                            <span>Apply for Post B.Sc.</span>
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                              <line x1="5" y1="12" x2="19" y2="12"></line>
-                              <polyline points="12 5 19 12 12 19"></polyline>
-                            </svg>
-                          </button>
-                          <Link to="/courses" className="link-course-detail">
-                            View Syllabus &amp; Curriculum →
-                          </Link>
+                        <h3 className="explore-more-title">
+                          Looking for Pharmacy, Physiotherapy, Post B.Sc., M.Sc. or B.Ed Programs?
+                        </h3>
+                        <p className="explore-more-desc">
+                          VASANTHA GROUP OF EDUCATION offers 8 approved healthcare &amp; professional degree courses for the 2026–27 academic session with direct merit-based seats.
+                        </p>
+                        <div className="explore-programs-tags">
+                          <span className="ep-tag">💊 D.Pharm (60 Seats)</span>
+                          <span className="ep-tag">🔬 B.Pharm (60 Seats)</span>
+                          <span className="ep-tag">🏃 BPT Physiotherapy (40 Seats)</span>
+                          <span className="ep-tag">🩺 Post B.Sc. Nursing (30 Seats)</span>
+                          <span className="ep-tag">🎓 M.Sc. Nursing (25 Seats)</span>
+                          <span className="ep-tag">📚 B.Ed Education (50 Seats)</span>
                         </div>
                       </div>
-                    </article>
+                      <button
+                        type="button"
+                        className={`btn-toggle-programs ${showAllPrograms ? 'active' : ''}`}
+                        onClick={toggleViewMorePrograms}
+                        aria-expanded={showAllPrograms}
+                      >
+                        <span>
+                          {showAllPrograms
+                            ? 'Hide Additional Programs (Collapse) ▲'
+                            : 'View More Programs (Post B.Sc., M.Sc., Pharmacy, BPT, B.Ed) ▼'}
+                        </span>
+                      </button>
+                    </div>
                   )}
 
-                  {/* PROGRAM 4: DIPLOMA IN PHARMACY (D.PHARM) */}
-                  {(selectedCourseTab === 'all' || selectedCourseTab === 'pharmacy') && (
-                    <article className="program-showcase-box">
-                      <div className="program-box-top">
-                        <div className="program-tag-badge diploma">Pharmacy Diploma Course</div>
-                        <div className="program-seats-badge">Approved Intake: <strong>60 Seats</strong></div>
-                      </div>
-
-                      <div className="program-box-main">
-                        <div className="program-info-left">
-                          <h3 className="program-title">
-                            Diploma in Pharmacy <span className="program-abbr">(D.Pharm)</span>
-                          </h3>
-                          <div className="program-meta-chips">
-                            <span className="meta-chip">⏱ 2 Years Duration</span>
-                            <span className="meta-chip">🏛 Approved by PCI &amp; BEA Karnataka</span>
-                            <span className="meta-chip">💊 Retail &amp; Hospital Pharmacy</span>
-                          </div>
-
-                          <div className="eligibility-spec-box">
-                            <h4 className="spec-heading">Mandatory Eligibility Criteria:</h4>
-                            <ul className="spec-list">
-                              <li>
-                                <span className="check-bullet">✓</span>
-                                <strong>Academic Qualification:</strong> Passed 10+2 / 2nd PUC examination with Physics, Chemistry as compulsory subjects along with Mathematics or Biology (PCM or PCB).
-                              </li>
-                              <li>
-                                <span className="check-bullet">✓</span>
-                                <strong>Minimum Aggregate Marks:</strong> Minimum <strong>40% aggregate marks</strong> in qualifying science subjects (35% for SC/ST candidates).
-                              </li>
-                              <li>
-                                <span className="check-bullet">✓</span>
-                                <strong>Age Limit:</strong> Must have completed <strong>17 years</strong> of age on or before 31st December 2026.
-                              </li>
-                              <li>
-                                <span className="check-bullet">✓</span>
-                                <strong>Practical Training:</strong> 500 hours of approved hospital / retail pharmacy internship after year 2.
-                              </li>
-                            </ul>
-                          </div>
-
-                          <div className="career-scope-mini">
-                            <span className="scope-lbl">Career Pathways:</span>
-                            <span className="scope-items">Registered Pharmacist, Retail Medical Store Licensee, Hospital Pharmacist, Medical Representative, Pharma Distributor.</span>
-                          </div>
-                        </div>
-
-                        <div className="program-actions-right">
-                          <button
-                            type="button"
-                            className="btn-select-program secondary"
-                            onClick={() => handleSelectCourse('Diploma in Pharmacy (D.Pharm)')}
-                          >
-                            <span>Apply for D.Pharm</span>
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                              <line x1="5" y1="12" x2="19" y2="12"></line>
-                              <polyline points="12 5 19 12 12 19"></polyline>
-                            </svg>
-                          </button>
-                          <Link to="/courses" className="link-course-detail">
-                            View Syllabus &amp; Curriculum →
-                          </Link>
-                        </div>
-                      </div>
-                    </article>
+                  {/* CATEGORY TAB PROGRAMS */}
+                  {selectedCourseTab === 'nursing' && (
+                    <>
+                      {renderCardPostBSc()}
+                      {renderCardMSc()}
+                    </>
                   )}
-
-                  {/* PROGRAM 5: BACHELOR OF PHARMACY (B.PHARM) */}
-                  {(selectedCourseTab === 'all' || selectedCourseTab === 'pharmacy') && (
-                    <article className="program-showcase-box featured">
-                      <div className="program-box-top">
-                        <div className="program-tag-badge degree">Pharmacy Professional Degree</div>
-                        <div className="program-seats-badge">Approved Intake: <strong>60 Seats</strong></div>
-                      </div>
-
-                      <div className="program-box-main">
-                        <div className="program-info-left">
-                          <h3 className="program-title">
-                            Bachelor of Pharmacy <span className="program-abbr">(B.Pharm)</span>
-                          </h3>
-                          <div className="program-meta-chips">
-                            <span className="meta-chip">⏱ 4 Years (8 Semesters)</span>
-                            <span className="meta-chip">🏛 Approved by PCI &amp; Affiliated to RGUHS</span>
-                            <span className="meta-chip">🔬 Drug Formulation &amp; QA</span>
-                          </div>
-
-                          <div className="eligibility-spec-box">
-                            <h4 className="spec-heading">Mandatory Eligibility Criteria:</h4>
-                            <ul className="spec-list">
-                              <li>
-                                <span className="check-bullet">✓</span>
-                                <strong>Academic Qualification:</strong> Passed 10+2 / 2nd PUC with Physics &amp; Chemistry as compulsory subjects along with Mathematics or Biology (PCM / PCB / PCMB).
-                              </li>
-                              <li>
-                                <span className="check-bullet">✓</span>
-                                <strong>Minimum Aggregate Marks:</strong> Minimum <strong>45% aggregate marks</strong> in group subjects (40% for SC/ST/OBC category candidates).
-                              </li>
-                              <li>
-                                <span className="check-bullet">✓</span>
-                                <strong>Lateral Entry (Direct 2nd Year):</strong> Candidates passed D.Pharm from a PCI-recognized institution with minimum 45% marks are eligible directly to 3rd semester.
-                              </li>
-                              <li>
-                                <span className="check-bullet">✓</span>
-                                <strong>Age Limit:</strong> Completed 17 years on or before 31st December 2026.
-                              </li>
-                            </ul>
-                          </div>
-
-                          <div className="career-scope-mini">
-                            <span className="scope-lbl">Career Pathways:</span>
-                            <span className="scope-items">Formulation Scientist, Quality Assurance / QC Officer, Drug Inspector, Regulatory Affairs Executive, Clinical Research Associate.</span>
-                          </div>
-                        </div>
-
-                        <div className="program-actions-right">
-                          <button
-                            type="button"
-                            className="btn-select-program primary"
-                            onClick={() => handleSelectCourse('Bachelor of Pharmacy (B.Pharm)')}
-                          >
-                            <span>Apply for B.Pharm</span>
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                              <line x1="5" y1="12" x2="19" y2="12"></line>
-                              <polyline points="12 5 19 12 12 19"></polyline>
-                            </svg>
-                          </button>
-                          <Link to="/courses" className="link-course-detail">
-                            View Syllabus &amp; Curriculum →
-                          </Link>
-                        </div>
-                      </div>
-                    </article>
+                  {selectedCourseTab === 'pharmacy' && (
+                    <>
+                      {renderCardDPharm()}
+                      {renderCardBPharm()}
+                    </>
                   )}
-
-                  {/* PROGRAM 6: BACHELOR OF PHYSIOTHERAPY (BPT) */}
-                  {(selectedCourseTab === 'all' || selectedCourseTab === 'physiotherapy') && (
-                    <article className="program-showcase-box featured">
-                      <div className="program-box-top">
-                        <div className="program-tag-badge degree">Healthcare Professional Degree</div>
-                        <div className="program-seats-badge">Approved Intake: <strong>40 Seats</strong></div>
-                      </div>
-
-                      <div className="program-box-main">
-                        <div className="program-info-left">
-                          <h3 className="program-title">
-                            Bachelor of Physiotherapy <span className="program-abbr">(BPT)</span>
-                          </h3>
-                          <div className="program-meta-chips">
-                            <span className="meta-chip">⏱ 4.5 Years (Inc. 6M Internship)</span>
-                            <span className="meta-chip">🏛 Affiliated to RGUHS Bangalore</span>
-                            <span className="meta-chip">🏃 Neuro &amp; Orthopedic Rehabilitation</span>
-                          </div>
-
-                          <div className="eligibility-spec-box">
-                            <h4 className="spec-heading">Mandatory Eligibility Criteria:</h4>
-                            <ul className="spec-list">
-                              <li>
-                                <span className="check-bullet">✓</span>
-                                <strong>Academic Qualification:</strong> Passed 10+2 / 2nd PUC / 12th standard with Physics, Chemistry and Biology (PCB) and English as compulsory subjects.
-                              </li>
-                              <li>
-                                <span className="check-bullet">✓</span>
-                                <strong>Minimum Aggregate Marks:</strong> Minimum <strong>45% aggregate marks</strong> in PCB subjects (40% aggregate for SC/ST/OBC category candidates).
-                              </li>
-                              <li>
-                                <span className="check-bullet">✓</span>
-                                <strong>Age Limit:</strong> Must have completed <strong>17 years</strong> of age on or before 31st December 2026.
-                              </li>
-                              <li>
-                                <span className="check-bullet">✓</span>
-                                <strong>Internship:</strong> Compulsory 6 months rotatory clinical posting in multi-specialty hospitals before degree award.
-                              </li>
-                            </ul>
-                          </div>
-
-                          <div className="career-scope-mini">
-                            <span className="scope-lbl">Career Pathways:</span>
-                            <span className="scope-items">Clinical Physiotherapist, Sports Rehab Specialist, Neuro-Physiotherapist, ICU Rehab Consultant, Independent Clinic Owner.</span>
-                          </div>
-                        </div>
-
-                        <div className="program-actions-right">
-                          <button
-                            type="button"
-                            className="btn-select-program primary"
-                            onClick={() => handleSelectCourse('Bachelor of Physiotherapy (BPT)')}
-                          >
-                            <span>Apply for BPT</span>
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                              <line x1="5" y1="12" x2="19" y2="12"></line>
-                              <polyline points="12 5 19 12 12 19"></polyline>
-                            </svg>
-                          </button>
-                          <Link to="/courses" className="link-course-detail">
-                            View Syllabus &amp; Curriculum →
-                          </Link>
-                        </div>
-                      </div>
-                    </article>
-                  )}
-
-                  {/* PROGRAM 7: BACHELOR OF EDUCATION (B.ED) */}
-                  {(selectedCourseTab === 'all' || selectedCourseTab === 'education') && (
-                    <article className="program-showcase-box">
-                      <div className="program-box-top">
-                        <div className="program-tag-badge degree">Teacher Education Professional Degree</div>
-                        <div className="program-seats-badge">Approved Intake: <strong>50 Seats</strong></div>
-                      </div>
-
-                      <div className="program-box-main">
-                        <div className="program-info-left">
-                          <h3 className="program-title">
-                            Bachelor of Education <span className="program-abbr">(B.Ed)</span>
-                          </h3>
-                          <div className="program-meta-chips">
-                            <span className="meta-chip">⏱ 2 Years (4 Semesters)</span>
-                            <span className="meta-chip">🏛 Approved by NCTE &amp; Affiliated to Gulbarga Univ</span>
-                            <span className="meta-chip">📚 School Pedagogy &amp; Internship</span>
-                          </div>
-
-                          <div className="eligibility-spec-box">
-                            <h4 className="spec-heading">Mandatory Eligibility Criteria:</h4>
-                            <ul className="spec-list">
-                              <li>
-                                <span className="check-bullet">✓</span>
-                                <strong>Academic Qualification:</strong> Candidates with at least <strong>50% marks</strong> in Bachelor's Degree and/or Master's Degree in Sciences / Social Sciences / Humanities (B.A., B.Sc., B.Com, B.E., M.A., M.Sc.).
-                              </li>
-                              <li>
-                                <span className="check-bullet">✓</span>
-                                <strong>Reserved Categories:</strong> Minimum <strong>45% aggregate marks</strong> for SC / ST / Category-1 / PwD candidates.
-                              </li>
-                              <li>
-                                <span className="check-bullet">✓</span>
-                                <strong>Methodology Combinations:</strong> Dual pedagogical options across Languages (Kannada/English), Mathematics, Science, and Social Sciences.
-                              </li>
-                              <li>
-                                <span className="check-bullet">✓</span>
-                                <strong>School Internship:</strong> Intensive practical teaching internship across high schools in Karnataka.
-                              </li>
-                            </ul>
-                          </div>
-
-                          <div className="career-scope-mini">
-                            <span className="scope-lbl">Career Pathways:</span>
-                            <span className="scope-items">High School Teacher (TGT/PGT), Govt School Educator (KARTET/CTET qualified), Educational Administrator, Curriculum Designer.</span>
-                          </div>
-                        </div>
-
-                        <div className="program-actions-right">
-                          <button
-                            type="button"
-                            className="btn-select-program secondary"
-                            onClick={() => handleSelectCourse('Bachelor of Education (B.Ed)')}
-                          >
-                            <span>Apply for B.Ed</span>
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                              <line x1="5" y1="12" x2="19" y2="12"></line>
-                              <polyline points="12 5 19 12 12 19"></polyline>
-                            </svg>
-                          </button>
-                          <Link to="/courses" className="link-course-detail">
-                            View Syllabus &amp; Curriculum →
-                          </Link>
-                        </div>
-                      </div>
-                    </article>
-                  )}
+                  {selectedCourseTab === 'physiotherapy' && renderCardBPT()}
+                  {selectedCourseTab === 'education' && renderCardBEd()}
                 </div>
 
-                {/* Seat Matrix Quick Summary Table */}
-                <div className="criteria-table-wrap">
-                  <h4 className="table-caption-title">At-A-Glance Course Comparison (2026–27)</h4>
-                  <table className="modern-criteria-table">
-                    <thead>
-                      <tr>
-                        <th>Program</th>
-                        <th>Level</th>
-                        <th>Duration</th>
-                        <th>Eligible Stream</th>
-                        <th>Min. Marks</th>
-                        <th>Annual Intake</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td><strong>B.Sc. Nursing</strong></td>
-                        <td><span className="badge-type degree">Degree</span></td>
-                        <td>4 Years</td>
-                        <td>10+2 with PCB &amp; English</td>
-                        <td>45% (40% SC/ST)</td>
-                        <td><strong>60 Seats</strong></td>
-                      </tr>
-                      <tr>
-                        <td><strong>GNM Nursing</strong></td>
-                        <td><span className="badge-type diploma">Diploma</span></td>
-                        <td>3 Years</td>
-                        <td>10+2 Any Stream (Science / Arts / Commerce)</td>
-                        <td>40% (35% SC/ST)</td>
-                        <td><strong>40 Seats</strong></td>
-                      </tr>
-                      <tr>
-                        <td><strong>Post B.Sc. Nursing</strong></td>
-                        <td><span className="badge-type degree">Post Basic Degree</span></td>
-                        <td>2 Years</td>
-                        <td>10+2 + GNM Passed &amp; Registered RN/RM</td>
-                        <td>Pass in GNM</td>
-                        <td><strong>30 Seats</strong></td>
-                      </tr>
-                      <tr>
-                        <td><strong>Diploma in Pharmacy (D.Pharm)</strong></td>
-                        <td><span className="badge-type diploma">Diploma</span></td>
-                        <td>2 Years</td>
-                        <td>10+2 with PCM or PCB</td>
-                        <td>40% (35% SC/ST)</td>
-                        <td><strong>60 Seats</strong></td>
-                      </tr>
-                      <tr>
-                        <td><strong>Bachelor of Pharmacy (B.Pharm)</strong></td>
-                        <td><span className="badge-type degree">Degree</span></td>
-                        <td>4 Years (8 Sem)</td>
-                        <td>10+2 with PCM / PCB (or D.Pharm Lateral)</td>
-                        <td>45% (40% SC/ST)</td>
-                        <td><strong>60 Seats</strong></td>
-                      </tr>
-                      <tr>
-                        <td><strong>Bachelor of Physiotherapy (BPT)</strong></td>
-                        <td><span className="badge-type degree">Professional Degree</span></td>
-                        <td>4.5 Years</td>
-                        <td>10+2 with PCB &amp; English</td>
-                        <td>45% (40% SC/ST)</td>
-                        <td><strong>40 Seats</strong></td>
-                      </tr>
-                      <tr>
-                        <td><strong>Bachelor of Education (B.Ed)</strong></td>
-                        <td><span className="badge-type degree">Professional Degree</span></td>
-                        <td>2 Years (4 Sem)</td>
-                        <td>Graduation / Post Graduation (Any Discipline)</td>
-                        <td>50% (45% SC/ST)</td>
-                        <td><strong>50 Seats</strong></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+                {/* Seat Matrix Quick Summary Table for Category Tabs */}
+                {selectedCourseTab !== 'all' && renderComparisonTable()}
               </section>
+            </div>
 
-              {/* SECTION B: 4-STEP ADMISSION PROCESS */}
-              <section id="admission-steps" className="adm-content-card">
+            {/* RIGHT COLUMN: STICKY APPLICATION FORM & HELPDESK */}
+            <aside className="admissions-sidebar-col">
+              
+              {/* CARD 1: ONLINE APPLICATION FORM */}
+              <div id="admission-apply-form" className="application-form-card">
+                <div className="form-card-badge-row">
+                  <span className="form-secure-pill">🔒 Official Admission Portal</span>
+                  <span className="form-seats-pill">Limited 2026-27 Seats</span>
+                </div>
+
+                <h3 className="form-head-title">Online Admission Form</h3>
+                <p className="form-head-sub">
+                  Submit your preliminary details to secure provisional seat allotment. Our chief admission counselor will contact you within 2 hours.
+                </p>
+
+                <form className="admission-ajax-form" onSubmit={handleSubmit} noValidate>
+                  <div className={`form-group ${errors.fullName ? 'has-error' : touched.fullName && formData.fullName && !errors.fullName ? 'is-valid' : ''}`}>
+                    <label className="form-label" htmlFor="full_name">
+                      Candidate Full Name <span className="req-star">*</span>
+                    </label>
+                    <input
+                      id="full_name"
+                      type="text"
+                      name="full_name"
+                      className={`form-input ${errors.fullName ? 'is-invalid' : ''}`}
+                      placeholder="e.g. Anjali Deshmukh"
+                      required
+                      value={formData.fullName}
+                      onChange={handleFullNameChange}
+                      onBlur={() => handleBlur('fullName')}
+                      aria-invalid={!!errors.fullName}
+                      aria-describedby={errors.fullName ? 'fullNameError' : undefined}
+                    />
+                    {errors.fullName && (
+                      <div className="form-error-msg" id="fullNameError" role="alert">
+                        <svg viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                        </svg>
+                        <span>{errors.fullName}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className={`form-group ${errors.guardianName ? 'has-error' : touched.guardianName && formData.guardianName && !errors.guardianName ? 'is-valid' : ''}`}>
+                    <label className="form-label" htmlFor="guardian_name">
+                      Father's / Guardian's Name <span className="req-star">*</span>
+                    </label>
+                    <input
+                      id="guardian_name"
+                      type="text"
+                      name="guardian_name"
+                      className={`form-input ${errors.guardianName ? 'is-invalid' : ''}`}
+                      placeholder="e.g. Ramesh Deshmukh"
+                      required
+                      value={formData.guardianName}
+                      onChange={handleGuardianNameChange}
+                      onBlur={() => handleBlur('guardianName')}
+                      aria-invalid={!!errors.guardianName}
+                      aria-describedby={errors.guardianName ? 'guardianNameError' : undefined}
+                    />
+                    {errors.guardianName && (
+                      <div className="form-error-msg" id="guardianNameError" role="alert">
+                        <svg viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                        </svg>
+                        <span>{errors.guardianName}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="form-row-2">
+                    <div className={`form-group ${errors.phone ? 'has-error' : touched.phone && formData.phone.length === 10 && !errors.phone ? 'is-valid' : ''}`}>
+                      <label className="form-label" htmlFor="phone">
+                        Mobile Number (WhatsApp) <span className="req-star">*</span>
+                      </label>
+                      <input
+                        id="phone"
+                        type="tel"
+                        name="phone"
+                        className={`form-input ${errors.phone ? 'is-invalid' : ''}`}
+                        placeholder="10-digit mobile number"
+                        required
+                        maxLength={10}
+                        value={formData.phone}
+                        onChange={handlePhoneChange}
+                        onBlur={() => handleBlur('phone')}
+                        aria-invalid={!!errors.phone}
+                        aria-describedby={errors.phone ? 'phoneError' : undefined}
+                      />
+                      {errors.phone && (
+                        <div className="form-error-msg" id="phoneError" role="alert">
+                          <svg viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                          </svg>
+                          <span>{errors.phone}</span>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="form-group">
+                      <label className="form-label" htmlFor="gender">
+                        Gender <span className="req-star">*</span>
+                      </label>
+                      <select
+                        id="gender"
+                        name="gender"
+                        className="form-select"
+                        value={formData.gender}
+                        onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
+                      >
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className={`form-group ${errors.email ? 'has-error' : touched.email && formData.email && !errors.email ? 'is-valid' : ''}`}>
+                    <label className="form-label" htmlFor="email">
+                      Email Address (Optional)
+                    </label>
+                    <input
+                      id="email"
+                      type="email"
+                      name="email"
+                      className={`form-input ${errors.email ? 'is-invalid' : ''}`}
+                      placeholder="student@example.com"
+                      value={formData.email}
+                      onChange={handleEmailChange}
+                      onBlur={() => handleBlur('email')}
+                      aria-invalid={!!errors.email}
+                      aria-describedby={errors.email ? 'emailError' : undefined}
+                    />
+                    {errors.email && (
+                      <div className="form-error-msg" id="emailError" role="alert">
+                        <svg viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                        </svg>
+                        <span>{errors.email}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="course">
+                      Select Academic Program <span className="req-star">*</span>
+                    </label>
+                    <select
+                      id="course"
+                      name="course"
+                      className="form-select highlight-select"
+                      required
+                      value={formData.course}
+                      onChange={(e) => setFormData({ ...formData, course: e.target.value })}
+                    >
+                      <option value="B.Sc. Nursing">B.Sc. Nursing (4 Years Degree Course - RGUHS)</option>
+                      <option value="GNM Nursing">GNM Nursing (3 Years Diploma Course - KSNC)</option>
+                      <option value="Post B.Sc. Nursing">Post Basic B.Sc. Nursing (2 Years Degree - RGUHS)</option>
+                      <option value="M.Sc. Nursing">M.Sc. Nursing (2 Years Postgraduate Degree - RGUHS)</option>
+                      <option value="Diploma in Pharmacy (D.Pharm)">Diploma in Pharmacy - D.Pharm (2 Years Diploma - PCI)</option>
+                      <option value="Bachelor of Pharmacy (B.Pharm)">Bachelor of Pharmacy - B.Pharm (4 Years Degree - PCI &amp; RGUHS)</option>
+                      <option value="Bachelor of Physiotherapy (BPT)">Bachelor of Physiotherapy - BPT (4.5 Years Degree - RGUHS)</option>
+                      <option value="Bachelor of Education (B.Ed)">Bachelor of Education - B.Ed (2 Years Degree - NCTE &amp; Gulbarga Univ)</option>
+                    </select>
+                  </div>
+
+                  <div className="form-row-2">
+                    <div className={`form-group ${errors.pcbScore ? 'has-error' : touched.pcbScore && formData.pcbScore && !errors.pcbScore ? 'is-valid' : ''}`}>
+                      <label className="form-label" htmlFor="pcb_score">
+                        12th / PUC / Degree Marks (%) <span className="req-star">*</span>
+                      </label>
+                      <input
+                        id="pcb_score"
+                        type="text"
+                        name="pcb_score"
+                        className={`form-input ${errors.pcbScore ? 'is-invalid' : ''}`}
+                        placeholder="e.g. 72% / Result Awaited / CGPA"
+                        required
+                        value={formData.pcbScore}
+                        onChange={handlePcbChange}
+                        onBlur={() => handleBlur('pcbScore')}
+                        aria-invalid={!!errors.pcbScore}
+                        aria-describedby={errors.pcbScore ? 'pcbError' : undefined}
+                      />
+                      {errors.pcbScore && (
+                        <div className="form-error-msg" id="pcbError" role="alert">
+                          <svg viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                          </svg>
+                          <span>{errors.pcbScore}</span>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="form-group">
+                      <label className="form-label" htmlFor="hostel_needed">
+                        College Bus Transport?
+                      </label>
+                      <select
+                        id="hostel_needed"
+                        name="hostel_needed"
+                        className="form-select"
+                        value={formData.hostelNeeded}
+                        onChange={(e) => setFormData({ ...formData, hostelNeeded: e.target.value })}
+                      >
+                        <option value="Yes">Yes, College Bus Required</option>
+                        <option value="No">No, Own Conveyance</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className={`form-group ${errors.cityState ? 'has-error' : touched.cityState && formData.cityState && !errors.cityState ? 'is-valid' : ''}`}>
+                    <label className="form-label" htmlFor="city_state">
+                      Permanent City &amp; State <span className="req-star">*</span>
+                    </label>
+                    <input
+                      id="city_state"
+                      type="text"
+                      name="city_state"
+                      className={`form-input ${errors.cityState ? 'is-invalid' : ''}`}
+                      placeholder="e.g. Bidar, Karnataka"
+                      required
+                      value={formData.cityState}
+                      onChange={handleCityStateChange}
+                      onBlur={() => handleBlur('cityState')}
+                      aria-invalid={!!errors.cityState}
+                      aria-describedby={errors.cityState ? 'cityStateError' : undefined}
+                    />
+                    {errors.cityState && (
+                      <div className="form-error-msg" id="cityStateError" role="alert">
+                        <svg viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                        </svg>
+                        <span>{errors.cityState}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="message">
+                      Any Query / Special Request (Optional)
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows="2"
+                      className="form-textarea"
+                      placeholder="Ask about fee installments, bus transport, or campus visit..."
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    ></textarea>
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="btn-submit-app"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <span>Registering Application...</span>
+                    ) : (
+                      <>
+                        <span>Submit Application for 2026–27</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                          <line x1="5" y1="12" x2="19" y2="12"></line>
+                          <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                      </>
+                    )}
+                  </button>
+
+                  <div className="form-trust-guarantee">
+                    <div className="guarantee-item">
+                      <span className="guarantee-icon">🛡</span>
+                      <span>100% Free Consultation &amp; Direct Institute Allotment</span>
+                    </div>
+                    <div className="guarantee-item">
+                      <span className="guarantee-icon">⏱</span>
+                      <span>Counselor Call Back Guaranteed within 2 Hours</span>
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+              {/* CARD 2: ADMISSION HELPDESK & CALL SUPPORT */}
+              <div className="helpdesk-contact-card">
+                <div className="helpdesk-header">
+                  <div className="helpdesk-icon-bubble">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="helpdesk-title">Need Immediate Help?</h4>
+                    <p className="helpdesk-sub">Speak directly with our Chief Admission Officers</p>
+                  </div>
+                </div>
+
+                <div className="helpdesk-numbers-list">
+                  <a href="tel:9512592211" className="helpdesk-call-btn">
+                    <div className="btn-call-left">
+                      <span className="tel-label">Admission Desk 1</span>
+                      <strong className="tel-val">+91 9512592211</strong>
+                    </div>
+                    <span className="tel-action-tag">Call Now</span>
+                  </a>
+
+                  <a href="tel:9913377195" className="helpdesk-call-btn">
+                    <div className="btn-call-left">
+                      <span className="tel-label">Admission Desk 2</span>
+                      <strong className="tel-val">+91 9913377195</strong>
+                    </div>
+                    <span className="tel-action-tag">Call Now</span>
+                  </a>
+
+                  <a
+                    href="https://wa.me/919512592211?text=Hello%20VASANTHA%20GROUP%20OF%20EDUCATION%2C%20I%20am%20interested%20in%20Admissions%20for%202026-27.%20Please%20guide%20me."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="helpdesk-whatsapp-btn"
+                  >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.456 5.711 1.457h.004c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    <span>Instant WhatsApp Chat with Counselor</span>
+                  </a>
+                </div>
+
+                <div className="campus-visit-box">
+                  <div className="visit-label">Campus Counseling Office:</div>
+                  <div className="visit-address">
+                    Naubad-bhalki Road, Naubad Karnataka 585402
+                  </div>
+                  <div className="visit-timing">
+                    🕒 Open Monday – Saturday: 9:00 AM to 5:30 PM
+                  </div>
+                  <button
+                    type="button"
+                    className="btn-campus-tour-trigger"
+                    onClick={openTourModal}
+                  >
+                    <span>🎥 Watch Campus Virtual Tour</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* CARD 3: DOWNLOAD BROCHURE WIDGET */}
+              <div className="prospectus-download-widget">
+                <div className="widget-cover-icon" aria-hidden="true">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                  </svg>
+                </div>
+                <div className="widget-info">
+                  <h4>Information Brochure 2026–27</h4>
+                  <p>Includes syllabus breakdown, clinical hospital postings, fee structure, and scholarship guidelines.</p>
+                  <button
+                    type="button"
+                    className="btn-widget-download"
+                    onClick={() => downloadBrochure('Vasantha_Group_of_Education_Brochure_2026-27.pdf', 'VASANTHA GROUP OF EDUCATION Information Brochure 2026-27')}
+                  >
+                    <span>Download Official PDF (Free)</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="7 10 12 15 17 10"></polyline>
+                      <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+            </aside>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 4B. FULL-WIDTH: EXPANDED ACADEMIC PROGRAMS SHOWCASE */}
+      {selectedCourseTab === 'all' && showAllPrograms && (
+        <section id="all-academic-programs" className="adm-full-width-section adm-expanded-deck-section">
+          <div className="container">
+            <div className="adm-expanded-card-shell">
+              <div className="adm-card-header">
+                <div className="adm-card-icon-wrap red">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h2 className="adm-card-heading">Additional Approved Degree &amp; Diploma Programs (2026–27)</h2>
+                  <p className="adm-card-subtitle">
+                    Approved by KSNC, INC, PCI, NCTE &amp; affiliated to Rajiv Gandhi University of Health Sciences (RGUHS) Bangalore and Gulbarga University. Direct merit-based admissions.
+                  </p>
+                </div>
+              </div>
+
+              <div className="adm-expanded-courses-grid">
+                {renderCardPostBSc()}
+                {renderCardMSc()}
+                {renderCardDPharm()}
+                {renderCardBPharm()}
+                {renderCardBPT()}
+                {renderCardBEd()}
+              </div>
+
+              {renderComparisonTable()}
+
+              <div className="adm-collapse-bottom-wrap">
+                <button
+                  type="button"
+                  className="btn-toggle-programs secondary"
+                  onClick={toggleViewMorePrograms}
+                >
+                  <span>Hide Additional Programs (Collapse) ▲</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 5. FULL-WIDTH: 4-STEP ADMISSION PROCESS */}
+      <section className="adm-full-width-section">
+        <div className="container">
+          <section id="admission-steps" className="adm-content-card">
                 <div className="adm-card-header">
                   <div className="adm-card-icon-wrap blue">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -1149,9 +1736,13 @@ export default function Admissions() {
                   </div>
                 </div>
               </section>
+        </div>
+      </section>
 
-              {/* SECTION C: REQUIRED DOCUMENTS CHECKLIST */}
-              <section id="documents-required" className="adm-content-card">
+      {/* 6. FULL-WIDTH: REQUIRED DOCUMENTS CHECKLIST */}
+      <section className="adm-full-width-section">
+        <div className="container">
+          <section id="documents-required" className="adm-content-card">
                 <div className="adm-card-header">
                   <div className="adm-card-icon-wrap gold">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -1311,9 +1902,14 @@ export default function Admissions() {
                   </button>
                 </div>
               </section>
+        </div>
+      </section>
 
-              {/* SECTION D: ADMISSION SCHEDULE & KEY DATES */}
-              <section id="admission-schedule" className="adm-content-card">
+      {/* 7. BALANCED 2-COLUMN: DATES & SCHOLARSHIPS */}
+      <section className="adm-full-width-section">
+        <div className="container">
+          <div className="adm-dual-grid-row">
+            <section id="admission-schedule" className="adm-content-card">
                 <div className="adm-card-header">
                   <div className="adm-card-icon-wrap crimson">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -1365,9 +1961,7 @@ export default function Admissions() {
                   </div>
                 </div>
               </section>
-
-              {/* SECTION E: SCHOLARSHIPS & FINANCIAL ASSISTANCE */}
-              <section id="scholarships-fees" className="adm-content-card">
+            <section id="scholarships-fees" className="adm-content-card">
                 <div className="adm-card-header">
                   <div className="adm-card-icon-wrap green">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -1421,9 +2015,14 @@ export default function Admissions() {
                   </div>
                 </div>
               </section>
+          </div>
+        </div>
+      </section>
 
-              {/* SECTION F: FREQUENTLY ASKED QUESTIONS */}
-              <section id="admission-faqs" className="adm-content-card">
+      {/* 8. FULL-WIDTH: FREQUENTLY ASKED QUESTIONS */}
+      <section className="adm-full-width-section">
+        <div className="container">
+          <section id="admission-faqs" className="adm-content-card">
                 <div className="adm-card-header">
                   <div className="adm-card-icon-wrap purple">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -1476,386 +2075,10 @@ export default function Admissions() {
                   </a>
                 </div>
               </section>
-
-            </div>
-
-            {/* RIGHT COLUMN: STICKY APPLICATION FORM & HELPDESK */}
-            <aside className="admissions-sidebar-col">
-              
-              {/* CARD 1: ONLINE APPLICATION FORM */}
-              <div id="admission-apply-form" className="application-form-card sticky-sidebar-card">
-                <div className="form-card-badge-row">
-                  <span className="form-secure-pill">🔒 Official Admission Portal</span>
-                  <span className="form-seats-pill">Limited 2026-27 Seats</span>
-                </div>
-
-                <h3 className="form-head-title">Online Admission Form</h3>
-                <p className="form-head-sub">
-                  Submit your preliminary details to secure provisional seat allotment. Our chief admission counselor will contact you within 2 hours.
-                </p>
-
-                <form className="admission-ajax-form" onSubmit={handleSubmit} noValidate>
-                  <div className={`form-group ${errors.fullName ? 'has-error' : touched.fullName && formData.fullName && !errors.fullName ? 'is-valid' : ''}`}>
-                    <label className="form-label" htmlFor="full_name">
-                      Candidate Full Name <span className="req-star">*</span>
-                    </label>
-                    <input
-                      id="full_name"
-                      type="text"
-                      name="full_name"
-                      className={`form-input ${errors.fullName ? 'is-invalid' : ''}`}
-                      placeholder="e.g. Anjali Deshmukh"
-                      required
-                      value={formData.fullName}
-                      onChange={handleFullNameChange}
-                      onBlur={() => handleBlur('fullName')}
-                      aria-invalid={!!errors.fullName}
-                      aria-describedby={errors.fullName ? 'fullNameError' : undefined}
-                    />
-                    {errors.fullName && (
-                      <div className="form-error-msg" id="fullNameError" role="alert">
-                        <svg viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                        </svg>
-                        <span>{errors.fullName}</span>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className={`form-group ${errors.guardianName ? 'has-error' : touched.guardianName && formData.guardianName && !errors.guardianName ? 'is-valid' : ''}`}>
-                    <label className="form-label" htmlFor="guardian_name">
-                      Father's / Guardian's Name <span className="req-star">*</span>
-                    </label>
-                    <input
-                      id="guardian_name"
-                      type="text"
-                      name="guardian_name"
-                      className={`form-input ${errors.guardianName ? 'is-invalid' : ''}`}
-                      placeholder="e.g. Ramesh Deshmukh"
-                      required
-                      value={formData.guardianName}
-                      onChange={handleGuardianNameChange}
-                      onBlur={() => handleBlur('guardianName')}
-                      aria-invalid={!!errors.guardianName}
-                      aria-describedby={errors.guardianName ? 'guardianNameError' : undefined}
-                    />
-                    {errors.guardianName && (
-                      <div className="form-error-msg" id="guardianNameError" role="alert">
-                        <svg viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                        </svg>
-                        <span>{errors.guardianName}</span>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="form-row-2">
-                    <div className={`form-group ${errors.phone ? 'has-error' : touched.phone && formData.phone.length === 10 && !errors.phone ? 'is-valid' : ''}`}>
-                      <label className="form-label" htmlFor="phone">
-                        Mobile Number (WhatsApp) <span className="req-star">*</span>
-                      </label>
-                      <input
-                        id="phone"
-                        type="tel"
-                        name="phone"
-                        className={`form-input ${errors.phone ? 'is-invalid' : ''}`}
-                        placeholder="10-digit mobile number"
-                        required
-                        maxLength={10}
-                        value={formData.phone}
-                        onChange={handlePhoneChange}
-                        onBlur={() => handleBlur('phone')}
-                        aria-invalid={!!errors.phone}
-                        aria-describedby={errors.phone ? 'phoneError' : undefined}
-                      />
-                      {errors.phone && (
-                        <div className="form-error-msg" id="phoneError" role="alert">
-                          <svg viewBox="0 0 20 20" fill="currentColor">
-                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                          </svg>
-                          <span>{errors.phone}</span>
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="gender">
-                        Gender <span className="req-star">*</span>
-                      </label>
-                      <select
-                        id="gender"
-                        name="gender"
-                        className="form-select"
-                        value={formData.gender}
-                        onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
-                      >
-                        <option value="Female">Female</option>
-                        <option value="Male">Male</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className={`form-group ${errors.email ? 'has-error' : touched.email && formData.email && !errors.email ? 'is-valid' : ''}`}>
-                    <label className="form-label" htmlFor="email">
-                      Email Address (Optional)
-                    </label>
-                    <input
-                      id="email"
-                      type="email"
-                      name="email"
-                      className={`form-input ${errors.email ? 'is-invalid' : ''}`}
-                      placeholder="student@example.com"
-                      value={formData.email}
-                      onChange={handleEmailChange}
-                      onBlur={() => handleBlur('email')}
-                      aria-invalid={!!errors.email}
-                      aria-describedby={errors.email ? 'emailError' : undefined}
-                    />
-                    {errors.email && (
-                      <div className="form-error-msg" id="emailError" role="alert">
-                        <svg viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                        </svg>
-                        <span>{errors.email}</span>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="form-group">
-                    <label className="form-label" htmlFor="course">
-                      Select Academic Program <span className="req-star">*</span>
-                    </label>
-                    <select
-                      id="course"
-                      name="course"
-                      className="form-select highlight-select"
-                      required
-                      value={formData.course}
-                      onChange={(e) => setFormData({ ...formData, course: e.target.value })}
-                    >
-                      <option value="B.Sc. Nursing">B.Sc. Nursing (4 Years Degree Course - RGUHS)</option>
-                      <option value="GNM Nursing">GNM Nursing (3 Years Diploma Course - KSNC)</option>
-                      <option value="Post B.Sc. Nursing">Post Basic B.Sc. Nursing (2 Years Degree - RGUHS)</option>
-                      <option value="Diploma in Pharmacy (D.Pharm)">Diploma in Pharmacy - D.Pharm (2 Years Diploma - PCI)</option>
-                      <option value="Bachelor of Pharmacy (B.Pharm)">Bachelor of Pharmacy - B.Pharm (4 Years Degree - PCI &amp; RGUHS)</option>
-                      <option value="Bachelor of Physiotherapy (BPT)">Bachelor of Physiotherapy - BPT (4.5 Years Degree - RGUHS)</option>
-                      <option value="Bachelor of Education (B.Ed)">Bachelor of Education - B.Ed (2 Years Degree - NCTE &amp; Gulbarga Univ)</option>
-                    </select>
-                  </div>
-
-                  <div className="form-row-2">
-                    <div className={`form-group ${errors.pcbScore ? 'has-error' : touched.pcbScore && formData.pcbScore && !errors.pcbScore ? 'is-valid' : ''}`}>
-                      <label className="form-label" htmlFor="pcb_score">
-                        12th / PUC / Degree Marks (%) <span className="req-star">*</span>
-                      </label>
-                      <input
-                        id="pcb_score"
-                        type="text"
-                        name="pcb_score"
-                        className={`form-input ${errors.pcbScore ? 'is-invalid' : ''}`}
-                        placeholder="e.g. 72% / Result Awaited / CGPA"
-                        required
-                        value={formData.pcbScore}
-                        onChange={handlePcbChange}
-                        onBlur={() => handleBlur('pcbScore')}
-                        aria-invalid={!!errors.pcbScore}
-                        aria-describedby={errors.pcbScore ? 'pcbError' : undefined}
-                      />
-                      {errors.pcbScore && (
-                        <div className="form-error-msg" id="pcbError" role="alert">
-                          <svg viewBox="0 0 20 20" fill="currentColor">
-                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                          </svg>
-                          <span>{errors.pcbScore}</span>
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="hostel_needed">
-                        College Bus Transport?
-                      </label>
-                      <select
-                        id="hostel_needed"
-                        name="hostel_needed"
-                        className="form-select"
-                        value={formData.hostelNeeded}
-                        onChange={(e) => setFormData({ ...formData, hostelNeeded: e.target.value })}
-                      >
-                        <option value="Yes">Yes, College Bus Required</option>
-                        <option value="No">No, Own Conveyance</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className={`form-group ${errors.cityState ? 'has-error' : touched.cityState && formData.cityState && !errors.cityState ? 'is-valid' : ''}`}>
-                    <label className="form-label" htmlFor="city_state">
-                      Permanent City &amp; State <span className="req-star">*</span>
-                    </label>
-                    <input
-                      id="city_state"
-                      type="text"
-                      name="city_state"
-                      className={`form-input ${errors.cityState ? 'is-invalid' : ''}`}
-                      placeholder="e.g. Bidar, Karnataka"
-                      required
-                      value={formData.cityState}
-                      onChange={handleCityStateChange}
-                      onBlur={() => handleBlur('cityState')}
-                      aria-invalid={!!errors.cityState}
-                      aria-describedby={errors.cityState ? 'cityStateError' : undefined}
-                    />
-                    {errors.cityState && (
-                      <div className="form-error-msg" id="cityStateError" role="alert">
-                        <svg viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                        </svg>
-                        <span>{errors.cityState}</span>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="form-group">
-                    <label className="form-label" htmlFor="message">
-                      Any Query / Special Request (Optional)
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows="2"
-                      className="form-textarea"
-                      placeholder="Ask about fee installments, bus transport, or campus visit..."
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    ></textarea>
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="btn-submit-app"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? (
-                      <span>Registering Application...</span>
-                    ) : (
-                      <>
-                        <span>Submit Application for 2026–27</span>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                          <line x1="5" y1="12" x2="19" y2="12"></line>
-                          <polyline points="12 5 19 12 12 19"></polyline>
-                        </svg>
-                      </>
-                    )}
-                  </button>
-
-                  <div className="form-trust-guarantee">
-                    <div className="guarantee-item">
-                      <span className="guarantee-icon">🛡</span>
-                      <span>100% Free Consultation &amp; Direct Institute Allotment</span>
-                    </div>
-                    <div className="guarantee-item">
-                      <span className="guarantee-icon">⏱</span>
-                      <span>Counselor Call Back Guaranteed within 2 Hours</span>
-                    </div>
-                  </div>
-                </form>
-              </div>
-
-              {/* CARD 2: ADMISSION HELPDESK & CALL SUPPORT */}
-              <div className="helpdesk-contact-card">
-                <div className="helpdesk-header">
-                  <div className="helpdesk-icon-bubble">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="helpdesk-title">Need Immediate Help?</h4>
-                    <p className="helpdesk-sub">Speak directly with our Chief Admission Officers</p>
-                  </div>
-                </div>
-
-                <div className="helpdesk-numbers-list">
-                  <a href="tel:9512592211" className="helpdesk-call-btn">
-                    <div className="btn-call-left">
-                      <span className="tel-label">Admission Desk 1</span>
-                      <strong className="tel-val">+91 9512592211</strong>
-                    </div>
-                    <span className="tel-action-tag">Call Now</span>
-                  </a>
-
-                  <a href="tel:8154968596" className="helpdesk-call-btn">
-                    <div className="btn-call-left">
-                      <span className="tel-label">Admission Desk 2</span>
-                      <strong className="tel-val">+91 8154968596</strong>
-                    </div>
-                    <span className="tel-action-tag">Call Now</span>
-                  </a>
-
-                  <a
-                    href="https://wa.me/919512592211?text=Hello%20VASANTHA%20GROUP%20OF%20EDUCATION%2C%20I%20am%20interested%20in%20Admissions%20for%202026-27.%20Please%20guide%20me."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="helpdesk-whatsapp-btn"
-                  >
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.456 5.711 1.457h.004c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                    </svg>
-                    <span>Instant WhatsApp Chat with Counselor</span>
-                  </a>
-                </div>
-
-                <div className="campus-visit-box">
-                  <div className="visit-label">Campus Counseling Office:</div>
-                  <div className="visit-address">
-                    Naubad-bhalki Road, Naubad Karnataka 585402
-                  </div>
-                  <div className="visit-timing">
-                    🕒 Open Monday – Saturday: 9:00 AM to 5:30 PM
-                  </div>
-                  <button
-                    type="button"
-                    className="btn-campus-tour-trigger"
-                    onClick={openTourModal}
-                  >
-                    <span>🎥 Watch Campus Virtual Tour</span>
-                  </button>
-                </div>
-              </div>
-
-              {/* CARD 3: DOWNLOAD BROCHURE WIDGET */}
-              <div className="prospectus-download-widget">
-                <div className="widget-cover-icon" aria-hidden="true">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                  </svg>
-                </div>
-                <div className="widget-info">
-                  <h4>Information Brochure 2026–27</h4>
-                  <p>Includes syllabus breakdown, clinical hospital postings, fee structure, and scholarship guidelines.</p>
-                  <button
-                    type="button"
-                    className="btn-widget-download"
-                    onClick={() => downloadBrochure('Vasantha_Group_of_Education_Brochure_2026-27.pdf', 'VASANTHA GROUP OF EDUCATION Information Brochure 2026-27')}
-                  >
-                    <span>Download Official PDF (Free)</span>
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                      <polyline points="7 10 12 15 17 10"></polyline>
-                      <line x1="12" y1="15" x2="12" y2="3"></line>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-
-            </aside>
-
-          </div>
         </div>
       </section>
 
-      {/* 5. CAMPUS LIFE & CLINICAL FACILITIES TEASER */}
+{/* 5. CAMPUS LIFE & CLINICAL FACILITIES TEASER */}
       <section className="adm-facilities-showcase" aria-label="Campus Infrastructure">
         <div className="container">
           <div className="facilities-showcase-head">

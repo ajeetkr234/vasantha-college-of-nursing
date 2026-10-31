@@ -1,6 +1,6 @@
 export const facultiesData = [
-  { id: 'all', name: 'All Programs (7)' },
-  { id: 'nursing', name: 'Nursing (3)' },
+  { id: 'all', name: 'All Programs (8)' },
+  { id: 'nursing', name: 'Nursing (4)' },
   { id: 'pharmacy', name: 'Pharmacy (2)' },
   { id: 'physiotherapy', name: 'Physiotherapy (1)' },
   { id: 'education', name: 'Education (1)' }
@@ -109,6 +109,48 @@ export const coursesData = [
       'Senior Critical Care Nurse Specialist',
       'Direct Eligibility for M.Sc. Nursing & Healthcare MBA',
       'Fast-Track International Registered Nurse (USA, UK, Canada, Gulf)'
+    ]
+  },
+  {
+    id: 'msc-nursing',
+    title: 'M.Sc. Nursing',
+    subtitle: 'Master of Science in Nursing (M.Sc. Nursing)',
+    category: 'nursing',
+    faculty: 'Faculty of Nursing & Health Sciences',
+    duration: '2 Years (Full-Time Postgraduate Degree)',
+    affiliation: 'Affiliated to RGUHS Bangalore • Recognised by KSNC, INC & Govt. of Karnataka',
+    eligibility: 'Passed B.Sc. Nursing / Post Basic B.Sc. Nursing with minimum 55% aggregate (50% for SC/ST) from an institution recognized by INC, registered as RN/RM with State Nursing Council, with minimum 1 year of work experience.',
+    seats: '25 Seats per Academic Year',
+    badge: 'Postgraduate Degree (M.Sc.)',
+    image: '/images/simulation_training_group.jpg',
+    overview: 'A distinguished 2-year master’s degree program designed to prepare expert clinical specialists, nurse researchers, nurse educators, and hospital administrators capable of delivering advanced evidence-based healthcare and academic leadership.',
+    curriculum: [
+      {
+        year: 'Year 1: Advanced Practice & Clinical Specialization',
+        subjects: [
+          'Advanced Nursing Practice & Applied Pathophysiology',
+          'Clinical Speciality - I (Medical-Surgical / OBG / Pediatric / Community / Psychiatric Nursing)',
+          'Nursing Education & Curriculum Design',
+          'Clinical Assessment, Diagnostics & Pharmacology',
+          'Nursing Research & Applied Biostatistics (Thesis Phase I)'
+        ]
+      },
+      {
+        year: 'Year 2: Super-Specialty Practicum & Master’s Dissertation',
+        subjects: [
+          'Nursing Management, Hospital Leadership & Quality Assurance',
+          'Clinical Speciality - II (Super-Specialty Practicum & Critical Care Rotations)',
+          'Master’s Research Dissertation & Scientific Publication Defense',
+          'Healthcare Informatics & Continuous Quality Improvement (CQI)'
+        ]
+      }
+    ],
+    careers: [
+      'Assistant Professor / Lecturer / Reader in Nursing Colleges',
+      'Clinical Nurse Specialist (CNS) in ICU / Cardiology / Oncology / OBG',
+      'Chief Nursing Officer (CNO) / Nursing Superintendent in Tertiary Hospitals',
+      'Clinical Research Coordinator & Healthcare Quality Director',
+      'Global Advanced Practice Registered Nurse (APRN in USA, UK, Canada, Australia, Gulf)'
     ]
   },
   {
@@ -266,7 +308,7 @@ export const coursesData = [
 export const faqsData = [
   {
     q: 'What programs are offered under VASANTHA GROUP OF EDUCATION?',
-    a: 'VASANTHA GROUP OF EDUCATION offers multidisciplinary degree and diploma programs across healthcare and education: B.Sc. Nursing (4 Years), GNM Nursing (3 Years), Post B.Sc. Nursing (2 Years), Diploma in Pharmacy (D.Pharm - 2 Years), Bachelor of Pharmacy (B.Pharm - 4 Years), Bachelor of Physiotherapy (BPT - 4.5 Years), and Bachelor of Education (B.Ed - 2 Years).'
+    a: 'VASANTHA GROUP OF EDUCATION offers multidisciplinary degree and diploma programs across healthcare and education: M.Sc. Nursing (2 Years), B.Sc. Nursing (4 Years), GNM Nursing (3 Years), Post B.Sc. Nursing (2 Years), Diploma in Pharmacy (D.Pharm - 2 Years), Bachelor of Pharmacy (B.Pharm - 4 Years), Bachelor of Physiotherapy (BPT - 4.5 Years), and Bachelor of Education (B.Ed - 2 Years).'
   },
   {
     q: 'Are all courses officially recognized and affiliated?',
@@ -286,10 +328,10 @@ export const faqsData = [
   },
   {
     q: 'What placement and career support does the group provide?',
-    a: 'Our active Placement & Career Guidance Cell conducts regular mock clinical interviews, soft skill and communication workshops, aptitude grooming, and hospital campus recruitment drives with leading healthcare networks including Apollo Hospitals, Manipal Hospitals, Fortis, Narayana Health, Aster DM, and Max Healthcare, as well as top pharmaceutical MNCs and educational institutions.'
+    a: 'Our active Placement & Career Guidance Cell conducts regular mock clinical interviews, soft skill and communication workshops, aptitude grooming, and hospital campus recruitment drives with leading healthcare networks including Shalby Hospital, Niramaya Hospital, Life Care Hospital, Surya Hospital, Hariya Hospital, Rotary Club Hospital, Healfirst Hospital, Lotus Hospital, and Parvarish Hospital, as well as top pharmaceutical MNCs and educational institutions.'
   },
   {
     q: 'How can I apply for admission for the 2026-27 academic session?',
-    a: 'You can apply online directly through our website by clicking the "Apply Online" or "Apply Now" buttons, or by visiting our campus at Naubad-bhalki Road, Naubad Karnataka 585402. You can also contact our direct admission counseling desk at 9512592211 or 8154968596 for immediate eligibility assessment and seat reservation.'
+    a: 'You can apply online directly through our website by clicking the "Apply Online" or "Apply Now" buttons, or by visiting our campus at Naubad-bhalki Road, Naubad Karnataka 585402. You can also contact our direct admission counseling desk at 9512592211 or 9913377195 for immediate eligibility assessment and seat reservation.'
   }
 ];

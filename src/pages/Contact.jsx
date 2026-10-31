@@ -208,8 +208,8 @@ export default function Contact() {
                     +91 9512592211
                   </a>
                   <br />
-                  <a href="tel:8154968596" className="contact-phone-link">
-                    +91 8154968596
+                  <a href="tel:9913377195" className="contact-phone-link">
+                    +91 9913377195
                   </a>
                 </p>
                 <div className="contact-card-highlight green">
@@ -228,9 +228,7 @@ export default function Contact() {
               <div>
                 <h3 className="contact-card-title">Email Support</h3>
                 <p className="contact-card-desc">
-                  <a href="mailto:admissions@vasanthagroup.edu.in">admissions@vasanthagroup.edu.in</a>
-                  <br />
-                  <a href="mailto:info@vasanthagroup.edu.in">info@vasanthagroup.edu.in</a>
+                  <a href="mailto:sarvgnya25@gmail.com">sarvgnya25@gmail.com</a>
                 </p>
                 <div className="contact-card-highlight gray">
                   Response within 24 hours
@@ -340,6 +338,7 @@ export default function Contact() {
                     <option value="B.Sc. Nursing">B.Sc. Nursing (4 Years Degree)</option>
                     <option value="GNM Nursing">GNM Nursing (3 Years Diploma)</option>
                     <option value="Post B.Sc. Nursing">Post Basic B.Sc. Nursing (2 Years Degree)</option>
+                    <option value="M.Sc. Nursing">M.Sc. Nursing (2 Years Postgraduate Degree)</option>
                     <option value="Diploma in Pharmacy (D.Pharm)">Diploma in Pharmacy - D.Pharm (2 Years Diploma)</option>
                     <option value="Bachelor of Pharmacy (B.Pharm)">Bachelor of Pharmacy - B.Pharm (4 Years Degree)</option>
                     <option value="Bachelor of Physiotherapy (BPT)">Bachelor of Physiotherapy - BPT (4.5 Years Degree)</option>

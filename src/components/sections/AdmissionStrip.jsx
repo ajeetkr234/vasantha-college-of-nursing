@@ -55,7 +55,7 @@ export default function AdmissionStrip() {
                 ADMISSIONS 2026–27
               </span>
               <span className="ticker-announcement-text">
-                Applications Open for <strong>B.Sc. Nursing (4 Yrs Degree)</strong> &amp; <strong>GNM Diploma (3 Yrs)</strong> • Recognised by KSNC, INC &amp; Affiliated to RGUHS Bangalore
+                Applications Open for <strong>B.Sc. Nursing (4 Yrs Degree)</strong>, <strong>M.Sc. Nursing</strong> &amp; <strong>GNM Diploma (3 Yrs)</strong> • Recognised by KSNC, INC &amp; Affiliated to RGUHS Bangalore
               </span>
             </div>
           </div>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="100%" height="100%">
+  <g transform="translate(8, 10)">
+    <path d="M 20 34 C 8 25 3 18 3 11 C 3 5 8 1 14 1 C 18 1 20 4 20 4 C 20 4 22 1 26 1 C 32 1 37 5 37 11 C 37 18 32 25 20 34 Z" fill="#fff1f2" stroke="#e11d48" stroke-width="2"/>
+    <path d="M 9 17 L 14 17 L 17 11 L 21 23 L 24 13 L 27 19 L 31 19" stroke="#e11d48" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+  <text x="52" y="28" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="19" font-weight="800" fill="#1e3a8a">Life Care</text>
+  <text x="53" y="45" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="800" fill="#e11d48" letter-spacing="2.4">HOSPITAL</text>
+</svg>
+

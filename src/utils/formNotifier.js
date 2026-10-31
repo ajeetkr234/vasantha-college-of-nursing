@@ -2,17 +2,17 @@
  * Lead Notification & Routing Utility
  * Handles:
  * 1. Instant WhatsApp Lead Forwarding to 9512592211
- * 2. Email Notifications via Web3Forms API to admissions@vasanthagroup.edu.in
+ * 2. Email Notifications via Web3Forms API to sarvgnya25@gmail.com
  * 3. Local Lead Storage (backup in browser localStorage)
  */
 
 export const COLLEGE_CONTACT = {
   whatsappNumber: '919512592211', // Indian country code 91 + 10-digit number
   displayPhone: '+91 9512592211',
-  alternatePhone: '+91 8154968596',
-  admissionsEmail: 'admissions@vasanthagroup.edu.in',
-  infoEmail: 'info@vasanthagroup.edu.in',
-  // Free Web3Forms Access Key for admissions@vasanthagroup.edu.in
+  alternatePhone: '+91 9913377195',
+  admissionsEmail: 'sarvgnya25@gmail.com',
+  infoEmail: 'sarvgnya25@gmail.com',
+  // Free Web3Forms Access Key for sarvgnya25@gmail.com
   // If an account key is provided, emails arrive in inbox automatically.
   // A default public key can be set here.
   web3formsKey: '7c6a0b98-0c66-41dc-908f-e18e803c73ce' 

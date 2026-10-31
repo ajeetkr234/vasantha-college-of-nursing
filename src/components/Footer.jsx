@@ -76,6 +76,15 @@ export default function Footer() {
               <li>
                 <button
                   type="button"
+                  onClick={() => openApplyModal('M.Sc. Nursing')}
+                  style={{ background: 'none', border: 'none', color: '#94a3b8', padding: 0, font: 'inherit', cursor: 'pointer', textAlign: 'left' }}
+                >
+                  ➔ M.Sc. Nursing (2 Years Postgrad Degree)
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
                   onClick={() => openApplyModal('Diploma in Pharmacy (D.Pharm)')}
                   style={{ background: 'none', border: 'none', color: '#94a3b8', padding: 0, font: 'inherit', cursor: 'pointer', textAlign: 'left' }}
                 >
@@ -130,7 +139,7 @@ export default function Footer() {
                 </svg>
                 <span>
                   <a href="tel:9512592211" style={{ color: '#ffffff', fontWeight: 700 }}>9512592211</a> /{' '}
-                  <a href="tel:8154968596" style={{ color: '#ffffff', fontWeight: 700 }}>8154968596</a>
+                  <a href="tel:9913377195" style={{ color: '#ffffff', fontWeight: 700 }}>9913377195</a>
                 </span>
               </li>
               <li className="footer-contact-item">
@@ -145,7 +154,11 @@ export default function Footer() {
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                   <polyline points="22,6 12,13 2,6"></polyline>
                 </svg>
-                <span>admissions@vasanthagroup.edu.in</span>
+                <span>
+                  <a href="mailto:sarvgnya25@gmail.com" style={{ color: '#ffffff', textDecoration: 'none' }}>
+                    sarvgnya25@gmail.com
+                  </a>
+                </span>
               </li>
             </ul>
           </div>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="100%" height="100%">
+  <g transform="translate(10, 10)">
+    <circle cx="18" cy="18" r="17" fill="#fdf2f8" stroke="#fbcfe8" stroke-width="1.5"/>
+    <path d="M 18 5 C 18 16 11 23 7 27 C 14 29 22 29 29 27 C 25 23 18 16 18 5 Z" fill="#db2777"/>
+    <path d="M 18 10 C 18 19 14 24 11 27 C 15 28 21 28 25 27 C 22 24 18 19 18 10 Z" fill="#f472b6"/>
+    <circle cx="18" cy="22" r="3" fill="#ffffff"/>
+  </g>
+  <text x="52" y="28" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="21" font-weight="900" fill="#0f2b59" letter-spacing="1">LOTUS</text>
+  <text x="53" y="45" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="800" fill="#db2777" letter-spacing="2">HOSPITAL</text>
+</svg>
+
